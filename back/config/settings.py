@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-eps8-dda#lch5uzk+kp09qzhu@2k+ns-ag1xdub1=$!@t()2p^
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -37,6 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'rest_framework',
+    'post.apps.PostConfig',
 ]
 
 MIDDLEWARE = [
@@ -117,7 +120,16 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# default static files settings for PythonAnywhere.
+# see https://help.pythonanywhere.com/pages/DjangoStaticFiles for more info
+STATIC_ROOT = '/home/mohsensami/mohsensami/back/static'
+STATIC_URL = '/static/'
