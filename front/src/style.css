@@ -4,6 +4,9 @@
     .title_color{
         @apply text-gray-700 dark:text-gray-300;
     }
+    .menu-item a {
+        @apply dark:bg-gray-700
+    }
     .flex-center {
         @apply flex justify-center items-center 
     }

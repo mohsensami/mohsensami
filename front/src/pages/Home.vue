@@ -1,7 +1,7 @@
 <template>
   <!-- about me section start -->
   <div>
-                      <div class="lg:rounded-2xl bg-white dark:bg-[#111111]">
+                      <div class="lg:rounded-2xl bg-white dark:bg-[#111111] dark:text-white">
                           <div class="pt-12 md:py-12 px-2 sm:px-5 md:px-10 lg:px-14">
                               <!-- about page title -->
                               <h2 class="after-effect after:left-52">About Me</h2>

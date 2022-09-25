@@ -28,6 +28,15 @@ module.exports = {
         'red-light': '#fa5252',
         'red-dark': '#dd2476',
       },
+      animation: {
+        wiggle: 'wiggle 1s ease-in-out infinite',
+      },
+      keyframes: {
+        wiggle: {
+          '0%, 100%': { transform: 'rotate(-8deg)' },
+          '50%': { transform: 'rotate(8deg)' },
+        }
+      }
     },
   },
   plugins: [],
