@@ -29,6 +29,6 @@
 @tailwind utilities;
 
 
-.router-link-active {
+header .router-link-active {
     @apply flex-col flex-center rounded-md w-[80px] h-[80px] bg-gradient-to-r from-red-light to-red-dark text-white
 }

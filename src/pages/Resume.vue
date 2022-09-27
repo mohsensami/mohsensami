@@ -1,8 +1,8 @@
 <template>
   <!-- resume me section start -->
-  <div class="bg-white lg:rounded-2xl dark:bg-[#111111]">
-                        <div class="container sm:px-5 md:px-10 lg:px-14">
-                            <div class="py-12 px-4 md:px-0">
+  <div class="bg-white lg:rounded-2xl dark:bg-[#111111] dark:text-white">
+                        <div class="pt-12 md:py-12 px-2 sm:px-5 md:px-10 lg:px-14">
+                            <div class="">
                                 <!-- resume page title -->
                                 <h2 class="after-effect after:left-44">Resume</h2>
                                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-x-6 gap-y-6 mt-[30px]">

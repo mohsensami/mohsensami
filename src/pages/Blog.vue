@@ -1,14 +1,14 @@
 <template>
   <!-- blog me section start -->
-  <section class="bg-white lg:rounded-2xl dark:bg-[#111111]">
-                    <div class="container px-4 sm:px-5 md:px-10 lg:px-[60px]">
+  <section class="bg-white lg:rounded-2xl dark:bg-[#111111] dark:text-white">
+                    <div class="pt-12 md:py-12 px-2 sm:px-5 md:px-10 lg:px-14">
                         <div class="pb-12">
                             <h2 class="after-effect after:left-32 mt-12 lg:mt-0">Blogs</h2>
                             <div class="grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 mt-[30px] grid gap-x-10 gap-y-7 mb-6">
                                 <!-- blog items one start -->
                                 <div class="p-5 rounded-lg mb-2 h-full bg-[#fcf4ff] dark:bg-transparent dark:border-[#212425] dark:border-2">
                                     <div class="overflow-hidden rounded-lg">
-                                        <a href="#ex1" rel="modal:open">
+                                        <a @show="ex1=!ex1" @close="ex1 = false">
                                             <img class="rounded-lg w-full cursor-pointer transition duration-200 ease-in-out transform hover:scale-110" src="../../public/img/blog/small/1.jpeg" alt="blog image">
                                         </a>
                                     </div>
@@ -17,7 +17,7 @@
                                         <span class="dot-icon">Inspiration</span>
                                     </div>
                                     <h3 class="text-lg font-medium dark:text-white duration-300 transition cursor-pointer mt-3 pr-4 hover:text-[#FA5252] dark:hover:text-[#FA5252]">
-                                        <a href="#ex1" rel="modal:open">How to Own Your Audience by Creating an Email
+                                        <a @click="ex1=!ex1">How to Own Your Audience by Creating an Email
                                             List.</a>
                                     </h3>
                                 </div>
@@ -25,7 +25,7 @@
 
                                 <!-- blog items two start -->
 
-                                <div class="p-5 rounded-lg mb-2 h-full bg-[#eefbff] dark:bg-transparent dark:border-[#212425] dark:border-2">
+                                <div @click="ex1=true" class="p-5 rounded-lg mb-2 h-full bg-[#eefbff] dark:bg-transparent dark:border-[#212425] dark:border-2">
                                     <div class="overflow-hidden rounded-lg">
                                         <a href="#ex2" rel="modal:open">
                                             <img class="rounded-lg w-full cursor-pointer transition duration-200 ease-in-out transform hover:scale-110" src="../../public/img/blog/small/2.jpeg" alt="blog image">
@@ -43,7 +43,7 @@
                                 <!-- blog items two end -->
 
                                 <!-- blog items three start -->
-                                <div class="p-5 rounded-lg mb-2 h-full dark:border-[#212425] dark:border-2 bg-[#fcf4ff] dark:bg-transparent">
+                                <div @click="ex1=true" class="p-5 rounded-lg mb-2 h-full dark:border-[#212425] dark:border-2 bg-[#fcf4ff] dark:bg-transparent">
                                     <div class="overflow-hidden rounded-lg">
                                         <a href="#ex3" rel="modal:open">
                                             <img class="rounded-lg w-full cursor-pointer transition duration-200 ease-in-out transform hover:scale-110" src="../../public/img/blog/small/3.jpeg" alt="blog image">
@@ -60,7 +60,7 @@
                                 <!-- blog items three end -->
 
                                 <!-- blog items four start -->
-                                <div class="p-5 rounded-lg mb-2 h-full dark:border-[#212425] bg-[#fcf4ff] dark:bg-transparent dark:border-2">
+                                <div @click="ex1=true" class="p-5 rounded-lg mb-2 h-full dark:border-[#212425] bg-[#fcf4ff] dark:bg-transparent dark:border-2">
                                     <div class="overflow-hidden rounded-lg">
                                         <a href="#ex4" rel="modal:open">
                                             <img class="rounded-lg w-full cursor-pointer transition duration-200 ease-in-out transform hover:scale-110" src="../../public/img/blog/small/4.jpeg" alt="blog image">
@@ -92,7 +92,7 @@
 
 
                     <!-- modal  for item one start -->
-            <div id="ex1" class="modal-container modal">
+            <div v-show="ex1" id="ex1" class="absolute inset-0 mx-auto w-3/5 bg-white dark:bg-gray-800 p-4 my-16">
                 <div class="dark:scrollbarDark scrollbarLight overflow-y-scroll max-h-[60vh] lg:max-h-[80vh]">
                     <div class="pr-3 pb-2">
                         <img class="w-full md:h-[450px] object-cover rounded-xl mt-6" src="../../public/img/blog/big/1.jpeg"
@@ -186,7 +186,7 @@
             <!-- modal  for item one end -->
 
             <!-- modal  for item two start -->
-            <div id="ex2" class="modal-container modal">
+            <div v-show="ex2" id="ex2" class="modal-container modal">
                 <div class="dark:scrollbarDark scrollbarLight overflow-y-scroll max-h-[60vh] lg:max-h-[80vh]">
                     <div class="pr-3 pb-2">
                         <img class="w-full md:h-[450px] object-cover rounded-xl mt-6" src="../../public/img/blog/big/2.jpeg"
@@ -281,7 +281,7 @@
             <!-- modal  for item two end -->
 
             <!-- modal  for item three start -->
-            <div id="ex3" class="modal-container modal">
+            <div v-show="ex3" id="ex3" class="modal-container modal">
                 <div class="dark:scrollbarDark scrollbarLight overflow-y-scroll max-h-[60vh] lg:max-h-[80vh]">
                     <div class="pr-3 pb-2">
                         <img class="w-full md:h-[450px] object-cover rounded-xl mt-6" src="../../public/img/blog/big/3.jpeg"
@@ -374,7 +374,7 @@
             <!-- modal  for item three end -->
 
             <!-- modal  for item four start -->
-            <div id="ex4" class="modal-container modal">
+            <div v-show="ex4" id="ex4" class="modal-container modal">
                 <div class="dark:scrollbarDark scrollbarLight overflow-y-scroll max-h-[60vh] lg:max-h-[80vh]">
                     <div class="pr-3 pb-2">
                         <img class="w-full md:h-[450px] object-cover rounded-xl mt-6" src="../../public/img/blog/big/4.jpeg"
@@ -470,8 +470,16 @@
 </template>
 
 <script>
+import { ref } from '@vue/reactivity'
 export default {
+    setup() {
+        const ex1 = ref(false);
+        const ex2 = ref(false);
+        const ex3 = ref(false);
+        const ex4 = ref(false);
 
+        return {ex1}
+    }
 }
 </script>
 
