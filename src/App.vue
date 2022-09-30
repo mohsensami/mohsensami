@@ -10,13 +10,13 @@
                 <!-- website Logo -->
                 <a href="/">
                     <!-- <img class="h-[26px] lg:h-[32px]" src="https://bostamihtml.ibthemespro.com/images/logo/logo.png" alt="logo" /> -->
-                    <img class="h-[26px] lg:h-[64px]" src="../public/vite.svg" alt="logo" />
+                    <!-- <img class="h-[26px] lg:h-[64px]" src="../public/vite.svg" alt="logo" /> -->
                 </a>
                 <div class="flex items-center">
                     <!-- dark and light mode toggle -->
                     <button id="theme-toggle" type="button" class="dark-light-btn">
-                        <i  @click="makeDark()" v-show="!isDark" id="theme-toggle-dark-icon" class="fa-solid text-xl fa-moon animate-wiggle"></i>
-                        <i  @click="makeLight()" v-show="isDark" id="theme-toggle-light-icon" class="fa-solid fa-sun text-yellow-500 text-xl animate-wiggle"></i>
+                        <i  @click="makeDark()" v-show="!isDark" id="theme-toggle-dark-icon" class="fa-solid text-2xl mt-12 fa-moon animate-wiggle"></i>
+                        <i  @click="makeLight()" v-show="isDark" id="theme-toggle-light-icon" class="fa-solid fa-sun text-yellow-500 text-2xl mt-12 animate-wiggle"></i>
                     </button>
                     <!-- mobile toggle button -->
                     <button id="menu-toggle" type="button" class="menu-toggle-btn sm:hidden">
@@ -49,12 +49,12 @@
                             <i class="fas fa-briefcase"></i>
                         </span>Works </a>
                 </li>
-                <li>
+                <!-- <li>
                     <a class="mobile-menu-items" href="./blogOne.html">
                         <span class="mr-2 text-xl">
                             <i class="fa-brands fa-blogger"></i>
                         </span>Blogs </a>
-                </li>
+                </li> -->
                 <li>
                     <a class="mobile-menu-items" href="./contactOne.html">
                         <span class="mr-2 text-xl">
@@ -71,14 +71,14 @@
                 <div
                     class="w-full mb-6 lg:mb-0 mx-auto relative bg-white text-center dark:bg-[#111111] px-6 rounded-[20px] mt-[180px] md:mt-[220px] lg:mt-0">
                     <!-- profile image -->
-                    <img src="https://i.pravatar.cc/450"
+                    <img src="../public/img/me.jpg"
                         class="w-[240px] absolute left-[50%] transform -translate-x-[50%] h-[240px] drop-shadow-xl mx-auto rounded-[20px] -mt-[140px]"
                         alt="about" />
                     <div class="pt-[100px] pb-8">
-                        <h2 class="mt-6 mb-1 text-[26px] font-semibold dark:text-white"> Monalisa Ashley </h2>
+                        <h2 class="mt-6 mb-1 text-[26px] font-semibold dark:text-white"> Mohsen Sami </h2>
                         <h3
                             class="mb-4 text-[#7B7B7B] inline-block dark:bg-[#1D1D1D] px-5 py-1.5 rounded-lg dark:text-[#A6A6A6]">
-                            Ui/Ux Designer </h3>
+                            Web Developer </h3>
                         <div class="flex justify-center space-x-3">
                             <!-- facebook icon and link -->
                             <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">
@@ -113,7 +113,7 @@
                                 </span>
                                 <div class="text-left ml-2.5">
                                     <p class="text-xs text-[#44566C] dark:text-[#A6A6A6]"> Phone </p>
-                                    <p class="dark:text-white">+123 456 7890</p>
+                                    <p class="dark:text-white">+98 903 345 1850</p>
                                 </div>
                             </div>
                             <div class="flex border-b border-[#E3E3E3] dark:border-[#3D3A3A] py-2.5">
@@ -122,7 +122,7 @@
                                 </span>
                                 <div class="text-left ml-2.5">
                                     <p class="text-xs text-[#44566C] dark:text-[#A6A6A6]"> Email </p>
-                                    <p class="dark:text-white">example@mail.com</p>
+                                    <p class="dark:text-white">mohsensami88@gmail.com</p>
                                 </div>
                             </div>
                             <div class="flex border-b border-[#E3E3E3] dark:border-[#3D3A3A] py-2.5">
@@ -131,7 +131,7 @@
                                 </span>
                                 <div class="text-left ml-2.5">
                                     <p class="text-xs text-[#44566C] dark:text-[#A6A6A6]"> Location </p>
-                                    <p class="dark:text-white">Hong kong china</p>
+                                    <p class="dark:text-white">Iran Tehran</p>
                                 </div>
                             </div>
                             <div class="flex py-2.5">
@@ -140,7 +140,7 @@
                                 </span>
                                 <div class="text-left ml-2.5">
                                     <p class="text-xs text-[#44566C] dark:text-[#A6A6A6]"> Birthday </p>
-                                    <p class="dark:text-white">May 27, 1990</p>
+                                    <p class="dark:text-white">Sep 13, 1988</p>
                                 </div>
                             </div>
                         </div>
@@ -154,7 +154,7 @@
             <div class="col-span-12 lg:col-span-8">
                 <!-- header for mobile devices start -->
                 <header
-                    class="lg:w-[560px] hidden lg:block p-[30px] ml-auto mb-10 rounded-[16px] bg-white dark:bg-[#111]">
+                    class="lg:w-[440px] hidden lg:block p-[30px] ml-auto mb-10 rounded-[16px] bg-white dark:bg-[#111]">
                     <nav class="hidden lg:block">
                         <ul class="flex justify-between text-sm title_color">
                             <li class="menu-item">
@@ -178,13 +178,13 @@
                                     </span> Works
                                 </router-link>
                             </li>
-                            <li class="menu-item">
+                            <!-- <li class="menu-item">
                                 <router-link class="flex-col flex-center bg-gray-100 rounded-md w-[80px] h-[80px] hover:bg-gradient-to-r from-red-light to-red-dark hover:text-white custom-transition" :to="{name: 'blog'}">
                                     <span class="text-xl mb-1">
                                         <i class="fa-brands fa-blogger"></i>
                                     </span> Blog
                                 </router-link>
-                            </li>
+                            </li> -->
                             <li class="menu-item">
                                 <router-link class="flex-col flex-center bg-gray-100 rounded-md w-[80px] h-[80px] hover:bg-gradient-to-r from-red-light to-red-dark hover:text-white custom-transition" :to="{name: 'contact'}">
                                     <span class="text-xl mb-1">
