@@ -2,7 +2,7 @@
   <!-- about me section start -->
   <div>
     <div class="lg:rounded-2xl bg-white dark:bg-[#111111] dark:text-white">
-      <div class="pt-12 md:py-12 px-2 sm:px-5 md:px-10 lg:px-14">
+      <div class="pt-12 md:pt-12 px-2 sm:px-5 md:px-10 lg:px-14">
         <!-- about page title -->
         <h2 class="after-effect after:left-52">About Me</h2>
         <!-- personal info for mobile devices start -->
@@ -109,101 +109,117 @@
         </div>
       </div>
 
-      <!-- what i do section start -->
-      <div class="pb-12 px-2 sm:px-5 md:px-10 lg:px-14">
-        <h3 class="text-[35px] dark:text-white font-bold font-robotoSlab pb-5">What I do!</h3>
-        <div class="grid gap-8 grid-cols-1 md:grid-cols-2 xl:grid-cols-2">
-          <div class="about-box bg-[#fcf4ff] dark:bg-transparent">
-            <img class="w-10 h-10 object-contain block" src="../../public/img/icon.svg" alt="icon" />
-            <div class="space-y-2">
-              <h3 class="dark:text-white text-[22px] font-semibold">Ui/Ux Design</h3>
-              <p class="leading-8 text-gray-lite dark:text-[#A6A6A6]">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam euismod volutpat.</p>
+      <!-- working section start -->
+      <div class="container bg-color-810 dark:bg-[#0D0D0D] py-8 px-2 sm:px-5 md:px-12">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div class="col-span-2">
+            <h4 class="text-5xl dark:text-white font-medium mb-6">Working Skills</h4>
+            <div class="mb-5">
+              <div class="flex justify-between mb-1">
+                <span class="font-semibold text-[#526377] dark:text-[#A6A6A6]">JavaScript</span>
+                <span class="font-semibold text-[#526377] dark:text-[#A6A6A6">90%</span>
+              </div>
+              <div class="w-full bg-[#edf2f2] rounded-full h-1 dark:bg-[#1c1c1c]">
+                <div class="bg-[#f9e33e] h-1 rounded-full" style="width: 90%"></div>
+              </div>
             </div>
-          </div>
 
-          <div class="about-box bg-[#fefaf0] dark:bg-transparent">
-            <img class="w-10 h-10 object-contain block" src="../../public/img/icon1.svg" alt="icon" />
-            <div class="space-y-2">
-              <h3 class="dark:text-white text-[22px] font-semibold">App Development</h3>
-              <p class="leading-8 text-gray-lite dark:text-[#A6A6A6]">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam euismod volutpat.</p>
+            <div class="mb-5">
+              <div class="flex justify-between mb-1">
+                <span class="font-semibold text-[#526377] dark:text-[#A6A6A6]">Vue Js</span>
+                <span class="font-semibold text-[#526377] dark:text-[#A6A6A6">80%</span>
+              </div>
+              <div class="w-full bg-[#edf2f2] rounded-full h-1 dark:bg-[#1c1c1c]">
+                <div class="bg-[#6ba930] h-1 rounded-full" style="width: 80%"></div>
+              </div>
             </div>
-          </div>
 
-          <div class="about-box bg-[#fcf4ff] dark:bg-transparent">
-            <img class="w-10 h-10 object-contain block" src="../../public/img/icon2.svg" alt="icon" />
-            <div class="space-y-2">
-              <h3 class="dark:text-white text-[22px] font-semibold">Photography</h3>
-              <p class="leading-8 text-gray-lite dark:text-[#A6A6A6]">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam euismod volutpat.</p>
+            <div class="mb-5">
+              <div class="flex justify-between mb-1">
+                <span class="font-semibold text-[#526377] dark:text-[#A6A6A6]">python</span>
+                <span class="font-semibold text-[#526377] dark:text-[#A6A6A6">80%</span>
+              </div>
+              <div class="w-full bg-[#edf2f2] rounded-full h-1 dark:bg-[#1c1c1c]">
+                <div class="bg-[#5185d4] h-1 rounded-full" style="width: 80%"></div>
+              </div>
             </div>
-          </div>
 
-          <div class="about-box bg-[#fff4f4] dark:bg-transparent">
-            <img class="w-10 h-10 object-contain block" src="../../public/img/icon3.svg" alt="icon" />
-            <div class="space-y-2">
-              <h3 class="dark:text-white text-[22px] font-semibold">Photography</h3>
-              <p class="leading-8 text-gray-lite dark:text-[#A6A6A6]">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam euismod volutpat.</p>
+            <div class="mb-5">
+              <div class="flex justify-between mb-1">
+                <span class="font-semibold text-[#526377] dark:text-[#A6A6A6]">Django</span>
+                <span class="font-semibold text-[#526377] dark:text-[#A6A6A6">80%</span>
+              </div>
+              <div class="w-full bg-[#edf2f2] rounded-full h-1 dark:bg-[#1c1c1c]">
+                <div class="bg-[#317d1c] h-1 rounded-full" style="width: 80%"></div>
+              </div>
             </div>
-          </div>
 
-          <div class="about-box bg-[#fff0f8] dark:bg-transparent">
-            <img class="w-10 h-10 object-contain block" src="../../public/img/icon4.svg" alt="icon" />
-            <div class="space-y-2">
-              <h3 class="dark:text-white text-[22px] font-semibold">Managment</h3>
-              <p class="leading-8 text-gray-lite dark:text-[#A6A6A6]">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam euismod volutpat.</p>
+            <div class="mb-5">
+              <div class="flex justify-between mb-1">
+                <span class="font-semibold text-[#526377] dark:text-[#A6A6A6]">PHP</span>
+                <span class="font-semibold text-[#526377] dark:text-[#A6A6A6">70%</span>
+              </div>
+              <div class="w-full bg-[#edf2f2] rounded-full h-1 dark:bg-[#1c1c1c]">
+                <div class="bg-[#6851cd] h-1 rounded-full" style="width: 70%"></div>
+              </div>
             </div>
-          </div>
 
-          <div class="about-box bg-[#f3faff] dark:bg-transparent">
-            <img class="w-10 h-10 object-contain block" src="../../public/img/icon5.svg" alt="icon" />
-            <div class="space-y-2">
-              <h3 class="dark:text-white text-[22px] font-semibold">Web Development</h3>
-              <p class="leading-8 text-gray-lite dark:text-[#A6A6A6]">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam euismod volutpat.</p>
+            <div class="mb-5">
+              <div class="flex justify-between mb-1">
+                <span class="font-semibold text-[#526377] dark:text-[#A6A6A6]">Wordpress</span>
+                <span class="font-semibold text-[#526377] dark:text-[#A6A6A6">90%</span>
+              </div>
+              <div class="w-full bg-[#edf2f2] rounded-full h-1 dark:bg-[#1c1c1c]">
+                <div class="bg-[#24146c] h-1 rounded-full" style="width: 90%"></div>
+              </div>
+            </div>
+
+            <div class="mb-5">
+              <div class="flex justify-between mb-1">
+                <span class="font-semibold text-[#526377] dark:text-[#A6A6A6]">GIT</span>
+                <span class="font-semibold text-[#526377] dark:text-[#A6A6A6">70%</span>
+              </div>
+              <div class="w-full bg-[#edf2f2] rounded-full h-1 dark:bg-[#1c1c1c]">
+                <div class="bg-[#cd517c] h-1 rounded-full" style="width: 70%"></div>
+              </div>
+            </div>
+
+            <div class="mb-5">
+              <div class="flex justify-between mb-1">
+                <span class="font-semibold text-[#526377] dark:text-[#A6A6A6]">Docker</span>
+                <span class="font-semibold text-[#526377] dark:text-[#A6A6A6">70%</span>
+              </div>
+              <div class="w-full bg-[#edf2f2] rounded-full h-1 dark:bg-[#1c1c1c]">
+                <div class="bg-[#519bcd] h-1 rounded-full" style="width: 70%"></div>
+              </div>
+            </div>
+
+            <div class="mb-5">
+              <div class="flex justify-between mb-1">
+                <span class="font-semibold text-[#526377] dark:text-[#A6A6A6]">Tailwind</span>
+                <span class="font-semibold text-[#526377] dark:text-[#A6A6A6">90%</span>
+              </div>
+              <div class="w-full bg-[#edf2f2] rounded-full h-1 dark:bg-[#1c1c1c]">
+                <div class="bg-[#cd7651] h-1 rounded-full" style="width: 90%"></div>
+              </div>
+            </div>
+
+            <div class="mb-5">
+              <div class="flex justify-between mb-1">
+                <span class="font-semibold text-[#526377] dark:text-[#A6A6A6]">Bootstrap</span>
+                <span class="font-semibold text-[#526377] dark:text-[#A6A6A6">90%</span>
+              </div>
+              <div class="w-full bg-[#edf2f2] rounded-full h-1 dark:bg-[#1c1c1c]">
+                <div class="bg-[#7669af] h-1 rounded-full" style="width: 90%"></div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-
-      <!-- what i do section start -->
-      <!-- <div class="px-2 sm:px-5 md:px-10 lg:px-14">
-                              <div class="bg-[#F8FBFB] dark:bg-[#0D0D0D] max-w-full h-auto py-10 rounded-xl">
-                                  <h3 class="text-center dark:text-white text-6xl mb-3 font-semibold"> Clients </h3> -->
-      <!-- slider and slider items -->
-      <!-- <div class="slickOne text-center px-2 pt-8">
-                                      <div>
-                                          <img class="overflow-hidden brand-img" src="https://bostamihtml.ibthemespro.com/images/slider/brand.png"
-                                              alt="brand icon" />
-                                      </div>
-                                      <div>
-                                          <img class="overflow-hidden brand-img" src="https://bostamihtml.ibthemespro.com/images/slider/brand1.png"
-                                              alt="brand icon" />
-                                      </div>
-                                      <div>
-                                          <img class="overflow-hidden brand-img" src="https://bostamihtml.ibthemespro.com/images/slider/brand2.png"
-                                              alt="brand icon" />
-                                      </div>
-                                      <div>
-                                          <img class="overflow-hidden brand-img" src="https://bostamihtml.ibthemespro.com/images/slider/brand3.png"
-                                              alt="brand icon" />
-                                      </div>
-                                      <div>
-                                          <img class="overflow-hidden brand-img" src="https://bostamihtml.ibthemespro.com/images/slider/brand4.png"
-                                              alt="brand icon" />
-                                      </div>
-                                      <div>
-                                          <img class="overflow-hidden brand-img" src="https://bostamihtml.ibthemespro.com/images/slider/brand1.png"
-                                              alt="brand icon" />
-                                      </div>
-                                      <div>
-                                          <img class="overflow-hidden brand-img" src="https://bostamihtml.ibthemespro.com/images/slider/brand1.png"
-                                              alt="brand icon" />
-                                      </div>
-                                  </div> -->
-      <!-- slider and slider items end -->
-      <!-- </div>
-                          </div> -->
+      <!-- working section end -->
 
       <!-- footer start -->
-      <footer class="overflow-hidden rounded-b-2xl" style="background: transparent">
+      <footer class="overflow-hidden rounded-b-2xl bg-[#f8fbfb] dark:bg-[#212425]">
         <p class="text-center py-6 text-gray-lite dark:text-color-910">© 2022 All Rights Reserved by <a class="hover:text-[#FA5252] duration-300 transition" href="/" target="_blank" rel="noopener noreferrer"> mohsensami</a>.</p>
       </footer>
       <!-- footer section end -->

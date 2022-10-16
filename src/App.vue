@@ -154,39 +154,39 @@
             <div class="col-span-12 lg:col-span-8">
                 <!-- header for mobile devices start -->
                 <header
-                    class="lg:w-[440px] hidden lg:block p-[30px] ml-auto mb-10 rounded-[16px] bg-white dark:bg-[#111]">
+                    class="lg:w-[480px] hidden lg:block p-[30px] ml-auto mb-10 rounded-[16px] bg-white dark:bg-[#111]">
                     <nav class="hidden lg:block">
                         <ul class="flex justify-between text-sm title_color">
                             <li class="menu-item">
-                                <router-link class="flex-col flex-center bg-gray-100 rounded-md w-[80px] h-[80px] hover:bg-gradient-to-r from-red-light to-red-dark hover:text-white custom-transition" :to="{name: 'home'}">
+                                <router-link class="flex-col flex-center bg-gray-100 rounded-md w-[90px] h-[80px] hover:bg-gradient-to-r from-red-light to-red-dark hover:text-white custom-transition" :to="{name: 'home'}">
                                     <span class="text-xl mb-1">
                                         <i class="fa-regular fa-user"></i>
                                     </span> <span>About</span>
                                 </router-link>
                             </li>
                             <li class="menu-item">
-                                <router-link class="flex-col flex-center bg-gray-100 rounded-md w-[80px] h-[80px] hover:bg-gradient-to-r from-red-light to-red-dark hover:text-white custom-transition" :to="{name: 'resume'}">
+                                <router-link class="flex-col flex-center bg-gray-100 rounded-md w-[90px] h-[80px] hover:bg-gradient-to-r from-red-light to-red-dark hover:text-white custom-transition" :to="{name: 'resume'}">
                                     <span class="text-xl mb-1">
-                                        <i class="fa-regular fa-file-lines"></i>
-                                    </span> Resume
+                                        <i class="fas fa-briefcase"></i>
+                                    </span> Experience
                                 </router-link>
                             </li>
                             <li class="menu-item">
-                                <router-link class="flex-col flex-center bg-gray-100 rounded-md w-[80px] h-[80px] hover:bg-gradient-to-r from-red-light to-red-dark hover:text-white custom-transition" :to="{name: 'works'}">
+                                <router-link class="flex-col flex-center bg-gray-100 rounded-md w-[90px] h-[80px] hover:bg-gradient-to-r from-red-light to-red-dark hover:text-white custom-transition" :to="{name: 'works'}">
                                     <span class="text-xl mb-1">
-                                        <i class="fas fa-briefcase"></i>
-                                    </span> Works
+                                        <i class="fa-regular fa-file-lines"></i>
+                                    </span> Portfolio
                                 </router-link>
                             </li>
                             <!-- <li class="menu-item">
-                                <router-link class="flex-col flex-center bg-gray-100 rounded-md w-[80px] h-[80px] hover:bg-gradient-to-r from-red-light to-red-dark hover:text-white custom-transition" :to="{name: 'blog'}">
+                                <router-link class="flex-col flex-center bg-gray-100 rounded-md w-[90px] h-[80px] hover:bg-gradient-to-r from-red-light to-red-dark hover:text-white custom-transition" :to="{name: 'blog'}">
                                     <span class="text-xl mb-1">
                                         <i class="fa-brands fa-blogger"></i>
                                     </span> Blog
                                 </router-link>
                             </li> -->
                             <li class="menu-item">
-                                <router-link class="flex-col flex-center bg-gray-100 rounded-md w-[80px] h-[80px] hover:bg-gradient-to-r from-red-light to-red-dark hover:text-white custom-transition" :to="{name: 'contact'}">
+                                <router-link class="flex-col flex-center bg-gray-100 rounded-md w-[90px] h-[80px] hover:bg-gradient-to-r from-red-light to-red-dark hover:text-white custom-transition" :to="{name: 'contact'}">
                                     <span class="text-xl mb-1">
                                         <i class="fa-solid fa-address-book"></i>
                                     </span> Contact
