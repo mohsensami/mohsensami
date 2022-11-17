@@ -4,7 +4,10 @@
     <div class="lg:rounded-2xl bg-white dark:bg-[#111111] dark:text-white">
       <div class="pt-12 md:pt-12 px-2 sm:px-5 md:px-10 lg:px-14">
         <!-- about page title -->
-        <h2 class="after-effect after:left-52">About Me</h2>
+        <div class="flex items-center space-x-2">
+          <i class="fa-solid text-3xl text-[#F95054] fa-user"></i>
+          <h2 class="text-2xl dark:text-white font-medium">About Me</h2>
+        </div>
         <!-- personal info for mobile devices start -->
         <div class="lg:hidden">
           <div class="w-full mb-6 lg:mb-0 mx-auto relative bg-white text-center dark:bg-[#111111] px-6 rounded-[20px] mt-[180px] md:mt-[220px] lg:mt-0">
@@ -92,7 +95,7 @@
         </div>
         <!-- personal info for mobile devices end -->
 
-        <div class="lg:grid grid-cols-12 md:gap-10 pt-4 md:pt-[30px] items-center hidden">
+        <div class="lg:grid grid-cols-12 md:gap-10 pt-4 items-center hidden">
           <div class="col-span-12 space-y-2.5">
             <div class="lg:mr-16">
               <p class="text-[#44566c] dark:text-white leading-7">
@@ -113,44 +116,49 @@
       <div class="container bg-color-810 dark:bg-[#0D0D0D] py-8 px-2 sm:px-5 md:px-12">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div class="col-span-2">
-            <h4 class="text-5xl dark:text-white font-medium mb-6">Working Skills</h4>
-            <div class="mb-5">
-              <div class="flex justify-between mb-1">
-                <span class="font-semibold text-[#526377] dark:text-[#A6A6A6]">JavaScript</span>
-                <span class="font-semibold text-[#526377] dark:text-[#A6A6A6">90%</span>
-              </div>
-              <div class="w-full bg-[#edf2f2] rounded-full h-1 dark:bg-[#1c1c1c]">
-                <div class="bg-[#f9e33e] h-1 rounded-full" style="width: 90%"></div>
-              </div>
-            </div>
-
-            <div class="mb-5">
-              <div class="flex justify-between mb-1">
-                <span class="font-semibold text-[#526377] dark:text-[#A6A6A6]">Vue Js</span>
-                <span class="font-semibold text-[#526377] dark:text-[#A6A6A6">80%</span>
-              </div>
-              <div class="w-full bg-[#edf2f2] rounded-full h-1 dark:bg-[#1c1c1c]">
-                <div class="bg-[#6ba930] h-1 rounded-full" style="width: 80%"></div>
-              </div>
+            <div class="flex items-center space-x-2 mb-6">
+              <i class="fa-solid text-3xl text-[#F95054] fa-briefcase"></i>
+              <h4 class="text-2xl dark:text-white font-medium ">Working Skills</h4>
             </div>
 
             <div class="mb-5">
               <div class="flex justify-between mb-1">
                 <span class="font-semibold text-[#526377] dark:text-[#A6A6A6]">python</span>
-                <span class="font-semibold text-[#526377] dark:text-[#A6A6A6">80%</span>
+                <span class="font-semibold text-[#526377] dark:text-[#A6A6A6">90%</span>
               </div>
               <div class="w-full bg-[#edf2f2] rounded-full h-1 dark:bg-[#1c1c1c]">
-                <div class="bg-[#5185d4] h-1 rounded-full" style="width: 80%"></div>
+                <div class="bg-[#5185d4] h-1 rounded-full" style="width: 90%"></div>
               </div>
             </div>
 
             <div class="mb-5">
               <div class="flex justify-between mb-1">
                 <span class="font-semibold text-[#526377] dark:text-[#A6A6A6]">Django</span>
+                <span class="font-semibold text-[#526377] dark:text-[#A6A6A6">90%</span>
+              </div>
+              <div class="w-full bg-[#edf2f2] rounded-full h-1 dark:bg-[#1c1c1c]">
+                <div class="bg-[#317d1c] h-1 rounded-full" style="width: 90%"></div>
+              </div>
+            </div>
+
+
+            <div class="mb-5">
+              <div class="flex justify-between mb-1">
+                <span class="font-semibold text-[#526377] dark:text-[#A6A6A6]">JavaScript</span>
                 <span class="font-semibold text-[#526377] dark:text-[#A6A6A6">80%</span>
               </div>
               <div class="w-full bg-[#edf2f2] rounded-full h-1 dark:bg-[#1c1c1c]">
-                <div class="bg-[#317d1c] h-1 rounded-full" style="width: 80%"></div>
+                <div class="bg-[#f9e33e] h-1 rounded-full" style="width: 80%"></div>
+              </div>
+            </div>
+
+            <div class="mb-5">
+              <div class="flex justify-between mb-1">
+                <span class="font-semibold text-[#526377] dark:text-[#A6A6A6]">Vue Js</span>
+                <span class="font-semibold text-[#526377] dark:text-[#A6A6A6">70%</span>
+              </div>
+              <div class="w-full bg-[#edf2f2] rounded-full h-1 dark:bg-[#1c1c1c]">
+                <div class="bg-[#6ba930] h-1 rounded-full" style="width: 70%"></div>
               </div>
             </div>
 

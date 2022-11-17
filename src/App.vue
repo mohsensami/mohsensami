@@ -99,7 +99,7 @@
                                 </span>
                             </a>
                             <!-- linkedin icon and link -->
-                            <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">
+                            <a href="https://www.linkedin.com/in/mohsensami/" target="_blank" rel="noopener noreferrer">
                                 <span class="socialbtn text-[#0072b1]">
                                     <i class="fa-brands fa-linkedin-in"></i>
                                 </span>

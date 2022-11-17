@@ -3,10 +3,10 @@
   <section id="portfolio" class="bg-white lg:rounded-2xl dark:bg-[#111111] dark:text-white">
     <div class="pt-12 md:py-12 px-2 sm:px-5 md:px-10 lg:px-14">
       <div class="">
-        <h2 class="after-effect after:left-48 lg:mt-0">Works</h2>
+        <!-- <h2 class="after-effect after:left-48 lg:mt-0">Works</h2> -->
         <!-- fillter button group -->
         <!-- fillter group buttons -->
-        <ul class="button-group isotop-menu-wrapper mt-[30px] flex w-full justify-start md:justify-end flex-wrap font-medium">
+        <ul class="button-group isotop-menu-wrapper flex w-full justify-start flex-wrap font-medium">
           <li class="fillter-btn mr-4 md:mx-4 is-checked" data-filter="*">All</li>
           <li class="fillter-btn mr-4 md:mx-4" data-filter=".dev">
             <router-link :to="{ name: 'django' }">Django</router-link>
