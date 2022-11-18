@@ -8,7 +8,7 @@
         <div class="grid grid-cols-1 gap-x-6 gap-y-6">
           <!-- experiment start -->
           <div>
-            <div class="flex items-center space-x-2 mb-4">
+            <div class="flex items-center space-x-2 mb-4 justify-center md:justify-start">
               <i class="fa-solid text-3xl text-[#F95054] fa-briefcase"></i>
               <h4 class="text-2xl dark:text-white font-medium">Experience</h4>
             </div>
@@ -36,7 +36,7 @@
           <!-- experiment start -->
           <!-- eductation start -->
           <div>
-            <div class="flex items-center space-x-2 mb-4">
+            <div class="flex items-center space-x-2 mb-4 justify-center md:justify-start">
               <i class="fa-solid text-3xl text-[#F95054] fa-graduation-cap"></i>
               <h4 class="text-2xl dark:text-white font-medium">Education</h4>
             </div>
