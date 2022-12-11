@@ -57,3 +57,17 @@ textarea {
     padding: 60px;
     border-radius: 3px;
 }
+
+.alert-info .success {
+  background: #8bc34a;
+  padding: 23px 16px;
+  text-align: center;
+  color: #fff;
+}
+
+.alert-info .error {
+  background: #CC4949;
+  padding: 23px 16px;
+  text-align: center;
+  color: #fff;
+}

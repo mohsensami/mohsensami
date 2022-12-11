@@ -10,14 +10,18 @@
 </head>
 <body>
 	<section id="contact-form">
-        <form method="POST"> {% csrf_token %}    
+        <form method="POST" novalidate> {% csrf_token %}   
+            {% if messages %}
+            <div class="alert-info">
+                {% for msg in messages %}
+                    <p class="{{ msg.tags }}">{{ msg }}</p>
+                {% endfor %}
+            </div>
+            {% endif %} 
             {{form.full_name}}
             {{form.email}}
             {{form.subject}}
             {{form.content}}
-            <!-- <input name="name" type="text" class="feedback-input" placeholder="Name" />   
-            <input name="email" type="text" class="feedback-input" placeholder="Email" />
-            <textarea name="text" class="feedback-input" placeholder="Comment"></textarea> -->
             <input type="submit" value="Send"/>
           </form>
     </section>
