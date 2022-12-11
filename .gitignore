@@ -15,10 +15,20 @@ dist-ssr
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
-.idea
-.DS_Store
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
+# Django
+venv/
+env/
+.venv/
+.env/
+.idea/
+
+**/__pycache__/
+*.pyc
+
+# local_settings.py
+.DS_Store
