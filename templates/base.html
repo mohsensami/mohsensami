@@ -9,31 +9,17 @@
     <link rel="stylesheet" href="{% static 'css/main.css' %}">
 </head>
 <body>
-	<section id="hire">
-        <h1>Contact Me</h1>
-        
-        <form method="POST">
-            
-              <div class="field name-box">
-                    <input type="text" id="name" placeholder="Who Are You?"/>
-                    <label for="name">Name</label>
-                    <span class="ss-icon">check</span>
-              </div>
-    
-              <div class="field email-box">
-                    <input type="text" id="email" placeholder="name@email.com"/>
-                    <label for="email">Email</label>
-                    <span class="ss-icon">check</span>
-              </div>
-    
-              <div class="field msg-box">
-                    <textarea id="msg" rows="4" placeholder="Your message goes here..."/></textarea>
-                    <label for="msg">Msg</label>
-                    <span class="ss-icon">check</span>
-              </div>
-    
-              <input class="button" type="submit" value="Send" />
-      </form>
+	<section id="contact-form">
+        <form method="POST"> {% csrf_token %}    
+            {{form.full_name}}
+            {{form.email}}
+            {{form.subject}}
+            {{form.content}}
+            <!-- <input name="name" type="text" class="feedback-input" placeholder="Name" />   
+            <input name="email" type="text" class="feedback-input" placeholder="Email" />
+            <textarea name="text" class="feedback-input" placeholder="Comment"></textarea> -->
+            <input type="submit" value="Send"/>
+          </form>
     </section>
         
 </body>
