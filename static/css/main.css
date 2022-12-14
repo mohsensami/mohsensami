@@ -1,7 +1,8 @@
 @import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
 
-body { background:rgb(30,30,40); }
-form { max-width:420px; margin:50px auto; }
+body { background:rgb(30,30,40); 
+  max-width:420px; margin:50px auto; 
+}
 
 .feedback-input {
   font-family: Helvetica, Arial, sans-serif;
@@ -23,8 +24,6 @@ form { max-width:420px; margin:50px auto; }
 
 textarea {
   height: 150px;
-  line-height: 150%;
-  resize:vertical;
 }
 
 [type="submit"] {
@@ -45,7 +44,7 @@ textarea {
 [type="submit"]:hover { background:#CC4949; }
 
 #contact-form {
-    height: 98vh;
+    height: 79vh;
     padding: 0;
     margin: 0;
     display: flex;
