@@ -13,7 +13,7 @@
           <p class="text-xl font-bold dark:text-white my-8">design work or partnerships.</p>
         </h3>
 
-        <form action="https://formspree.io/f/xoqrgaab" method="POST">
+        <form @submit.prevent="validate()" action="#" method="POST">
           <div class="returnmessage" data-success="Your message has been received, We will contact you soon."></div>
           <div class="empty_notice">
             <span>Please Fill Required Fields</span>
@@ -21,19 +21,25 @@
 
           <!-- name input  -->
           <div class="relative z-0 w-full mt-[40px] mb-8 group">
-            <input type="text" id="name" name="name" class="block autofill:bg-transparent py-2.5 px-0 w-full text-sm text-gray-lite bg-transparent border-0 border-b-[2px] border-[#B5B5B5] appearance-none dark:text-white dark:border-[#333333] dark:focus:border-[#FF6464] focus:outline-none focus:ring-0 focus:border-[#FF6464] peer" placeholder=" " required="" />
+            <input v-model.lazy.trim="form.full_name" type="text" id="name" name="name" class="block autofill:bg-transparent py-2.5 px-0 w-full text-sm text-gray-lite bg-transparent border-0 border-b-[2px] border-[#B5B5B5] appearance-none dark:text-white dark:border-[#333333] dark:focus:border-[#FF6464] focus:outline-none focus:ring-0 focus:border-[#FF6464] peer" placeholder=" " required="" />
             <label for="name" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-color-910 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#FF6464] peer-focus:dark:text-[#FF6464] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-8"> Name * </label>
           </div>
 
           <!-- email input  -->
           <div class="relative z-0 w-full mb-8 group">
-            <input type="email" name="email" class="block autofill:text-red-900 needed py-2.5 px-0 w-full text-sm text-gray-lite bg-transparent border-0 border-b-[2px] border-[#B5B5B5] appearance-none dark:text-white dark:border-[#333333] dark:focus:border-[#FF6464] focus:outline-none focus:ring-0 focus:border-[#5185D4] peer" placeholder=" " id="email" required="" />
+            <input v-model.lazy.trim="form.email" type="email" name="email" class="block autofill:text-red-900 needed py-2.5 px-0 w-full text-sm text-gray-lite bg-transparent border-0 border-b-[2px] border-[#B5B5B5] appearance-none dark:text-white dark:border-[#333333] dark:focus:border-[#FF6464] focus:outline-none focus:ring-0 focus:border-[#5185D4] peer" placeholder=" " id="email" required="" />
             <label for="email" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-color-910 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#5185D4] peer-focus:dark:text-[#FF6464] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-8"> Email * </label>
+          </div>
+
+          <!-- subject input  -->
+          <div class="relative z-0 w-full mt-[40px] mb-8 group">
+            <input v-model.lazy.trim="form.subject" type="text" id="name" name="name" class="block autofill:bg-transparent py-2.5 px-0 w-full text-sm text-gray-lite bg-transparent border-0 border-b-[2px] border-[#B5B5B5] appearance-none dark:text-white dark:border-[#333333] dark:focus:border-[#FF6464] focus:outline-none focus:ring-0 focus:border-[#FF6464] peer" placeholder=" " required="" />
+            <label for="name" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-color-910 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#FF6464] peer-focus:dark:text-[#FF6464] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-8"> Subject * </label>
           </div>
 
           <!-- message input  -->
           <div class="relative z-0 w-full mb-8 group">
-            <input type="text" name="message" class="block py-2.5 px-0 w-full text-sm text-gray-lite bg-transparent border-0 border-b-[2px] border-[#B5B5B5] appearance-none dark:text-white dark:border-[#333333] dark:focus:border-[#FF6464] focus:outline-none focus:ring-0 focus:border-[#CA56F2] peer" placeholder=" " id="message" required="" />
+            <input v-model.lazy.trim="form.content" type="text" name="message" class="block py-2.5 px-0 w-full text-sm text-gray-lite bg-transparent border-0 border-b-[2px] border-[#B5B5B5] appearance-none dark:text-white dark:border-[#333333] dark:focus:border-[#FF6464] focus:outline-none focus:ring-0 focus:border-[#CA56F2] peer" placeholder=" " id="message" required="" />
             <label for="message" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-color-910 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#CA56F2] peer-focus:dark:text-[#FF6464] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-8"> Message * </label>
           </div>
 
@@ -53,7 +59,63 @@
 </template>
 
 <script>
-export default {};
+import { reactive, ref } from "vue";
+import axios from "axios";
+
+export default {
+  setup() {
+    const form = reactive({
+      full_name: "",
+      titleErrorText: "",
+      email: "",
+      emailErrorText: "",
+      subject: "",
+      subjectErrorText: "",
+      content: "",
+      contentErrorText: "",
+    });
+
+    const validate = () => {
+      if (form.full_name === "") {
+        form.titleErrorText = "نام ضروری است";
+      } else {
+        form.titleErrorText = "";
+      }
+      if (form.content === "") {
+        form.contentErrorText = "متن مقاله ضروری است";
+      } else {
+        form.contentErrorText = "";
+      }
+      if (form.full_name !== "" && form.content !== "") {
+        // loading.value = true;
+        savePost();
+      }
+    };
+
+    const savePost = async () => {
+      axios
+        .post("http://127.0.0.1:8000/api/contact/", {
+          full_name: form.full_name,
+          email: form.email,
+          subject: form.subject,
+          content: form.content,
+        })
+        .then(function () {
+          // loading.value = false;
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    };
+
+    return {
+      form,
+      validate,
+      savePost,
+    };
+
+  }
+};
 </script>
 
 <style>
