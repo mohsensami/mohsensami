@@ -146,7 +146,7 @@
                         </div>
                         <!-- personal infomation end-->
                         <!-- dowanload button -->
-                        <a target="_blank" href="https://mstorage.jobinjacdn.com/records/files/uploads/documents/a98f99fa-8060-45b5-841d-f1f8e0e18e46.pdf?requester=38342e31372e34372e3934&resource=753a32353433363435&from=63765f7472616e73&X-Amz-Content-Sha256=e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=oetSom924MQvtCRu9N6vvQ4bt8cG9HSpRnxWU756SyWy5NVt6nTpmfA9aV2b%2F20221118%2F%2Fs3%2Faws4_request&X-Amz-Date=20221118T190402Z&X-Amz-SignedHeaders=host&X-Amz-Expires=1800&X-Amz-Signature=6e1ab0db0e831c3b545caa2d4775c9e2d99c2a01dda7330ce609a6cf2e3715b3" class="dowanload-btn">
+                        <a target="_blank" href="https://www.linkedin.com/in/mohsensami/" class="dowanload-btn">
                             <img class="mr-3" src="../public/img/dowanload.png" alt="icon" /> Download CV </a>
                     </div>
                 </div>

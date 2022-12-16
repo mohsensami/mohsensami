@@ -95,7 +95,7 @@
 
                         <!-- dowanload button -->
                         <button class="dowanload-btn">
-                            <img class="mr-3" src="https://bostamihtml.ibthemespro.com/images/icons/dowanload.png" alt="icon" /> Download
+                            <img class="mr-3" src="https://www.linkedin.com/in/mohsensami/" alt="icon" /> Download
                             CV
                         </button>
                     </div>

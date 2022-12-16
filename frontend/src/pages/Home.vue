@@ -89,7 +89,7 @@
               <!-- personal info end -->
 
               <!-- dowanload button -->
-              <button class="dowanload-btn"><img class="mr-3" src="../../public/img/dowanload.png" alt="icon" /> Download CV</button>
+              <button class="dowanload-btn"><img class="mr-3" src="https://www.linkedin.com/in/mohsensami/" alt="icon" /> Download CV</button>
             </div>
           </div>
         </div>
