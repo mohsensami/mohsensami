@@ -1,8 +1,10 @@
 - 👋 Hi, I’m @mohsensami
-- 👀 I’m interested in full-stack development
-- 🌱 I’m currently learning vue.js, Nuxtjs.
+- 👀 I’m interested in web development
+- 🌱 I’m currently learning fastapi and web scraping.
 - 💞️ I’m looking to collaborate on any web based projects
 - 📫 email me on mohsensami88@gmail.com
+
+I am a software engineer with many yaers of professional experience designing and developing reusable and scalable web applications. Enthuasiastic about acquiring new skills from other engineers. Proficent in Python, Django, PHP, Wordpress, Javascript, vuejs and modern web ecosystem. In the prior position, made several APIs, websites, dashboards, CMSes and had experience of refactoring and writing more maintainable and efficient code.
 
 <!---
 TefoAM/TefoAM is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.

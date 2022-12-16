@@ -61,6 +61,7 @@
 <script>
 import { reactive, ref } from "vue";
 import axios from "axios";
+import Swal from "sweetalert2";
 
 export default {
   setup() {
@@ -94,7 +95,7 @@ export default {
 
     const savePost = async () => {
       axios
-        .post("http://127.0.0.1:8000/api/contact/", {
+        .post("http://msami.pythonanywhere.com/api/contact/", {
           full_name: form.full_name,
           email: form.email,
           subject: form.subject,
@@ -102,6 +103,12 @@ export default {
         })
         .then(function () {
           // loading.value = false;
+          Swal.fire({
+            title: "Thanks!",
+            text: "Your message sent successfully",
+            icon: "success",
+            confirmButtonText: "Ok",
+          });
         })
         .catch(function (error) {
           console.log(error);
