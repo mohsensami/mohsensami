@@ -95,7 +95,7 @@ export default {
 
     const savePost = async () => {
       axios
-        .post("http://msami.pythonanywhere.com/api/contact/", {
+        .post("https://msami.pythonanywhere.com/api/contact/", {
           full_name: form.full_name,
           email: form.email,
           subject: form.subject,
