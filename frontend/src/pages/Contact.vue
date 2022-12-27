@@ -6,9 +6,9 @@
         <i class="fa-solid text-3xl text-[#F95054] fa-address-book"></i>
         <h4 class="text-2xl dark:text-white font-medium">Contact</h4>
       </div>
-      <div class="bg-[#f8fbfb] p-12 rounded-xl mt-4">
+      <div class="bg-[#f8fbfb] p-12 rounded-xl mt-4 dark:bg-transparent dark:border-[#212425] dark:border-2">
         <h3 class="text-4xl">
-          <p class="text-xl dark:text-[#A6A6A6]">I'm always open to discussing product</p>
+          <p class="text-xl dark:text-[#A6A6A6] ">I'm always open to discussing product</p>
 
           <p class="text-xl font-bold dark:text-white my-8">design work or partnerships.</p>
         </h3>

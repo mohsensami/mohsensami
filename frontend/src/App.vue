@@ -5,7 +5,7 @@
     </div> -->
     <!-- /PRELOADER -->
     <div :class="{'dark' : isDark}" class="bg-homeBg dark:bg-homeTwoBg-dark min-h-screen bg-no-repeat bg-center bg-cover bg-fixed md:pb-16 w-full bg-[url('../img/bg.jpeg')] dark:bg-[url('../img/bgtwo.jpeg')]">
-        <div class="container section-bg">
+        <div class="section-bg">
             <div class="w-full flex justify-between px-4">
                 <!-- website Logo -->
                 <a href="/">
@@ -15,11 +15,11 @@
                 <div class="flex items-center">
                     <!-- dark and light mode toggle -->
                     <button id="theme-toggle" type="button" class="dark-light-btn">
-                        <i  @click="makeDark()" v-show="!isDark" id="theme-toggle-dark-icon" class="fa-solid text-2xl mt-12 fa-moon animate-wiggle"></i>
-                        <i  @click="makeLight()" v-show="isDark" id="theme-toggle-light-icon" class="fa-solid fa-sun text-yellow-500 text-2xl mt-12 animate-wiggle"></i>
+                        <i  @click="makeDark()" v-show="!isDark" id="theme-toggle-dark-icon" class="fa-solid text-2xl fa-moon animate-wiggle"></i>
+                        <i  @click="makeLight()" v-show="isDark" id="theme-toggle-light-icon" class="fa-solid fa-sun text-yellow-500 text-2xl animate-wiggle"></i>
                     </button>
                     <!-- mobile toggle button -->
-                    <button id="menu-toggle" type="button" class="menu-toggle-btn sm:hidden">
+                    <button @click="showMenu=!showMenu" id="menu-toggle" type="button" class="menu-toggle-btn block lg:hidden">
                         <i id="menu-toggle-open-icon" class="fa-solid fa-bars text-xl sm:hidden"></i>
                         <i id="menu-toggle-close-icon" class="fa-solid fa-xmark text-xl hidden  "></i>
                     </button>
@@ -28,7 +28,7 @@
         </div>
 
         <!-- mobile menu start -->
-        <nav id="navbar" class="hidden lg:hidden">
+        <nav v-if="showMenu" id="navbar" class="block lg:hidden">
             <ul
                 class="block rounded-b-[20px] shadow-md absolute left-0 top-20 z-[22222222222222] w-full bg-white dark:bg-[#1d1d1d]">
                 <li>
@@ -211,7 +211,7 @@
 <script setup>
 import { ref, onMounted } from "vue";
 const isDark = ref(false)
-
+const showMenu = ref(false)
 
 const makeDark = () => {
   isDark.value = true;
