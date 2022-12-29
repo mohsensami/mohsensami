@@ -32,34 +32,22 @@
             <ul
                 class="block rounded-b-[20px] shadow-md absolute left-0 top-20 z-[22222222222222] w-full bg-white dark:bg-[#1d1d1d]">
                 <li>
-                    <a class="mobile-menu-items-active" href="./aboutOne.html">
+                    <router-link :to="{name: 'home'}" class="mobile-menu-items" >
                         <span class="mr-2 text-xl">
                             <i class="fa-regular fa-user"></i>
-                        </span>About </a>
+                        </span>About </router-link>
                 </li>
                 <li>
-                    <a class="mobile-menu-items" href="./resumeOne.html">
+                    <router-link :to="{name: 'resume'}" class="mobile-menu-items">
                         <span class="mr-2 text-xl">
                             <i class="fa-regular fa-file-lines"></i>
-                        </span>Resume </a>
+                        </span>Resume </router-link>
                 </li>
                 <li>
-                    <a class="mobile-menu-items" href="./portfiloOne.html">
-                        <span class="mr-2 text-xl">
-                            <i class="fas fa-briefcase"></i>
-                        </span>Works </a>
-                </li>
-                <!-- <li>
-                    <a class="mobile-menu-items" href="./blogOne.html">
-                        <span class="mr-2 text-xl">
-                            <i class="fa-brands fa-blogger"></i>
-                        </span>Blogs </a>
-                </li> -->
-                <li>
-                    <a class="mobile-menu-items" href="./contactOne.html">
+                    <router-link :to="{name: 'contact'}" class="mobile-menu-items">
                         <span class="mr-2 text-xl">
                             <i class="fa-solid fa-address-book"></i>
-                        </span> Contact </a>
+                        </span> Contact </router-link>
                 </li>
             </ul>
         </nav>
@@ -154,7 +142,7 @@
             <div class="col-span-12 lg:col-span-8">
                 <!-- header for mobile devices start -->
                 <header
-                    class="lg:w-[480px] hidden lg:block p-[30px] ml-auto mb-10 rounded-[16px] bg-white dark:bg-[#111]">
+                    class="lg:w-[376px] hidden lg:block p-[30px] ml-auto mb-10 rounded-[16px] bg-white dark:bg-[#111]">
                     <nav class="hidden lg:block">
                         <ul class="flex justify-between text-sm title_color">
                             <li class="menu-item">
@@ -171,20 +159,6 @@
                                     </span> Experience
                                 </router-link>
                             </li>
-                            <li class="menu-item">
-                                <router-link class="flex-col flex-center bg-gray-100 rounded-md w-[90px] h-[80px] hover:bg-gradient-to-r from-red-light to-red-dark hover:text-white custom-transition" :to="{name: 'works'}">
-                                    <span class="text-xl mb-1">
-                                        <i class="fa-regular fa-file-lines"></i>
-                                    </span> Portfolio
-                                </router-link>
-                            </li>
-                            <!-- <li class="menu-item">
-                                <router-link class="flex-col flex-center bg-gray-100 rounded-md w-[90px] h-[80px] hover:bg-gradient-to-r from-red-light to-red-dark hover:text-white custom-transition" :to="{name: 'blog'}">
-                                    <span class="text-xl mb-1">
-                                        <i class="fa-brands fa-blogger"></i>
-                                    </span> Blog
-                                </router-link>
-                            </li> -->
                             <li class="menu-item">
                                 <router-link class="flex-col flex-center bg-gray-100 rounded-md w-[90px] h-[80px] hover:bg-gradient-to-r from-red-light to-red-dark hover:text-white custom-transition" :to="{name: 'contact'}">
                                     <span class="text-xl mb-1">
@@ -239,5 +213,7 @@ onMounted(() => {
 
 
 <style>
-
+.mobile-menu-items.router-link-active {
+    color: red;
+}
 </style>

@@ -89,7 +89,7 @@
               <!-- personal info end -->
 
               <!-- dowanload button -->
-              <button class="dowanload-btn"><img class="mr-3" src="https://www.linkedin.com/in/mohsensami/" alt="icon" /> Download CV</button>
+              <button class="dowanload-btn"><img class="mr-3" src="/public/img/dowanload.png" alt="icon" /> Download CV</button>
             </div>
           </div>
         </div>
@@ -99,7 +99,7 @@
           <div class="col-span-12 space-y-2.5">
             <div class="bg-[#f8fbfb] lg:p-4 rounded-xl dark:bg-transparent dark:border-[#212425] dark:border-2">
               <p class="text-[#44566c] dark:text-white leading-9 ">
-                A Back-end engineer with many yaers of professional experience designing and developing reusable and scalable web applications. Enthuasiastic about acquiring new skills from other engineers. Proficent in Python, Django, PHP, Wordpress, Javascript, vuejs and modern web ecosystem. In the prior position, made several APIs, websites, dashboards, CMSes and had experience of refactoring and writing more maintainable and efficient code.
+                I'm a software engineer with many yaers of professional experience designing and developing reusable and scalable web applications. Enthuasiastic about acquiring new skills from other engineers. Proficent in Python, Django, PHP, Wordpress, Javascript, vuejs and modern web ecosystem. In the prior position, made several APIs, websites, dashboards, CMSes and had experience of refactoring and writing more maintainable and efficient code.
               </p>
             </div>
             <div></div>

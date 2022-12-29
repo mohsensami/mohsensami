@@ -13,24 +13,52 @@
               <h4 class="text-2xl dark:text-white font-medium">Experience</h4>
             </div>
             <div class="py-4 pl-5 pr-3 space-y-2 mb-6 rounded-lg bg-[#eef5fa] dark:bg-transparent dark:border-[#212425] dark:border-2">
-              <span class="text-tiny text-gray-lite dark:text-[#b7b7b7]">Oct 2020 - present</span>
-              <h3 class="text-xl dark:text-white">FullStack Developer - ( Django - VueJs )</h3>
-              <p class="dark:text-[#b7b7b7]">Hacoupian - Tehran </p>
+              <span class="font-medium text-gray-lite dark:text-[#b7b7b7]">Mid Level Back End Developer</span>
+              <p class="dark:text-white">Hacoupian · Full-time</p>
+              <p class="dark:text-[#b7b7b7]">Mar 2020 - Jul 2022 · <span class="font-medium"> 2 yrs 5 mos </span></p>
+              <p class="dark:text-[#b7b7b7]">Tehran, Iran</p>
+              <p class="leading-9 text-sm dark:text-[#b7b7b7]">Skills: Postman API · Docker · JSON Web Token (JWT) · Nginx ·
+                Object-Oriented Programming (OOP) · PostgreSQL · Python
+                (Programming Language) · Django · Django REST Framework ·
+                Cascading Style Sheets (CSS) · Vue.js · Nuxt.js · Tailwind CSS · Redis ·
+                Git · REST APIs · Celery
+              </p>
             </div>
             <div class="bg-[#f2f4ff] dark:bg-transparent py-4 pl-5 pr-3 space-y-2 rounded-lg mb-6 dark:border-[#212425] dark:border-2">
-              <span class="text-tiny text-gray-lite dark:text-[#b7b7b7]">Jun 2019 - Feb 2020</span>
-              <h3 class="text-xl dark:text-white">Backend Developer ( Wordpress - Laravel )</h3>
-              <p class="dark:text-[#b7b7b7]">NovinMarketing - Tehran </p>
+              <span class="font-medium text-gray-lite dark:text-[#b7b7b7]">Mid Level Back End Developer</span>
+              <p class="dark:text-white">Novin Marketing · Full-time</p>
+              <p class="dark:text-[#b7b7b7]">Jun 2019 - Feb 2020 · <span class="font-medium"> 9 mos </span></p>
+              <p class="dark:text-[#b7b7b7]">Tehran, Iran</p>
+              <p class="leading-9 text-sm dark:text-[#b7b7b7]">
+                Skills: Design Patterns · DirectAdmin · PhpStorm ·
+                PhpMyAdmin · Nginx · Object-Oriented Programming (OOP) ·
+                JavaScript · Cascading Style Sheets (CSS) · PHP · WordPress ·
+                MySQL · jQuery · Bootstrap · REST APIs · Laravel
+              </p>
             </div>
             <div class="py-4 pl-5 pr-3 space-y-2 mb-6 rounded-lg bg-[#eef5fa] dark:bg-transparent dark:border-[#212425] dark:border-2">
-              <span class="text-tiny text-gray-lite dark:text-[#b7b7b7]">APR 2018 - May 2019</span>
-              <h3 class="text-xl dark:text-white">Backend Developer ( Wordpress - Laravel )</h3>
-              <p class="dark:text-[#b7b7b7]">Espinasweb - Tehran</p>
+              <span class="font-medium text-gray-lite dark:text-[#b7b7b7]">Junior BackEnd Developer</span>
+              <p class="dark:text-white">ESPINAS WEB ® · Full-time</p>
+              <p class="dark:text-[#b7b7b7]">Apr 2018 - May 2019 · <span class="font-medium"> 1 yrs 2 mos </span></p>
+              <p class="dark:text-[#b7b7b7]">Tehran, Iran</p>
+              <p class="leading-9 text-sm dark:text-[#b7b7b7]">
+                Skills: Wordpress Development · WooCommerce · cPanel ·
+                Elementor · PhpMyAdmin · Object-Oriented Programming (OOP) ·
+                JavaScript · Cascading Style Sheets (CSS) · PHP · WordPress ·
+                MySQL · jQuery · Bootstrap · Laravel
+              </p>
             </div>
             <div class="bg-[#f2f4ff] dark:bg-transparent py-4 pl-5 pr-3 space-y-2 rounded-lg mb-6 dark:border-[#212425] dark:border-2">
-              <span class="text-tiny text-gray-lite dark:text-[#b7b7b7]">APR 2017 - APR 2018</span>
-              <h3 class="text-xl dark:text-white">Backend Developer ( Wordpress - Joomla )</h3>
-              <p class="dark:text-[#b7b7b7]">Seoyab - Tehran - Mirdamad</p>
+              <span class="font-medium text-gray-lite dark:text-[#b7b7b7]">Junior BackEnd Developer</span>
+              <p class="dark:text-white">Seoyab · Full-time</p>
+              <p class="dark:text-[#b7b7b7]">Apr 2017 - Apr 2018 · <span class="font-medium"> 1 yrs 1 mos </span></p>
+              <p class="dark:text-[#b7b7b7]">Tehran, Iran</p>
+              <p class="leading-9 text-sm dark:text-[#b7b7b7]">
+                Skills: Wordpress Development · WooCommerce · PhpMyAdmin ·
+                Plesk · joomla · jQuery UI · HTML5 · Object-Oriented
+                Programming (OOP) · JavaScript · Cascading Style Sheets (CSS) ·
+                PHP · WordPress · MySQL · jQuery
+              </p>
             </div>
           </div>
           <!-- experiment start -->
