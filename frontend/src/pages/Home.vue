@@ -98,7 +98,7 @@
         <div class="lg:grid grid-cols-12 md:gap-10 pt-4 items-center hidden">
           <div class="col-span-12 space-y-2.5">
             <div class="bg-[#f8fbfb] lg:p-4 rounded-xl dark:bg-transparent dark:border-[#212425] dark:border-2">
-              <p class="text-[#44566c] dark:text-white leading-9 ">
+              <p class="text-[#44566c] dark:text-white leading-9 text-justify">
                 I'm a software engineer with many yaers of professional experience designing and developing reusable and scalable web applications. Enthuasiastic about acquiring new skills from other engineers. Proficent in Python, Django, PHP, Wordpress, Javascript, vuejs and modern web ecosystem. In the prior position, made several APIs, websites, dashboards, CMSes and had experience of refactoring and writing more maintainable and efficient code.
               </p>
             </div>
@@ -136,6 +136,16 @@
               </div>
             </div>
 
+            <div class="mb-5">
+              <div class="flex justify-between mb-1">
+                <span class="font-semibold text-[#526377] dark:text-[#A6A6A6]">FastApi</span>
+                <span class="font-semibold text-[#526377] dark:text-[#A6A6A6">70%</span>
+              </div>
+              <div class="w-full bg-[#edf2f2] rounded-full h-1 dark:bg-[#081b05]">
+                <div class="bg-[#317d1c] h-1 rounded-full" style="width: 70%"></div>
+              </div>
+            </div>
+
 
             <div class="mb-5">
               <div class="flex justify-between mb-1">
@@ -159,11 +169,21 @@
 
             <div class="mb-5">
               <div class="flex justify-between mb-1">
-                <span class="font-semibold text-[#526377] dark:text-[#A6A6A6]">PHP</span>
+                <span class="font-semibold text-[#526377] dark:text-[#A6A6A6]">Nuxt Js</span>
                 <span class="font-semibold text-[#526377] dark:text-[#A6A6A6">70%</span>
               </div>
               <div class="w-full bg-[#edf2f2] rounded-full h-1 dark:bg-[#1c1c1c]">
-                <div class="bg-[#6851cd] h-1 rounded-full" style="width: 70%"></div>
+                <div class="bg-[#8bdf3c] h-1 rounded-full" style="width: 70%"></div>
+              </div>
+            </div>
+
+            <div class="mb-5">
+              <div class="flex justify-between mb-1">
+                <span class="font-semibold text-[#526377] dark:text-[#A6A6A6]">PHP</span>
+                <span class="font-semibold text-[#526377] dark:text-[#A6A6A6">80%</span>
+              </div>
+              <div class="w-full bg-[#edf2f2] rounded-full h-1 dark:bg-[#1c1c1c]">
+                <div class="bg-[#6851cd] h-1 rounded-full" style="width: 80%"></div>
               </div>
             </div>
 

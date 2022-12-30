@@ -68,22 +68,10 @@
                             class="mb-4 text-[#7B7B7B] inline-block dark:bg-[#1D1D1D] px-5 py-1.5 rounded-lg dark:text-[#A6A6A6]">
                             Web Developer </h3>
                         <div class="flex justify-center space-x-3">
-                            <!-- facebook icon and link -->
-                            <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">
-                                <span class="socialbtn text-[#1773EA]">
-                                    <i class="fa-brands fa-facebook-f"></i>
-                                </span>
-                            </a>
-                            <!-- twitter icon and link -->
-                            <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer">
-                                <span class="socialbtn text-[#1C9CEA]">
-                                    <i class="fa-brands fa-twitter"></i>
-                                </span>
-                            </a>
                             <!-- dribbble icon and link -->
-                            <a href="https://dribbble.com/" target="_blank" rel="noopener noreferrer">
-                                <span class="socialbtn text-[#e14a84]">
-                                    <i class="fa-brands fa-dribbble"></i>
+                            <a href="https://github.com/mohsensami" target="_blank" rel="noopener noreferrer">
+                                <span class="socialbtn text-[#1a0a10]">
+                                    <i class="fa-brands fa-github"></i>
                                 </span>
                             </a>
                             <!-- linkedin icon and link -->
@@ -119,7 +107,7 @@
                                 </span>
                                 <div class="text-left ml-2.5">
                                     <p class="text-xs text-[#44566C] dark:text-[#A6A6A6]"> Location </p>
-                                    <p class="dark:text-white">Iran Tehran</p>
+                                    <p class="dark:text-white">Iran Tehran, Beheshti str</p>
                                 </div>
                             </div>
                             <div class="flex py-2.5">
