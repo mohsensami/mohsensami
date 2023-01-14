@@ -9,6 +9,7 @@
 <p align="left">I am a software engineer with many yaers of professional experience designing and developing reusable and scalable web applications. Enthuasiastic about acquiring new skills from other engineers. Proficent in Python, Django, PHP, Wordpress, Javascript, vuejs and modern web ecosystem. In the prior position, made several APIs, websites, dashboards, CMSes and had experience of refactoring and writing more maintainable and efficient code.</p>
 </div>
 
+<br>
 
 [![My Skills](https://skillicons.dev/icons?i=html,css,javascript,ts,jquery,php,wordpress,python,django,fastapi,vue,nuxt,tailwind,bootstrap,docker,git,nginx,mysql,postgres,redis&theme=light)](https://skillicons.dev)
 
