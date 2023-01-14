@@ -1,8 +1,8 @@
-- 👋 Hi, I’m @mohsensami
+- 👋 Hi, I’m @mohsensami<img align="right" alt="code" src="https://raw.githubusercontent.com/abhisheknaiidu/abhisheknaiidu/master/code.gif" width="400" />
 - 👀 I’m interested in web development
-- 🌱 I’m currently learning fastapi and web scraping.
+- 🌱 I’m currently learning Nuxt.js and React.js.
 - 💞️ I’m looking to collaborate on any web based projects
-- 📫 email me on mohsensami88@gmail.com<img align="right" alt="code" src="https://github.com/mohsensami/mohsensami/blob/main/github/images/code.gif" width="300" />
+- 📫 email me on mohsensami88@gmail.com
 
 <div align="center">
 
