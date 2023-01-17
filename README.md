@@ -11,7 +11,7 @@
 
 <br>
 
-[![My Skills](https://skillicons.dev/icons?i=html,css,javascript,ts,jquery,php,wordpress,python,django,fastapi,vue,nuxt,tailwind,bootstrap,docker,git,nginx,mysql,postgres,redis&theme=light)](https://skillicons.dev)
+[![My Skills](https://skillicons.dev/icons?i=html,css,javascript,ts,react,jquery,php,wordpress,python,django,fastapi,vue,nuxt,tailwind,bootstrap,docker,git,nginx,mysql,postgres,redis&theme=light)](https://skillicons.dev)
 
 
 <div align="center">
