@@ -14,6 +14,7 @@ function App() {
       {id:4, title: 'NovinMarketing', img: 'https://raw.githubusercontent.com/mohsensami/mohsensami/main/images/works/novin.jpg', cat:'react', url:'https://novinmarketing.com/'},
       {id:4, title: 'Expense Reactjs', img: 'https://raw.githubusercontent.com/mohsensami/mohsensami/main/images/works/expense.jpg', cat:'react', url:'https://expenses-reactjs.netlify.app/'},
       {id:4, title: 'Expense Reactjs', img: 'https://raw.githubusercontent.com/mohsensami/mohsensami/main/images/works/course.jpg', cat:'react', url:'https://course-reactjs.netlify.app/'},
+      {id:4, title: 'Expense Reactjs', img: 'https://raw.githubusercontent.com/mohsensami/mohsensami/main/images/works/imdb-scraper.jpg', cat:'react', url:'https://imdb.pythonanywhere.com/'},
     ]
   )
 
@@ -234,10 +235,10 @@ function App() {
                 </li>
                 <li>
                   <a
-                    href="#"
+                    href="https://t.me/mohsensami88"
                     target="_blank"
                   >
-                    <i className="fa fa-youtube" aria-hidden="true"></i>
+                    <i className="fa fa-send-o" aria-hidden="true"></i>
                   </a>
                 </li>
               </ul>
@@ -308,13 +309,13 @@ function App() {
 
     <div className="work-title">
       <span>My Works</span>
-      <select>
+      {/* <select>
         <option value="all">All</option>
         <option value="react">React</option>
         <option value="vue">Vue</option>
         <option value="php">php</option>
         <option value="python">Python</option>
-      </select>
+      </select> */}
     </div>
 
     <div className="work_container">
@@ -329,7 +330,7 @@ function App() {
           </div>
           <img src={project.img} alt={project.title} />
           <div className="review_btn">
-            <a href={project.url} target="_blank" >
+            <a rel="noopener noreferrer nofollow" href={project.url} target="_blank" >
               REVIEW NOW
               <i className="fa fa-chevron-right" aria-hidden="true"></i>
             </a>
@@ -341,28 +342,85 @@ function App() {
       </div>
     </div>
 
-    <div className="experience-title">Experience</div>
+    <div className="experience-title">Experiences</div>
 
     <div className="experience-container">
-      <div className="row">
+      <div className="grid grid-cols-2">
         <div className="box">
           <img
-            src="https://www.bertina.ir/blog/wp-content/uploads/2019/06/bertina-logo.png"
-            alt="Bertina"
+            src="https://hacoupian.net/wp-content/uploads/2021/08/logo2.png.webp"
+            alt=""
+          />
+          <h3>Fullstack web developer</h3>
+          <div className="sub-1">
+            <span>Bertina</span> . <span>Full-time</span>
+          </div>
+          <div className="sub-2">
+            <span>July 2020</span> / <span>November 2022</span> / (
+            <span>2 years and 5 month</span>)<br />
+            <span>Tehran, Iran</span>
+          </div>
+          {/* <p>
+            Bertina works in the field of hosting and server services and I
+            worked as a technical support in this company.
+          </p> */}
+        </div>
+        <div className="box">
+          <img
+            src="https://novinmarketing.com/wp-content/themes/novin/images/logo.png"
+            alt=""
           />
           <h3>Technical services</h3>
           <div className="sub-1">
-            <span>Bertina</span> . <span>Part-time</span>
+            <span>NovinMarketing</span> . <span>Full-time</span>
           </div>
           <div className="sub-2">
-            <span>2020-07-01</span> / <span>2020-12-31</span> / (
-            <span>6 month</span>)<br />
+            <span>April 2019 </span> / <span>January 2020</span> / (
+            <span>9 month</span>)<br />
             <span>Tehran, Iran</span>
           </div>
-          <p>
+          {/* <p>
             Bertina works in the field of hosting and server services and I
             worked as a technical support in this company.
-          </p>
+          </p> */}
+        </div>
+        <div className="box">
+          <img
+            src="https://raw.githubusercontent.com/mohsensami/mohsensami/main/images/works/logo.jpg"
+            alt=""
+          />
+          <h3>web developer</h3>
+          <div className="sub-1">
+            <span>Espinasweb</span> . <span>Full-time</span>
+          </div>
+          <div className="sub-2">
+            <span>April 2018 </span> / <span>April 2019</span> / (
+            <span>1 years and 2 months</span>)<br />
+            <span>Tehran, Iran</span>
+          </div>
+          {/* <p>
+            Bertina works in the field of hosting and server services and I
+            worked as a technical support in this company.
+          </p> */}
+        </div>
+        <div className="box">
+          <img
+            src="https://raw.githubusercontent.com/mohsensami/mohsensami/main/images/works/logo.jpg"
+            alt=""
+          />
+          <h3>php web developer</h3>
+          <div className="sub-1">
+            <span>Seoyab</span> . <span>Full-time</span>
+          </div>
+          <div className="sub-2">
+            <span>March 2017 </span> / <span>March 2018</span> / (
+            <span>1 years and 1 months</span>)<br />
+            <span>Tehran, Iran</span>
+          </div>
+          {/* <p>
+            Bertina works in the field of hosting and server services and I
+            worked as a technical support in this company.
+          </p> */}
         </div>
       </div>
     </div>
