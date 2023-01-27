@@ -180,23 +180,23 @@ function App() {
             <div className="social-container">
               <ul>
                 <li>
-                  <a href="https://www.linkedin.com/in/n4jari" target="_blank">
+                  <a href="https://www.linkedin.com/in/mohsensami" target="_blank">
                     <i className="fa fa-linkedin" aria-hidden="true"></i>
                   </a>
                 </li>
                 <li>
-                  <a href="https://www.github.com/n4jari/" target="_blank">
+                  <a href="https://www.github.com/mohsensami/" target="_blank">
                     <i className="fa fa-github" aria-hidden="true"></i>
                   </a>
                 </li>
                 <li>
-                  <a href="https://www.instagram.com/n4jari" target="_blank">
+                  <a href="https://www.instagram.com/_mohsensami" target="_blank">
                     <i className="fa fa-instagram" aria-hidden="true"></i>
                   </a>
                 </li>
                 <li>
                   <a
-                    href="https://www.youtube.com/channel/UCUj6BoyDSnQ4WIjSWBhwKnw"
+                    href="#"
                     target="_blank"
                   >
                     <i className="fa fa-youtube" aria-hidden="true"></i>
@@ -217,7 +217,7 @@ function App() {
     </div>
     <div className="banner-container">
       <div className="background">
-        <img src="./assets/img/header.jpg" alt="n4jari official website" />
+        <img src="./assets/img/header.jpg" alt="sami official website" />
       </div>
       <div className="content">
         <div className="subject">
@@ -293,7 +293,7 @@ function App() {
           </div>
           <img src="https://n4jari.ir/images/Todo.png" alt="Todo" />
           <div className="review_btn">
-            <a href="https://n4jari.github.io/todo-app" target="_blank">
+            <a href="#" target="_blank">
               REVIEW NOW
               <i className="fa fa-chevron-right" aria-hidden="true"></i>
             </a>
@@ -306,7 +306,7 @@ function App() {
           </div>
           <img src="https://n4jari.ir/images/Amilo.png" alt="Amilo" />
           <div className="review_btn">
-            <a href="https://n4jari.github.io/amilo" target="_blank">
+            <a href="#" target="_blank">
               REVIEW NOW
               <i className="fa fa-chevron-right" aria-hidden="true"></i>
             </a>
@@ -319,7 +319,7 @@ function App() {
           </div>
           <img src="https://n4jari.ir/images/TechLand.png" alt="TechLand" />
           <div className="review_btn">
-            <a href="https://n4jari.github.io/techland" target="_blank">
+            <a href="#" target="_blank">
               REVIEW NOW
               <i className="fa fa-chevron-right" aria-hidden="true"></i>
             </a>
@@ -345,7 +345,7 @@ function App() {
           </div>
           <img src="https://n4jari.ir/images/Nike.png" alt="Nike" />
           <div className="review_btn">
-            <a href="https://n4jari.github.io/nike" target="_blank">
+            <a href="#" target="_blank">
               REVIEW NOW
               <i className="fa fa-chevron-right" aria-hidden="true"></i>
             </a>
@@ -358,7 +358,7 @@ function App() {
           </div>
           <img src="https://n4jari.ir/images/Apple.png" alt="Apple" />
           <div className="review_btn">
-            <a href="https://n4jari.github.io/apple" target="_blank">
+            <a href="#" target="_blank">
               REVIEW NOW
               <i className="fa fa-chevron-right" aria-hidden="true"></i>
             </a>
@@ -397,11 +397,11 @@ function App() {
       <div className="footer_container">
         <div className="email">
           <p>
-            <i className="fa fa-send-o"></i> <span>n4jari@gmail.com</span>
+            <i className="fa fa-send-o"></i> <span>mohsensami88@gmail.com</span>
           </p>
         </div>
         <div className="cpr">
-          <p>Copyright 2023 | ©n4jari</p>
+          <p>Copyright 2023 | mohsensami</p>
         </div>
       </div>
     </footer>
