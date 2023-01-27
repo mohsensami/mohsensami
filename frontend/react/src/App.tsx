@@ -5,10 +5,31 @@ import header from './assets/img/header.jpg'
 import './App.css'
 
 function App() {
-  
+  const [projects, setProjects] = useState(
+    [
+      {id:1, title: 'Shop', img: 'https://n4jari.ir/images/StudentApp.png', cat:'react'},
+      {id:2, title: 'Hacoupian', img: 'https://n4jari.ir/images/StudentApp.png', cat:'react'},
+      {id:3, title: 'Diacobin', img: 'https://n4jari.ir/images/StudentApp.png', cat:'vue'},
+      {id:4, title: 'NovinMarketing', img: 'https://n4jari.ir/images/StudentApp.png', cat:'react'},
+    ]
+  )
+
+  // const filteredProjects = (cat:any) => {
+  //   setProjects((prev)=> {
+  //     return (
+  //       prev.filter(project=>{
+  //         return project.cat != cat
+  //       })
+  //     )
+  //   })
+  // }
+
+  // const changeProjectsHandler = (project:any) => {
+  //   filteredProjects(project)
+  // }
 
   return (
-    <div className="App">
+  <div className="App">
   <div className="menu">
     <div className="menu">
       <div className="menu-container">
@@ -16,7 +37,7 @@ function App() {
           <div className="menu_profile_container">
             <i className="fa fa-ellipsis-v" aria-hidden="true"></i>
             <img
-              src="https://msami.netlify.app/assets/me.0911da7d.jpg"
+              src="https://avatars.githubusercontent.com/u/73436220?v=4"
               alt="Mohsen Sami"
             />
             <div className="menu_profile_content">
@@ -231,7 +252,7 @@ function App() {
             <span className="code"> &lt;/code&gt;</span>
           </div>
           <div className="activity">
-            <img src="./assets/img/header.jpg" title="Netflix" />
+          <img src="https://camo.githubusercontent.com/04c27c52ca4763154470042b8e2c5b372a8d5dda503f2a7c61d0d72bc1c0d9ed/68747470733a2f2f736b696c6c69636f6e732e6465762f69636f6e733f693d68746d6c2c6373732c6a6176617363726970742c74732c72656163742c6e6578742c6a71756572792c7068702c776f726470726573732c707974686f6e2c646a616e676f2c666173746170692c7675652c6e7578742c7461696c77696e642c626f6f7473747261702c646f636b65722c6769742c6e67696e782c6d7973716c2c706f7374677265732c7265646973267468656d653d6c69676874" alt="My Skills" data-canonical-src="https://skillicons.dev/icons?i=html,css,javascript,ts,react,next,jquery,php,wordpress,python,django,fastapi,vue,nuxt,tailwind,bootstrap,docker,git,nginx,mysql,postgres,redis&amp;theme=light" />
           </div>
         </div>
         <div className="myPic">
@@ -242,128 +263,51 @@ function App() {
 
     <div className="degree-container">
       <div className="a_degree">
-        <span>Associate</span>
-        <span>Shahid Babaei University (Qazvin)</span>
-      </div>
-      <div className="b_degree">
         <span>Bachelor's</span>
-        <span>Shahid Shamsipour University (Tehran)</span>
+        <span>Payame Noor University (North Tehran)</span>
       </div>
       <div className="experience">
-        <span>6 Month</span>
+        <span>5 Years</span>
         <span> Experience</span>
+      </div>
+      <div className="b_degree">
+        <span>Work In</span>
+        <span>4 Companies</span>
       </div>
     </div>
 
     <div className="work-title">
       <span>My Works</span>
       <select>
-        <option value="">All</option>
-        <option value="Simple">Simple</option>
-        <option value="Mid">Mid</option>
-        <option value="Pro">Pro</option>
+        <option value="all">All</option>
+        <option value="react">React</option>
+        <option value="vue">Vue</option>
+        <option value="php">php</option>
+        <option value="python">Python</option>
       </select>
     </div>
 
     <div className="work_container">
       <div className="row">
-        <div className="box">
+        {
+          projects.map((project:any) => {
+            return (
+              <div className="box">
           <div className="title">
-            <span>Student Management App</span>
-            <span>Mid</span>
+            <span>{project.title}</span>
+            {/* <span>{project.cat}</span> */}
           </div>
-          <img
-            src="https://n4jari.ir/images/StudentApp.png"
-            alt="Student Management App"
-          />
+          <img src={project.img} alt={project.title} />
           <div className="review_btn">
-            <a
-              href="https://n4jari.github.io/student-management-app/"
-              target="_blank"
-            >
+            <a href="https://n4jari.github.io/student-management-app/" target="_blank" >
               REVIEW NOW
               <i className="fa fa-chevron-right" aria-hidden="true"></i>
             </a>
           </div>
         </div>
-        <div className="box">
-          <div className="title">
-            <span>Todo</span>
-            <span>Mid</span>
-          </div>
-          <img src="https://n4jari.ir/images/Todo.png" alt="Todo" />
-          <div className="review_btn">
-            <a href="#" target="_blank">
-              REVIEW NOW
-              <i className="fa fa-chevron-right" aria-hidden="true"></i>
-            </a>
-          </div>
-        </div>
-        <div className="box">
-          <div className="title">
-            <span>Amilo</span>
-            <span>Simple</span>
-          </div>
-          <img src="https://n4jari.ir/images/Amilo.png" alt="Amilo" />
-          <div className="review_btn">
-            <a href="#" target="_blank">
-              REVIEW NOW
-              <i className="fa fa-chevron-right" aria-hidden="true"></i>
-            </a>
-          </div>
-        </div>
-        <div className="box">
-          <div className="title">
-            <span>TechLand</span>
-            <span>Simple</span>
-          </div>
-          <img src="https://n4jari.ir/images/TechLand.png" alt="TechLand" />
-          <div className="review_btn">
-            <a href="#" target="_blank">
-              REVIEW NOW
-              <i className="fa fa-chevron-right" aria-hidden="true"></i>
-            </a>
-          </div>
-        </div>
-        <div className="box">
-          <div className="title">
-            <span>BBC</span>
-            <span>Simple</span>
-          </div>
-          <img src="https://n4jari.ir/images/BBC.png" alt="BBC" />
-          <div className="review_btn">
-            <a href="https://n4jari.github.io/bbc" target="_blank">
-              REVIEW NOW
-              <i className="fa fa-chevron-right" aria-hidden="true"></i>
-            </a>
-          </div>
-        </div>
-        <div className="box">
-          <div className="title">
-            <span>Nike</span>
-            <span>Simple</span>
-          </div>
-          <img src="https://n4jari.ir/images/Nike.png" alt="Nike" />
-          <div className="review_btn">
-            <a href="#" target="_blank">
-              REVIEW NOW
-              <i className="fa fa-chevron-right" aria-hidden="true"></i>
-            </a>
-          </div>
-        </div>
-        <div className="box">
-          <div className="title">
-            <span>Apple</span>
-            <span>Simple</span>
-          </div>
-          <img src="https://n4jari.ir/images/Apple.png" alt="Apple" />
-          <div className="review_btn">
-            <a href="#" target="_blank">
-              REVIEW NOW
-              <i className="fa fa-chevron-right" aria-hidden="true"></i>
-            </a>
-          </div>
-        </div>
+            )
+          })
+        }
       </div>
     </div>
 

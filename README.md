@@ -1,8 +1,8 @@
--   👋 Hi, I’m @mohsensami<img align="right" alt="code" src="https://raw.githubusercontent.com/abhisheknaiidu/abhisheknaiidu/master/code.gif" width="400" />
+-   👋 Hi, I’m @mohsensami<img align="right" alt="code" src="https://raw.githubusercontent.com/mohsensami/mohsensami/main/images/github/code.gif" width="400" />
 -   👀 I’m interested in web development
-<!-- -   💞️ I’m currently learning next.js. -->
 -   🌱 I’m looking to collaborate on any web based projects
 -   📫 email me on mohsensami88@gmail.com
+<!-- -   💞️ I’m currently learning next.js. -->
 
 <div align="center">
 
@@ -24,7 +24,7 @@
 
 <div>
 
-![Snake animation](https://raw.githubusercontent.com/mohsensami/mohsensami/main/github/images/snake.svg)
+![Snake animation](https://raw.githubusercontent.com/mohsensami/mohsensami/main/images/github/snake.svg)
 
 </div>
 
