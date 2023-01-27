@@ -7,10 +7,10 @@ import './App.css'
 function App() {
   const [projects, setProjects] = useState(
     [
-      {id:1, title: 'Shop', img: 'https://n4jari.ir/images/StudentApp.png', cat:'react'},
-      {id:2, title: 'Hacoupian', img: 'https://n4jari.ir/images/StudentApp.png', cat:'react'},
-      {id:3, title: 'Diacobin', img: 'https://n4jari.ir/images/StudentApp.png', cat:'vue'},
-      {id:4, title: 'NovinMarketing', img: 'https://n4jari.ir/images/StudentApp.png', cat:'react'},
+      {id:1, title: 'Shop', img: 'https://raw.githubusercontent.com/mohsensami/mohsensami/main/images/works/shop.jpg', cat:'react'},
+      {id:2, title: 'Hacoupian', img: 'https://raw.githubusercontent.com/mohsensami/mohsensami/main/images/works/hacoupian.jpg', cat:'react'},
+      {id:3, title: 'Diacobin', img: 'https://raw.githubusercontent.com/mohsensami/mohsensami/main/images/works/diacobin.jpg', cat:'vue'},
+      {id:4, title: 'NovinMarketing', img: 'https://raw.githubusercontent.com/mohsensami/mohsensami/main/images/works/novin.jpg', cat:'react'},
     ]
   )
 
