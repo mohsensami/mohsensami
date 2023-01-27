@@ -1039,11 +1039,12 @@
 
 .experience-container .box img {
   margin: 5% 0;
-  width: 80px;
+  padding: 7px 5px;
+  width: 176px;
   border-radius: 2px;
-  height: 80px;
   float: right;
   opacity: 0.9;
+  background: #ffffffb0;
 }
 
 .experience-container .box h3 {

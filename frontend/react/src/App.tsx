@@ -1,7 +1,6 @@
 import { useState } from 'react'
 // import reactLogo from './assets/react.svg'
 import me from './assets/img/me.jpg'
-import header from './assets/img/header.jpg'
 import { TypeAnimation } from 'react-type-animation';
 import './App.css'
 
@@ -211,8 +210,8 @@ function App() {
               DOWNLOAD CV<i className="fa fa-download" aria-hidden="true"></i>
             </span>
             <span>
-              <a href="/pdf/FA-Najari-CV.pdf">FA</a>
-              <a href="/pdf/ENG-Najari-CV.pdf">ENG</a>
+              <a href="#">FA</a>
+              <a href="#">ENG</a>
             </span>
           </div>
           <div className="social">
@@ -256,7 +255,7 @@ function App() {
     </div>
     <div className="banner-container">
       <div className="background">
-        <img src="./assets/img/header.jpg" alt="sami official website" />
+        <img src="./assets/img/header.min.jpg" alt="sami official website" />
       </div>
       <div className="content">
         <div className="subject">
@@ -345,7 +344,7 @@ function App() {
     <div className="experience-title">Experiences</div>
 
     <div className="experience-container">
-      <div className="grid grid-cols-2">
+      <div className="grid grid-cols-1 md:grid-cols-2">
         <div className="box">
           <img
             src="https://hacoupian.net/wp-content/uploads/2021/08/logo2.png.webp"
@@ -370,7 +369,7 @@ function App() {
             src="https://novinmarketing.com/wp-content/themes/novin/images/logo.png"
             alt=""
           />
-          <h3>Technical services</h3>
+          <h3>fullstack web developer</h3>
           <div className="sub-1">
             <span>NovinMarketing</span> . <span>Full-time</span>
           </div>
@@ -389,7 +388,7 @@ function App() {
             src="https://raw.githubusercontent.com/mohsensami/mohsensami/main/images/works/logo.jpg"
             alt=""
           />
-          <h3>web developer</h3>
+          <h3>php web developer</h3>
           <div className="sub-1">
             <span>Espinasweb</span> . <span>Full-time</span>
           </div>
@@ -405,7 +404,7 @@ function App() {
         </div>
         <div className="box">
           <img
-            src="https://raw.githubusercontent.com/mohsensami/mohsensami/main/images/works/logo.jpg"
+            src="https://30seo.ir/wp-content/uploads/2022/06/%D8%A2%D9%85%D9%88%D8%B2%D8%B4-%D8%B3%D8%A6%D9%88-Seo.png"
             alt=""
           />
           <h3>php web developer</h3>
