@@ -8,10 +8,12 @@ import './App.css'
 function App() {
   const [projects, setProjects] = useState(
     [
-      {id:1, title: 'Shop', img: 'https://raw.githubusercontent.com/mohsensami/mohsensami/main/images/works/shop.jpg', cat:'react'},
-      {id:2, title: 'Hacoupian', img: 'https://raw.githubusercontent.com/mohsensami/mohsensami/main/images/works/hacoupian.jpg', cat:'react'},
-      {id:3, title: 'Diacobin', img: 'https://raw.githubusercontent.com/mohsensami/mohsensami/main/images/works/diacobin.jpg', cat:'vue'},
-      {id:4, title: 'NovinMarketing', img: 'https://raw.githubusercontent.com/mohsensami/mohsensami/main/images/works/novin.jpg', cat:'react'},
+      {id:1, title: 'Shop', img: 'https://raw.githubusercontent.com/mohsensami/mohsensami/main/images/works/shop.jpg', cat:'react', url:'https://shop.hacoupian.net/'},
+      {id:2, title: 'Hacoupian', img: 'https://raw.githubusercontent.com/mohsensami/mohsensami/main/images/works/hacoupian.jpg', cat:'react', url:'https://hacoupian.net/'},
+      {id:3, title: 'Diacobin', img: 'https://raw.githubusercontent.com/mohsensami/mohsensami/main/images/works/diacobin.jpg', cat:'vue', url:'https://diacobin.com/'},
+      {id:4, title: 'NovinMarketing', img: 'https://raw.githubusercontent.com/mohsensami/mohsensami/main/images/works/novin.jpg', cat:'react', url:'https://novinmarketing.com/'},
+      {id:4, title: 'Expense Reactjs', img: 'https://raw.githubusercontent.com/mohsensami/mohsensami/main/images/works/expense.jpg', cat:'react', url:'https://expenses-reactjs.netlify.app/'},
+      {id:4, title: 'Expense Reactjs', img: 'https://raw.githubusercontent.com/mohsensami/mohsensami/main/images/works/course.jpg', cat:'react', url:'https://course-reactjs.netlify.app/'},
     ]
   )
 
@@ -143,7 +145,7 @@ function App() {
               </div>
               <div className="knowledge-content">
                 <span>
-                  <i className="fa fa-check" aria-hidden="true"></i>Functional
+                  <i className="fa fa-check" aria-hidden="true"></i>Functional and Class
                   Components
                 </span>
               </div>
@@ -171,24 +173,29 @@ function App() {
               </div>
               <div className="knowledge-content">
                 <span>
-                  <i className="fa fa-check" aria-hidden="true"></i>Axios
+                  <i className="fa fa-check" aria-hidden="true"></i>Axios, Fetch
                 </span>
               </div>
               <div className="knowledge-content">
                 <span>
-                  <i className="fa fa-check" aria-hidden="true"></i>ES6
+                  <i className="fa fa-check" aria-hidden="true"></i>MySQL, postgresql
                 </span>
               </div>
               <div className="knowledge-content">
                 <span>
-                  <i className="fa fa-check" aria-hidden="true"></i>Formik and
-                  YUP
+                  <i className="fa fa-check" aria-hidden="true"></i>Django and
+                  FastApi
                 </span>
               </div>
               <div className="knowledge-content">
                 <span>
                   <i className="fa fa-check" aria-hidden="true"></i>Familiar
-                  with Design Pattern
+                  Docker
+                </span>
+              </div>
+              <div className="knowledge-content">
+                <span>
+                  <i className="fa fa-check" aria-hidden="true"></i>OOP
                 </span>
               </div>
               <div className="knowledge-content">
@@ -322,7 +329,7 @@ function App() {
           </div>
           <img src={project.img} alt={project.title} />
           <div className="review_btn">
-            <a href="https://n4jari.github.io/student-management-app/" target="_blank" >
+            <a href={project.url} target="_blank" >
               REVIEW NOW
               <i className="fa fa-chevron-right" aria-hidden="true"></i>
             </a>

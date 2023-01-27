@@ -9,8 +9,8 @@
 
 @font-face {
   font-family: "Baloo";
-  src: url("./assets/fonts/BalooDa2-Regular.eot");
-  src: url("./assets/fonts/BalooDa2-Regular.eot?#iefix") format("embedded-opentype"), url("./assets/fonts/BalooDa2-Regular.woff2") format("woff2"), url("./assets/fonts/BalooDa2-Regular.woff") format("woff"), url("./assets/fonts/BalooDa2-Regular.ttf") format("truetype");
+  src: url("/assets/fonts/BalooDa2-Regular.eot");
+  src: url("/assets/fonts/BalooDa2-Regular.eot?#iefix") format("embedded-opentype"), url("/assets/fonts/BalooDa2-Regular.woff2") format("woff2"), url("/assets/fonts/BalooDa2-Regular.woff") format("woff"), url("/assets/fonts/BalooDa2-Regular.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
