@@ -2,6 +2,7 @@ import { useState } from 'react'
 // import reactLogo from './assets/react.svg'
 import me from './assets/img/me.jpg'
 import header from './assets/img/header.jpg'
+import { TypeAnimation } from 'react-type-animation';
 import './App.css'
 
 function App() {
@@ -71,15 +72,15 @@ function App() {
             </div>
             <div className="menu-lan-content">
               <span>English</span>
-              <span>Beginner</span>
+              <span>Learning</span>
             </div>
           </div>
           <div className="menu-skill-container">
-            <p className="title">Skill</p>
+            <p className="title">Skills</p>
             <div className="progress">
               <div className="subject">
-                <span>HTML</span>
-                <span>100%</span>
+                <span>JavaScript</span>
+                <span>90%</span>
               </div>
               <div className="bar">
                 <div></div>
@@ -87,8 +88,8 @@ function App() {
             </div>
             <div className="progress">
               <div className="subject">
-                <span>CSS</span>
-                <span>100%</span>
+                <span>ReactJS</span>
+                <span>90%</span>
               </div>
               <div className="bar">
                 <div></div>
@@ -96,8 +97,8 @@ function App() {
             </div>
             <div className="progress">
               <div className="subject">
-                <span>Java Script</span>
-                <span>60%</span>
+                <span>VueJS</span>
+                <span>90%</span>
               </div>
               <div className="bar">
                 <div></div>
@@ -105,8 +106,17 @@ function App() {
             </div>
             <div className="progress">
               <div className="subject">
-                <span>React JS</span>
-                <span>70%</span>
+                <span>Python</span>
+                <span>80%</span>
+              </div>
+              <div className="bar">
+                <div></div>
+              </div>
+            </div>
+            <div className="progress">
+              <div className="subject">
+                <span>Django</span>
+                <span>85%</span>
               </div>
               <div className="bar">
                 <div></div>
@@ -115,7 +125,7 @@ function App() {
             <div className="progress">
               <div className="subject">
                 <span>WordPress</span>
-                <span>50%</span>
+                <span>100%</span>
               </div>
               <div className="bar">
                 <div></div>
@@ -243,20 +253,33 @@ function App() {
       <div className="content">
         <div className="subject">
           <span className="hey">Hey there . .</span>
+
           <div className="words">
-            <span className="code">&lt;code&gt; </span>
-            <div className="Typewriter" data-testid="typewriter-wrapper">
-              <span className="Typewriter__wrapper">My next goal is Web 3</span>
-              <span className="Typewriter__cursor">|</span>
-            </div>
-            <span className="code"> &lt;/code&gt;</span>
-          </div>
+          <span className="code">&lt;code&gt; </span>
+          <TypeAnimation
+    // Same String at the start will only be typed once, initially
+    sequence={[
+    'Hello World, I am Full-Stack Developer',
+    1000,
+    'Hello World, I am Frontend Developer',
+    1000,
+    'Hello World, I am Backend Developer',
+    1000,
+    ]}
+    speed={30} // Custom Speed from 1-99 - Default Speed: 40
+    style={{ fontSize: '1em' }}
+    wrapper="span" // Animation will be rendered as a <span>
+    repeat={Infinity} // Repeat this Animation Sequence infinitely
+  />
+  <span className="code"> &lt;/code&gt;</span>
+  </div>
+
           <div className="activity">
           <img src="https://camo.githubusercontent.com/04c27c52ca4763154470042b8e2c5b372a8d5dda503f2a7c61d0d72bc1c0d9ed/68747470733a2f2f736b696c6c69636f6e732e6465762f69636f6e733f693d68746d6c2c6373732c6a6176617363726970742c74732c72656163742c6e6578742c6a71756572792c7068702c776f726470726573732c707974686f6e2c646a616e676f2c666173746170692c7675652c6e7578742c7461696c77696e642c626f6f7473747261702c646f636b65722c6769742c6e67696e782c6d7973716c2c706f7374677265732c7265646973267468656d653d6c69676874" alt="My Skills" data-canonical-src="https://skillicons.dev/icons?i=html,css,javascript,ts,react,next,jquery,php,wordpress,python,django,fastapi,vue,nuxt,tailwind,bootstrap,docker,git,nginx,mysql,postgres,redis&amp;theme=light" />
           </div>
         </div>
         <div className="myPic">
-          <img src="./assets/img/header2.jpg" alt="" />
+          {/* <img src="./assets/img/header2.jpg" alt="" /> */}
         </div>
       </div>
     </div>
@@ -292,7 +315,7 @@ function App() {
         {
           projects.map((project:any) => {
             return (
-              <div className="box">
+              <div key={project.id} className="box">
           <div className="title">
             <span>{project.title}</span>
             {/* <span>{project.cat}</span> */}

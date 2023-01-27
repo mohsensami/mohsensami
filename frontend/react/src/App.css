@@ -678,9 +678,9 @@
   margin-top: 2vw;
 }
 .banner-container .content .activity img {
-  width: 1.8vw;
+  /* width: 1.8vw;
   height: 1.8vw;
-  margin: 0 0.5vw;
+  margin: 0 0.5vw; */
 }
 .banner-container .content .myPic {
   position: absolute;
