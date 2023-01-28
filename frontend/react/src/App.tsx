@@ -339,7 +339,7 @@ function App() {
           />
           <h3>Fullstack web developer</h3>
           <div className="sub-1">
-            <span>Bertina</span> . <span>Full-time</span>
+            <span>Hacoupian</span> . <span>Full-time</span>
           </div>
           <div className="sub-2">
             <span>July 2020</span> / <span>November 2022</span> / (
