@@ -11,25 +11,12 @@ function App() {
       {id:2, title: 'Hacoupian', img: 'https://raw.githubusercontent.com/mohsensami/mohsensami/main/images/works/hacoupian.jpg', cat:'react', url:'https://hacoupian.net/'},
       {id:3, title: 'Diacobin', img: 'https://raw.githubusercontent.com/mohsensami/mohsensami/main/images/works/diacobin.jpg', cat:'vue', url:'https://diacobin.com/'},
       {id:4, title: 'NovinMarketing', img: 'https://raw.githubusercontent.com/mohsensami/mohsensami/main/images/works/novin.jpg', cat:'react', url:'https://novinmarketing.com/'},
-      {id:4, title: 'Expense Reactjs', img: 'https://raw.githubusercontent.com/mohsensami/mohsensami/main/images/works/expense.jpg', cat:'react', url:'https://expenses-reactjs.netlify.app/'},
-      {id:4, title: 'Expense Reactjs', img: 'https://raw.githubusercontent.com/mohsensami/mohsensami/main/images/works/course.jpg', cat:'react', url:'https://course-reactjs.netlify.app/'},
-      {id:4, title: 'Expense Reactjs', img: 'https://raw.githubusercontent.com/mohsensami/mohsensami/main/images/works/imdb-scraper.jpg', cat:'react', url:'https://imdb.pythonanywhere.com/'},
+      {id:5, title: 'Expense Reactjs', img: 'https://raw.githubusercontent.com/mohsensami/mohsensami/main/images/works/expense.jpg', cat:'react', url:'https://expenses-reactjs.netlify.app/'},
+      {id:6, title: 'Weather App', img: 'https://raw.githubusercontent.com/mohsensami/mohsensami/main/images/works/weather.jpg', cat:'react', url:'https://weather-ap-react.netlify.app/'},
+      {id:7, title: 'Course Reactjs', img: 'https://raw.githubusercontent.com/mohsensami/mohsensami/main/images/works/course.jpg', cat:'react', url:'https://course-reactjs.netlify.app/'},
+      {id:8, title: 'IMDB Scraper', img: 'https://raw.githubusercontent.com/mohsensami/mohsensami/main/images/works/imdb-scraper.jpg', cat:'react', url:'https://imdb.pythonanywhere.com/'},
     ]
   )
-
-  // const filteredProjects = (cat:any) => {
-  //   setProjects((prev)=> {
-  //     return (
-  //       prev.filter(project=>{
-  //         return project.cat != cat
-  //       })
-  //     )
-  //   })
-  // }
-
-  // const changeProjectsHandler = (project:any) => {
-  //   filteredProjects(project)
-  // }
 
   return (
   <div className="App">
