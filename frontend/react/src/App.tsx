@@ -306,7 +306,7 @@ function App() {
     </div>
 
     <div className="work_container">
-      <div className="row">
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-8">
         {
           projects.map((project:any) => {
             return (
@@ -329,7 +329,7 @@ function App() {
       </div>
     </div>
 
-    <div className="experience-title">Experiences</div>
+    <div className="experience-title pt-8">Experiences</div>
 
     <div className="experience-container">
       <div className="grid grid-cols-1 md:grid-cols-2">

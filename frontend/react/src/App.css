@@ -882,9 +882,9 @@
 .work_container .box {
   border-radius: 2px;
   text-transform: uppercase;
-  margin-bottom: 2vw;
+  /* margin-bottom: 2vw; */
   padding: 1.3vw;
-  max-width: 22.8vw;
+  /* max-width: 22.8vw; */
   box-shadow: 0 0 6px rgba(0, 0, 0, 0.15);
   background-color: #2d2d39;
 }
@@ -1005,7 +1005,7 @@
   }
 
   .work_container .box img {
-    height: 43vw;
+    /* height: 43vw; */
     margin: 1.5vw 0;
   }
 }
