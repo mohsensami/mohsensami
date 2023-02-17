@@ -301,7 +301,7 @@ function App() {
         <span>Payame Noor University (North Tehran)</span>
       </div>
       <div className="experience">
-        <span>5 Years</span>
+        <span>6 Years</span>
         <span> Experience</span>
       </div>
       <div className="b_degree">
