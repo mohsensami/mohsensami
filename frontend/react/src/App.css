@@ -906,7 +906,7 @@
   border-radius: 2px;
   margin: 0.5vw 0;
   width: 100%;
-  height: 10vw;
+  /* height: 10vw; */
 }
 
 .work_container .box .review_btn a {
