@@ -7,15 +7,16 @@ import './App.css'
 function App() {
   const [projects, setProjects] = useState(
     [
-      {id:1, title: 'Shop', img: 'https://raw.githubusercontent.com/mohsensami/mohsensami/main/images/works/shop.jpg', cat:'react', url:'https://shop.hacoupian.net/'},
-      {id:2, title: 'Hacoupian', img: 'https://raw.githubusercontent.com/mohsensami/mohsensami/main/images/works/hacoupian.jpg', cat:'react', url:'https://hacoupian.net/'},
+      {id:1, title: 'Shop', img: 'https://raw.githubusercontent.com/mohsensami/mohsensami/main/images/works/shop.jpg', cat:'wordpress', url:'https://shop.hacoupian.net/'},
+      {id:2, title: 'Hacoupian', img: 'https://raw.githubusercontent.com/mohsensami/mohsensami/main/images/works/hacoupian.jpg', cat:'wordpress', url:'https://hacoupian.net/'},
       {id:3, title: 'Diacobin', img: 'https://raw.githubusercontent.com/mohsensami/mohsensami/main/images/works/diacobin.jpg', cat:'vue', url:'https://diacobin.com/'},
-      {id:4, title: 'NovinMarketing', img: 'https://raw.githubusercontent.com/mohsensami/mohsensami/main/images/works/novin.jpg', cat:'react', url:'https://novinmarketing.com/'},
+      {id:4, title: 'NovinMarketing', img: 'https://raw.githubusercontent.com/mohsensami/mohsensami/main/images/works/novin.jpg', cat:'wordpress', url:'https://novinmarketing.com/'},
       {id:5, title: 'Shopping Cart', img: 'https://raw.githubusercontent.com/mohsensami/mohsensami/main/images/works/cart.jpg', cat:'react', url:'https://shopping-cart-stores.netlify.app/'},
       {id:6, title: 'Expense Reactjs', img: 'https://raw.githubusercontent.com/mohsensami/mohsensami/main/images/works/expense.jpg', cat:'react', url:'https://expenses-reactjs.netlify.app/'},
       {id:7, title: 'Weather App', img: 'https://raw.githubusercontent.com/mohsensami/mohsensami/main/images/works/weather.jpg', cat:'react', url:'https://weather-ap-react.netlify.app/'},
       {id:8, title: 'Course Reactjs', img: 'https://raw.githubusercontent.com/mohsensami/mohsensami/main/images/works/course.jpg', cat:'react', url:'https://course-reactjs.netlify.app/'},
-      {id:9, title: 'IMDB Scraper', img: 'https://raw.githubusercontent.com/mohsensami/mohsensami/main/images/works/imdb-scraper.jpg', cat:'react', url:'https://imdb.pythonanywhere.com/'},
+      {id:9, title: 'IMDB Scraper', img: 'https://raw.githubusercontent.com/mohsensami/mohsensami/main/images/works/imdb-scraper.jpg', cat:'django', url:'https://imdb.pythonanywhere.com/'},
+      {id:10, title: 'Discussion Website', img: 'https://raw.githubusercontent.com/mohsensami/mohsensami/main/images/works/discuss.jpg', cat:'django', url:'https://discuss.pythonanywhere.com/'},
     ]
   )
 
@@ -189,6 +190,21 @@ function App() {
               <div className="knowledge-content">
                 <span>
                   <i className="fa fa-check" aria-hidden="true"></i>Git
+                </span>
+              </div>
+              <div className="knowledge-content">
+                <span>
+                  <i className="fa fa-check" aria-hidden="true"></i>Postgre / Redis
+                </span>
+              </div>
+              <div className="knowledge-content">
+                <span>
+                  <i className="fa fa-check" aria-hidden="true"></i>Celery - rabbitMq
+                </span>
+              </div>
+              <div className="knowledge-content">
+                <span>
+                  <i className="fa fa-check" aria-hidden="true"></i>Familiar PWA
                 </span>
               </div>
             </div>
