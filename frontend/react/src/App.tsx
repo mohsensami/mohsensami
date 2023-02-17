@@ -326,7 +326,7 @@ function App() {
         {
           projects.map((project:any) => {
             return (
-              <div key={project.id} className="box">
+              <div key={project.id} className="box flex flex-col justify-between">
           <div className="title">
             <span>{project.title}</span>
             {/* <span>{project.cat}</span> */}
