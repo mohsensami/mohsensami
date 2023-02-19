@@ -17,6 +17,7 @@ function App() {
       {id:8, title: 'Course Reactjs', img: 'https://raw.githubusercontent.com/mohsensami/mohsensami/main/images/works/course.jpg', cat:'react', url:'https://course-reactjs.netlify.app/'},
       {id:9, title: 'IMDB Scraper', img: 'https://raw.githubusercontent.com/mohsensami/mohsensami/main/images/works/imdb-scraper.jpg', cat:'django', url:'https://imdb.pythonanywhere.com/'},
       {id:10, title: 'Discussion Website', img: 'https://raw.githubusercontent.com/mohsensami/mohsensami/main/images/works/discuss.jpg', cat:'django', url:'https://discuss.pythonanywhere.com/'},
+      {id:11, title: 'shop Django', img: 'https://raw.githubusercontent.com/mohsensami/mohsensami/main/images/works/shup.jpg', cat:'django', url:'https://shup.pythonanywhere.com/'},
     ]
   )
 
