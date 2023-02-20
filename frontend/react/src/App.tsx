@@ -7,17 +7,17 @@ import './App.css'
 function App() {
   const [projects, setProjects] = useState(
     [
-      {id:1, title: 'Shop', img: 'https://raw.githubusercontent.com/mohsensami/mohsensami/main/images/works/shop.jpg', cat:'wordpress', url:'https://shop.hacoupian.net/'},
-      {id:2, title: 'Hacoupian', img: 'https://raw.githubusercontent.com/mohsensami/mohsensami/main/images/works/hacoupian.jpg', cat:'wordpress', url:'https://hacoupian.net/'},
-      {id:3, title: 'Diacobin', img: 'https://raw.githubusercontent.com/mohsensami/mohsensami/main/images/works/diacobin.jpg', cat:'vue', url:'https://diacobin.com/'},
-      {id:4, title: 'NovinMarketing', img: 'https://raw.githubusercontent.com/mohsensami/mohsensami/main/images/works/novin.jpg', cat:'wordpress', url:'https://novinmarketing.com/'},
+      {id:1, title: 'Hacoupian Shop', img: 'https://raw.githubusercontent.com/mohsensami/mohsensami/main/images/works/shop.jpg', cat:'wp', url:'https://shop.hacoupian.net/'},
+      {id:2, title: 'Hacoupian Website', img: 'https://raw.githubusercontent.com/mohsensami/mohsensami/main/images/works/hacoupian.jpg', cat:'wp', url:'https://hacoupian.net/'},
+      {id:3, title: 'Diacobin', img: 'https://raw.githubusercontent.com/mohsensami/mohsensami/main/images/works/diacobin.jpg', cat:'wp', url:'https://diacobin.com/'},
+      {id:4, title: 'NovinMarketing', img: 'https://raw.githubusercontent.com/mohsensami/mohsensami/main/images/works/novin.jpg', cat:'wp', url:'https://novinmarketing.com/'},
       {id:5, title: 'Shopping Cart', img: 'https://raw.githubusercontent.com/mohsensami/mohsensami/main/images/works/cart.jpg', cat:'react', url:'https://shopping-cart-stores.netlify.app/'},
       {id:6, title: 'Expense Reactjs', img: 'https://raw.githubusercontent.com/mohsensami/mohsensami/main/images/works/expense.jpg', cat:'react', url:'https://expenses-reactjs.netlify.app/'},
       {id:7, title: 'Weather App', img: 'https://raw.githubusercontent.com/mohsensami/mohsensami/main/images/works/weather.jpg', cat:'react', url:'https://weather-ap-react.netlify.app/'},
       {id:8, title: 'Course Reactjs', img: 'https://raw.githubusercontent.com/mohsensami/mohsensami/main/images/works/course.jpg', cat:'react', url:'https://course-reactjs.netlify.app/'},
       {id:9, title: 'IMDB Scraper', img: 'https://raw.githubusercontent.com/mohsensami/mohsensami/main/images/works/imdb-scraper.jpg', cat:'django', url:'https://imdb.pythonanywhere.com/'},
       {id:10, title: 'Discussion Website', img: 'https://raw.githubusercontent.com/mohsensami/mohsensami/main/images/works/discuss.jpg', cat:'django', url:'https://discuss.pythonanywhere.com/'},
-      {id:11, title: 'shop Django', img: 'https://raw.githubusercontent.com/mohsensami/mohsensami/main/images/works/shup.jpg', cat:'django', url:'https://shup.pythonanywhere.com/'},
+      {id:11, title: 'shop website', img: 'https://raw.githubusercontent.com/mohsensami/mohsensami/main/images/works/shup.jpg', cat:'django', url:'https://shup.pythonanywhere.com/'},
     ]
   )
 
@@ -35,7 +35,7 @@ function App() {
             />
             <div className="menu_profile_content">
               <p className="name">Mohsen Sami</p>
-              <p className="specialty">Full-Stack developer</p>
+              <p className="specialty">Web developer</p>
             </div>
           </div>
         </div>
@@ -271,7 +271,7 @@ function App() {
           <TypeAnimation
     // Same String at the start will only be typed once, initially
     sequence={[
-    'Hello World, I am Full-Stack Developer',
+    'Hello World, I am web Developer',
     1000,
     'Hello World, I am Frontend Developer',
     1000,
@@ -333,8 +333,9 @@ function App() {
             {/* <span>{project.cat}</span> */}
           </div>
           <img src={project.img} alt={project.title} />
+          <div><span className='text-xs text-[#ffc107]'>{project.cat}</span></div>
           <div className="review_btn">
-            <a rel="noopener noreferrer nofollow" href={project.url} target="_blank" >
+            <a className='float-right' rel="noopener noreferrer nofollow" href={project.url} target="_blank" >
               REVIEW NOW
               <i className="fa fa-chevron-right" aria-hidden="true"></i>
             </a>
@@ -355,9 +356,9 @@ function App() {
             src="https://hacoupian.net/wp-content/uploads/2021/08/logo2.png.webp"
             alt=""
           />
-          <h3>Fullstack web developer</h3>
+          <h3>web developer</h3>
           <div className="sub-1">
-            <span>Hacoupian</span> . <span>Full-time</span>
+            <span>Hacoupian</span> . <span>web-time</span>
           </div>
           <div className="sub-2">
             <span>July 2020</span> / <span>November 2022</span> / (
@@ -374,7 +375,7 @@ function App() {
             src="https://novinmarketing.com/wp-content/themes/novin/images/logo.png"
             alt=""
           />
-          <h3>fullstack web developer</h3>
+          <h3>web developer</h3>
           <div className="sub-1">
             <span>NovinMarketing</span> . <span>Full-time</span>
           </div>
