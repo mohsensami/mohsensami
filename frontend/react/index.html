@@ -5,9 +5,12 @@
   <meta charset="UTF-8" />
   <link rel="icon" type="image/svg+xml" href="/vite.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#000000" />
+  <link rel="icon" type="image/png" href="./assets/img/me.png" />
   <link rel="stylesheet" href="./public/assets/css/font-awesom.css">
   <title>mohsensami - fullstack web developer</title>
-  <link rel="manifest" href="./manifest.json" />
+  <link rel="manifest" href="./public/manifest.json" />
+  <link rel="apple-touch-icon" href="./assets/img/me.png" />
   <style>
     body {
       margin: 0;
@@ -53,6 +56,15 @@
       <div class="loader"></div>
     </div>
   </div>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./serviceworker.js')
+          .then((reg) => console.log('Success: ', reg.scope))
+          .catch((err) => console.log('Failure: ', err));
+      })
+    }
+  </script>
   <script type="module" src="/src/main.tsx"></script>
 </body>
 

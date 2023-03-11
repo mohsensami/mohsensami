@@ -3,8 +3,8 @@
   "name": "Mohsen Sami",
   "icons": [
     {
-      "src": "/assets/img/me.jpg",
-      "type": "image/jpg",
+      "src": "/assets/img/me.png",
+      "type": "image/png",
       "sizes": "600x600"
     }
   ],
