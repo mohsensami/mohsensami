@@ -21,6 +21,13 @@ function App() {
     ]
   )
 
+  const [filteredProjects, setFilteredProjects] = useState(projects.filter((q)=> q.cat === 'react'));
+
+  const handleChange = (value:any) => {
+    const newProjects = projects.filter((q)=> q.cat === value);
+    setFilteredProjects(newProjects);
+  }
+
   return (
   <div className="App">
   <div className="menu">
@@ -313,19 +320,18 @@ function App() {
 
     <div className="work-title">
       <span>My Works</span>
-      {/* <select>
-        <option value="all">All</option>
-        <option value="react">React</option>
+      <select onChange={(e)=>handleChange(e.target.value)}>
+        <option value="react">React - Nextjs</option>
+        <option value="django">Django</option>
+        <option value="wp">Wordpress</option>
         <option value="vue">Vue</option>
-        <option value="php">php</option>
-        <option value="python">Python</option>
-      </select> */}
+      </select>
     </div>
 
     <div className="work_container">
       <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-8">
         {
-          projects.map((project:any) => {
+          filteredProjects.map((project:any) => {
             return (
               <div key={project.id} className="box flex flex-col justify-between">
           <div className="title">
