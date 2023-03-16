@@ -11,6 +11,7 @@ function App() {
       {id:2, title: 'Hacoupian Website', img: 'https://raw.githubusercontent.com/mohsensami/mohsensami/main/images/works/hacoupian.jpg', cat:'wp', url:'https://hacoupian.net/'},
       {id:3, title: 'Diacobin', img: 'https://raw.githubusercontent.com/mohsensami/mohsensami/main/images/works/diacobin.jpg', cat:'wp', url:'https://diacobin.com/'},
       {id:4, title: 'NovinMarketing', img: 'https://raw.githubusercontent.com/mohsensami/mohsensami/main/images/works/novin.jpg', cat:'wp', url:'https://novinmarketing.com/'},
+      {id:5, title: 'Shopping Cart', img: 'https://raw.githubusercontent.com/mohsensami/mohsensami/main/images/works/next-blog.jpg', cat:'react', url:'https://blog-sami.vercel.app/'},
       {id:5, title: 'Shopping Cart', img: 'https://raw.githubusercontent.com/mohsensami/mohsensami/main/images/works/cart.jpg', cat:'react', url:'https://shopping-cart-stores.netlify.app/'},
       {id:6, title: 'Expense Reactjs', img: 'https://raw.githubusercontent.com/mohsensami/mohsensami/main/images/works/expense.jpg', cat:'react', url:'https://expenses-reactjs.netlify.app/'},
       {id:7, title: 'Weather App', img: 'https://raw.githubusercontent.com/mohsensami/mohsensami/main/images/works/weather.jpg', cat:'react', url:'https://weather-ap-react.netlify.app/'},
