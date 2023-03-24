@@ -9,7 +9,7 @@ function Banner() {
         </div>
         <div className="content">
           <div className="subject">
-            <span className="hey">Hey there . .</span>
+            <span className="hey">Hi there . .</span>
 
             <div className="words">
               <span className="code">&lt;code&gt; </span>
