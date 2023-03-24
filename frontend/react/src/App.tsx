@@ -17,12 +17,14 @@ function App() {
     { id: 4, title: "NovinMarketing", img: "https://raw.githubusercontent.com/mohsensami/mohsensami/main/images/works/novin.jpg", cat: "wp", url: "https://novinmarketing.com/" },
     { id: 5, title: "nextjs blog", img: "https://raw.githubusercontent.com/mohsensami/mohsensami/main/images/works/next-blog.jpg", cat: "react", url: "https://blog-sami.vercel.app/" },
     { id: 6, title: "Shopping Cart", img: "https://raw.githubusercontent.com/mohsensami/mohsensami/main/images/works/cart.jpg", cat: "react", url: "https://shopping-cart-stores.netlify.app/" },
-    { id: 7, title: "Expense Reactjs", img: "https://raw.githubusercontent.com/mohsensami/mohsensami/main/images/works/expense.jpg", cat: "react", url: "https://expenses-reactjs.netlify.app/" },
-    { id: 8, title: "Weather App", img: "https://raw.githubusercontent.com/mohsensami/mohsensami/main/images/works/weather.jpg", cat: "react", url: "https://weather-ap-react.netlify.app/" },
-    { id: 9, title: "Course Reactjs", img: "https://raw.githubusercontent.com/mohsensami/mohsensami/main/images/works/course.jpg", cat: "react", url: "https://course-reactjs.netlify.app/" },
-    { id: 10, title: "IMDB Scraper", img: "https://raw.githubusercontent.com/mohsensami/mohsensami/main/images/works/imdb-scraper.jpg", cat: "django", url: "https://imdb.pythonanywhere.com/" },
-    { id: 11, title: "Discussion Website", img: "https://raw.githubusercontent.com/mohsensami/mohsensami/main/images/works/discuss.jpg", cat: "django", url: "https://discuss.pythonanywhere.com/" },
-    { id: 12, title: "shop website", img: "https://raw.githubusercontent.com/mohsensami/mohsensami/main/images/works/shup.jpg", cat: "django", url: "https://shup.pythonanywhere.com/" },
+    { id: 7, title: "Shopping Cart", img: "https://raw.githubusercontent.com/mohsensami/mohsensami/main/images/works/fileuploader.jpg", cat: "react", url: "https://file-uploader-sami.vercel.app/" },
+    { id: 8, title: "Shopping Cart", img: "https://raw.githubusercontent.com/mohsensami/mohsensami/main/images/works/githubfinder.jpg", cat: "react", url: "https://githubfinder-sami.netlify.app/" },
+    { id: 9, title: "Expense Reactjs", img: "https://raw.githubusercontent.com/mohsensami/mohsensami/main/images/works/expense.jpg", cat: "react", url: "https://expenses-reactjs.netlify.app/" },
+    { id: 10, title: "Weather App", img: "https://raw.githubusercontent.com/mohsensami/mohsensami/main/images/works/weather.jpg", cat: "react", url: "https://weather-ap-react.netlify.app/" },
+    { id: 11, title: "Course Reactjs", img: "https://raw.githubusercontent.com/mohsensami/mohsensami/main/images/works/course.jpg", cat: "react", url: "https://course-reactjs.netlify.app/" },
+    { id: 12, title: "IMDB Scraper", img: "https://raw.githubusercontent.com/mohsensami/mohsensami/main/images/works/imdb-scraper.jpg", cat: "django", url: "https://imdb.pythonanywhere.com/" },
+    { id: 13, title: "Discussion Website", img: "https://raw.githubusercontent.com/mohsensami/mohsensami/main/images/works/discuss.jpg", cat: "django", url: "https://discuss.pythonanywhere.com/" },
+    { id: 14, title: "shop website", img: "https://raw.githubusercontent.com/mohsensami/mohsensami/main/images/works/shup.jpg", cat: "django", url: "https://shup.pythonanywhere.com/" },
   ]);
 
   const [filteredProjects, setFilteredProjects] = useState(projects.filter((q) => q.cat === "react"));
@@ -51,7 +53,7 @@ function App() {
             <option value="react">React - Nextjs</option>
             <option value="django">Django</option>
             <option value="wp">Wordpress</option>
-            <option value="vue">Vue</option>
+            {/* <option value="vue">Vue</option> */}
           </select>
         </div>
 
