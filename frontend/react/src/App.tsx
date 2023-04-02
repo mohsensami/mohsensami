@@ -15,7 +15,7 @@ function App() {
     { id: 2, title: "Hacoupian Website", img: "https://raw.githubusercontent.com/mohsensami/mohsensami/main/images/works/hacoupian.jpg", cat: "wp", url: "https://hacoupian.net/" },
     { id: 3, title: "Diacobin", img: "https://raw.githubusercontent.com/mohsensami/mohsensami/main/images/works/diacobin.jpg", cat: "wp", url: "https://diacobin.com/" },
     { id: 4, title: "NovinMarketing", img: "https://raw.githubusercontent.com/mohsensami/mohsensami/main/images/works/novin.jpg", cat: "wp", url: "https://novinmarketing.com/" },
-    { id: 5, title: "nextjs Shop", img: "https://raw.githubusercontent.com/mohsensami/mohsensami/main/images/works/next-shop.jpg", cat: "react", url: "https://shop-sami.vercel.app/" },
+    { id: 5, title: "nextjs Shop", img: "https://raw.githubusercontent.com/mohsensami/mohsensami/main/images/works/next-shop2.jpg", cat: "react", url: "https://shop-sami.vercel.app/" },
     { id: 6, title: "nextjs blog", img: "https://raw.githubusercontent.com/mohsensami/mohsensami/main/images/works/next-blog.jpg", cat: "react", url: "https://blog-sami.vercel.app/" },
     { id: 7, title: "Shopping Cart", img: "https://raw.githubusercontent.com/mohsensami/mohsensami/main/images/works/cart.jpg", cat: "react", url: "https://shopping-cart-stores.netlify.app/" },
     { id: 8, title: "File Uploader", img: "https://raw.githubusercontent.com/mohsensami/mohsensami/main/images/works/fileuploader.jpg", cat: "react", url: "https://file-uploader-sami.vercel.app/" },
