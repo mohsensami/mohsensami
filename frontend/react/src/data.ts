@@ -12,7 +12,7 @@ export const data = [
   { id: 11, title: "Github Finder", img: "https://raw.githubusercontent.com/mohsensami/mohsensami/main/images/works/githubfinder.jpg", cat: "react", url: "https://githubfinder-sami.netlify.app/" },
   { id: 12, title: "Expense Reactjs", img: "https://raw.githubusercontent.com/mohsensami/mohsensami/main/images/works/expense.jpg", cat: "react", url: "https://expenses-reactjs.netlify.app/" },
   { id: 13, title: "Weather App", img: "https://raw.githubusercontent.com/mohsensami/mohsensami/main/images/works/weather.jpg", cat: "react", url: "https://weather-ap-react.netlify.app/" },
-  { id: 14, title: "Course Reactjs", img: "https://raw.githubusercontent.com/mohsensami/mohsensami/main/images/works/course.jpg", cat: "react", url: "https://course-reactjs.netlify.app/" },
+  // { id: 14, title: "Course Reactjs", img: "https://raw.githubusercontent.com/mohsensami/mohsensami/main/images/works/course.jpg", cat: "react", url: "https://course-reactjs.netlify.app/" },
   { id: 15, title: "IMDB Scraper", img: "https://raw.githubusercontent.com/mohsensami/mohsensami/main/images/works/imdb-scraper.jpg", cat: "django", url: "https://imdb.pythonanywhere.com/" },
   { id: 16, title: "Discussion Website", img: "https://raw.githubusercontent.com/mohsensami/mohsensami/main/images/works/discuss.jpg", cat: "django", url: "https://discuss.pythonanywhere.com/" },
   { id: 17, title: "shop website", img: "https://raw.githubusercontent.com/mohsensami/mohsensami/main/images/works/shup.jpg", cat: "django", url: "https://shup.pythonanywhere.com/" },
