@@ -25,7 +25,7 @@ function Banner() {
             </div>
 
             <div className="activity">
-              <img src="https://camo.githubusercontent.com/04c27c52ca4763154470042b8e2c5b372a8d5dda503f2a7c61d0d72bc1c0d9ed/68747470733a2f2f736b696c6c69636f6e732e6465762f69636f6e733f693d68746d6c2c6373732c6a6176617363726970742c74732c72656163742c6e6578742c6a71756572792c7068702c776f726470726573732c707974686f6e2c646a616e676f2c666173746170692c7675652c6e7578742c7461696c77696e642c626f6f7473747261702c646f636b65722c6769742c6e67696e782c6d7973716c2c706f7374677265732c7265646973267468656d653d6c69676874" alt="My Skills" data-canonical-src="https://skillicons.dev/icons?i=html,css,javascript,ts,react,next,jquery,php,wordpress,python,django,fastapi,vue,nuxt,tailwind,bootstrap,docker,git,nginx,mysql,postgres,redis&amp;theme=light" />
+              <img src="https://skillicons.dev/icons?i=html,css,javascript,ts,react,next,jquery,php,wordpress,python,django,fastapi,vue,tailwind,bootstrap,docker,git,nginx,mysql,postgres,redis&amp;theme=light" alt="My Skills" data-canonical-src="https://skillicons.dev/icons?i=html,css,javascript,ts,react,next,jquery,php,wordpress,python,django,fastapi,vue,tailwind,bootstrap,docker,git,nginx,mysql,postgres,redis&amp;theme=light" />
             </div>
           </div>
           <div className="myPic">{/* <img src="./assets/img/header2.jpg" alt="" /> */}</div>
