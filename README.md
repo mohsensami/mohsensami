@@ -25,7 +25,7 @@
 
 <div>
 
-![Snake animation](https://raw.githubusercontent.com/mohsensami/mohsensami/main/images/github/snake.svg)
+![Snake animation](https://raw.githubusercontent.com/mohsensami/mohsensami/main/images/github/snake1.svg)
 
 </div>
 
