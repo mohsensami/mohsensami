@@ -6,13 +6,13 @@
 
 <div align="center">
 
-<p align="left">I'm a software engineer with many yaers of professional experience designing and developing reusable and scalable web applications. Enthuasiastic about acquiring new skills from other engineers. Proficent in Reactjs, Vue,js, Python, Javascript and modern web ecosystem. In the prior position, made several APIs, websites, dashboards, CMSes and had experience of refactoring and writing more maintainable and efficient code.</p>
+<p align="left">I'm a software engineer with many yaers of professional experience designing and developing reusable and scalable web applications. Enthuasiastic about acquiring new skills from other engineers. Proficent in Reactjs, Javascript and modern web ecosystem. In the prior position, made several APIs, websites, dashboards, CMSes and had experience of refactoring and writing more maintainable and efficient code.</p>
 </div>
 
 <br>
 <br>
 
-[![My Skills](https://skillicons.dev/icons?i=html,css,javascript,ts,react,next,jquery,php,wordpress,python,django,tailwind,bootstrap,docker,git,nginx,mysql,postgres,redis&theme=light)](http://msami.ir)
+[![My Skills](https://skillicons.dev/icons?i=html,css,javascript,ts,react,next,jquery,php,wordpress,python,django,tailwind,mui,bootstrap,docker,git,nginx,mysql,postgres,redis&theme=light)](http://msami.ir)
 
 <div align="center">
   <a href="https://github.com/mohsensami">
