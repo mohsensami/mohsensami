@@ -12,7 +12,7 @@ function Degree() {
         </div>
         <div className="b_degree">
           <span>Work In</span>
-          <span>4 Companies</span>
+          <span>5 Companies</span>
         </div>
       </div>
     </>

@@ -114,12 +114,7 @@ function Sidebar() {
                   </div>
                   <div className="knowledge-content">
                     <span>
-                      <i className="fa fa-check" aria-hidden="true"></i>Context API
-                    </span>
-                  </div>
-                  <div className="knowledge-content">
-                    <span>
-                      <i className="fa fa-check" aria-hidden="true"></i>Familiar with Redux
+                      <i className="fa fa-check" aria-hidden="true"></i>Redux Toolkit - React Query
                     </span>
                   </div>
                   <div className="knowledge-content">
