@@ -9,9 +9,25 @@ function Experiences() {
         <div className="grid grid-cols-1 md:grid-cols-2">
           <div className="box">
             <img src="https://hacoupian.net/wp-content/uploads/2021/08/logo2.png.webp" alt="" />
+            <h3>FrontEnd developer</h3>
+            <div className="sub-1">
+              <span>Delfard</span> . <span>full-time</span>
+            </div>
+            <div className="sub-2">
+              <span>May 2023</span> / <span>Present</span> / (<span>1 month</span>)<br />
+              <span>Tehran, Iran</span>
+            </div>
+            {/* <p>
+        Bertina works in the field of hosting and server services and I
+        worked as a technical support in this company.
+      </p> */}
+          </div>
+
+          <div className="box">
+            <img src="https://hacoupian.net/wp-content/uploads/2021/08/logo2.png.webp" alt="" />
             <h3>web developer</h3>
             <div className="sub-1">
-              <span>Hacoupian</span> . <span>web-time</span>
+              <span>Hacoupian</span> . <span>full-time</span>
             </div>
             <div className="sub-2">
               <span>July 2020</span> / <span>November 2022</span> / (<span>2 years and 5 month</span>)<br />
