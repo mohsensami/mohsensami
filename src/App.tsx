@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 
 import "./App.css";
-import PageLayout from "./hoc/PageLayout";
+import PageLayout from "./components/hoc/PageLayout";
 import Home from "./page/Home";
 import Portfolio from "./page/Portfolio";
 import NotFound from "./page/NotFound";
