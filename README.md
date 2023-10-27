@@ -12,7 +12,7 @@
 <br>
 <br>
 
-[![My Skills](https://skillicons.dev/icons?i=html,css,javascript,ts,react,next,jquery,php,wordpress,python,django,tailwind,mui,bootstrap,docker,git,nginx,mysql,postgres,redis&theme=light)](http://msami.ir)
+[![My Skills](https://skillicons.dev/icons?i=html,css,javascript,ts,react,next,jquery,php,wordpress,python,django,tailwind,mui,bootstrap,docker,git,nginx,mysql,postgres,redis,figma&theme=light)](http://msami.ir)
 
 <div align="center">
   <a href="https://github.com/mohsensami">
@@ -23,11 +23,11 @@
   </a>
 </div>
 
-<div>
+<!-- <div>
 
 ![Snake animation](https://raw.githubusercontent.com/mohsensami/mohsensami/main/images/github/snake1.svg)
 
-</div>
+</div> -->
 
 <!-- ![visitors](https://visitor-badge.glitch.me/badge?page_id=mohsensami&left_color=green&right_color=red) -->
 
