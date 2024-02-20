@@ -1,0 +1,25 @@
+.nav-bar {
+  background: #181818;
+  width: 60px;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  z-index: 3;
+  min-height: 500px;
+
+  .logo {
+    display: block;
+    padding: 8px 0;
+
+    img {
+      display: block;
+      margin: 8px auto;
+      width: 24px;
+      height: auto;
+
+      &.sub-logo {
+        width: 50px;
+      }
+    }
+  }
+}
