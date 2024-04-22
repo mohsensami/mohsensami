@@ -1,12 +1,12 @@
 -   👋 Hi, I’m @mohsensami<img align="right" alt="code" src="https://raw.githubusercontent.com/mohsensami/mohsensami/main/images/github/code.gif" width="400" />
 -   👀 I’m interested in web development
 -   🌱 I’m looking to collaborate on any web based projects
--   📫 email me on mohsensami88@gmail.com
+-   📫 email me on mohsensami.work@gmail.com
 <!-- -   💞️ I’m currently learning next.js. -->
 
 <div align="center">
 
-<p align="left">I'm a software engineer with many yaers of professional experience designing and developing reusable and scalable web applications. Enthuasiastic about acquiring new skills from other engineers. Proficent in Reactjs, Javascript and modern web ecosystem. In the prior position, made several APIs, websites, dashboards, CMSes and had experience of refactoring and writing more maintainable and efficient code.</p>
+<p align="left">I am a highly skilled full-stack developer with +6 years of experience in web development. I have expertise in WordPress (3.5 years), and React.js (3 years), and have also self-studied Next.js. Additionally, I have hands-on experience working with MongoDB and MySQL databases. I have worked with 5 different companies, delivering projects on time and within budget. Continuously learning and staying up to date with the latest web development trends, I am passionate about creating exceptional digital experiences. As a collaborative team player with excellent communication skills, I pride myself on my ability to adapt and take on new challenges.</p>
 </div>
 
 <br>
