@@ -13,14 +13,14 @@
 
 [![My Skills](https://skillicons.dev/icons?i=html,css,javascript,ts,react,next,jquery,php,wordpress,python,django,tailwind,mui,bootstrap,docker,git,nginx,mysql,postgres,redis,figma&theme=light)](http://msami.ir)
 
-<div align="center">
+<!-- <div align="center">
   <a href="https://github.com/mohsensami">
     <img height="180em" src="https://github-readme-stats.vercel.app/api?username=mohsensami&show_icons=true&theme=dracula&include_all_commits=true&count_private=true"/>
   </a>
   <a href="https://github.com/mohsensami">
     <img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=mohsensami&layout=compact&langs_count=7&theme=dracula"/>
   </a>
-</div>
+</div> -->
 
 <!-- <div>
 
@@ -29,6 +29,19 @@
 </div> -->
 
 <!-- ![visitors](https://visitor-badge.glitch.me/badge?page_id=mohsensami&left_color=green&right_color=red) -->
+
+## GitHub Usage stats
+
+<p align="center" style="width: 100%" >
+  <a href="https://github.com/nimajanbaz" style="width: 100%" >
+    <img src="https://github-readme-streak-stats.herokuapp.com?user=nimajanbaz&theme=cobalt2&hide_border=true" alt="GitHub Streak" style="width: 70%" />
+  </a>
+    <a href="https://github.com/nimajanbaz">
+    <img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=nimajanbaz&theme=cobalt2" alt="Nima's GitHub streak" style="width: 70%" />
+  </a>
+</p>
+
+<br/>
 
 <p align="center"> 
   Visitor count<br>
