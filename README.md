@@ -33,9 +33,6 @@
 ## GitHub Usage stats
 
 <p align="center" style="width: 100%" >
-  <a href="https://github.com/mohsensami" style="width: 100%" >
-    <img src="https://github-readme-streak-stats.herokuapp.com?user=mohsensami&theme=cobalt2&hide_border=true" alt="GitHub Streak" style="width: 70%" />
-  </a>
     <a href="https://github.com/mohsensami">
     <img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=mohsensami&theme=cobalt2" alt="Mohsen's GitHub streak" style="width: 70%" />
   </a>
