@@ -41,6 +41,7 @@
   </a>
 </p> -->
 
+![](https://raw.githubusercontent.com/abhisheknaiidu/abhisheknaiidu/refs/heads/master/code.gif)
 ![](https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=mohsensami&theme=cobalt2)
 ![](https://github-readme-stats.vercel.app/api/top-langs/?username=mohsensami&theme=prussian&hide_border=false&include_all_commits=true&count_private=false&layout=compact)
 
