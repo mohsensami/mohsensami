@@ -5,8 +5,7 @@
 
 <div align="center">
 
-<p align="left">Since 2017, I have worked as a web developer in five different companies based in Tehran. I specialize in programming with PHP and JavaScript, particularly the React library. I am also familiar with frameworks such as Express.js and Next.js, and have acquired most of my skills through self-learning.
-I am passionate about continuous learning and solving technical challenges, and I thrive in team environments with strong focus and responsibility.</p>
+<p align="left">Since 2017, I have been working as a web developer in five different companies based in Tehran. Prior to that, I studied Computer Software Engineering at university starting in 2008. I specialize in programming with PHP and JavaScript, particularly the React library. I am also familiar with frameworks such as Express.js and Next.js, and have acquired most of my skills through self-learning. I am passionate about continuous learning and solving technical challenges, and I work well in team environments with strong focus and a sense of responsibility.</p>
 </div>
 
 <br>
