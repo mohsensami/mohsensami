@@ -5,7 +5,8 @@
 
 <div align="center">
 
-<p align="left">I am a highly skilled full-stack developer with +8 years of experience in web development. I have expertise in WordPress (3.5 years), and React.js (4 years), and have also self-studied Express.js. Additionally, I have hands-on experience working with MongoDB and MySQL databases. I have worked with 5 different companies, delivering projects on time and within budget. Continuously learning and staying up to date with the latest web development trends, I am passionate about creating exceptional digital experiences. As a collaborative team player with excellent communication skills, I pride myself on my ability to adapt and take on new challenges.</p>
+<p align="left">Since 2017, I have worked as a web developer in five different companies based in Tehran. I specialize in programming with PHP and JavaScript, particularly the React library. I am also familiar with frameworks such as Express.js and Next.js, and have acquired most of my skills through self-learning.
+I am passionate about continuous learning and solving technical challenges, and I thrive in team environments with strong focus and responsibility.</p>
 </div>
 
 <br>
