@@ -1,47 +1,75 @@
-# <img src="https://raw.githubusercontent.com/mohsensami/mohsensami/main/images/github/code.gif" width="40" /> Hi there, I'm Mohsen Sami
+- 👋 Hi, I'm @mohsensami<img align="right" alt="code" src="https://raw.githubusercontent.com/mohsensami/mohsensami/main/images/github/code.gif" width="400" />
+- 👀 I'm interested in web development
+- 🌱 I'm looking to collaborate on any web based projects
+<!-- -   💞️ I'm currently learning next.js and Express.js. -->
 
 <div align="center">
-  <img src="https://raw.githubusercontent.com/mohsensami/mohsensami/main/images/github/code.gif" width="400" />
+
+<p align="left">I am a passionate frontend and backend developer with over 8 years of hands-on experience in React.js, Next.js, WordPress, Node.js, and Express.js, specializing in crafting beautiful, functional, and high-performance web applications. I have worked with many leading tech companies in Tehran and completed numerous freelance projects, bridging the gap between creative design and technology to deliver interactive, scalable, and responsive solutions. I am deeply committed to writing clean, maintainable code, building Progressive Web Apps (PWA), and creating fast, mobile-first experiences optimized for modern web standards.</p>
 </div>
 
-## 👨‍💻 About Me
+<br>
+<br>
 
-I am a passionate full-stack developer with over 8 years of experience in crafting beautiful, functional, and high-performance web applications. My expertise spans across React.js, Next.js, WordPress, Node.js, and Express.js. I've collaborated with leading tech companies in Tehran and completed numerous freelance projects, always striving to bridge the gap between creative design and technology.
-
-## 🚀 Skills & Technologies
-
-<div align="center">
-  [![My Skills](https://skillicons.dev/icons?i=html,css,javascript,ts,react,next,jquery,php,wordpress,python,django,tailwind,mui,bootstrap,docker,git,nginx,mysql,postgres,redis,figma&theme=light)](http://msami.netlify.app)
-</div>
+[![My Skills](https://skillicons.dev/icons?i=html,css,javascript,ts,react,next,jquery,php,wordpress,python,django,tailwind,mui,bootstrap,docker,git,nginx,mysql,postgres,redis,figma&theme=light)](http://msami.netlify.app)
 
 ## 📊 GitHub Stats
 
-<div align="center">
-  <img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=mohsensami&theme=github_dark" alt="Mohsen's GitHub stats" />
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=mohsensami&theme=github_dark&hide_border=false&include_all_commits=true&count_private=false&layout=compact" alt="Top Languages" />
+<div align="center" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem;">
+  <a href="https://github.com/mohsensami">
+    <img height="180em" src="https://github-readme-stats.vercel.app/api?username=mohsensami&show_icons=true&theme=dracula&include_all_commits=true&count_private=true"/>
+  </a>
+  <a href="https://github.com/mohsensami">
+    <img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=mohsensami&layout=compact&langs_count=7&theme=dracula"/>
+  </a>
 </div>
 
-## 🏆 GitHub Trophies
-
-<div align="center">
-  <img src="https://github-profile-trophy.vercel.app/?username=mohsensami&theme=onedark&no-frame=true&no-bg=true&margin-w=4" alt="GitHub Trophies" />
+<div align="center" style="margin: 2rem 0;">
+  <a href="https://github.com/mohsensami">
+    <img src="https://github-readme-streak-stats.herokuapp.com?user=mohsensami&theme=cobalt2&hide_border=true" alt="GitHub Streak" style="width: 70%; max-width: 800px;"/>
+  </a>
 </div>
 
-## 📈 Activity Graph
-
-<div align="center">
-  <img src="https://github-readme-activity-graph.vercel.app/graph?username=mohsensami&theme=github-dark&hide_border=true" alt="Activity Graph" />
+<div align="center" style="margin: 2rem 0;">
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=mohsensami&theme=cobalt2" alt="Mohsen's GitHub streak" style="width: 70%; max-width: 800px;"/>
 </div>
 
 ## 🌟 Featured Projects
 
-<div align="center">
+<div align="center" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin: 2rem 0;">
   <a href="https://github.com/mohsensami">
-    <img src="https://github-readme-stats.vercel.app/api/pin/?username=mohsensami&repo=your-repo-name&theme=github_dark" />
+    <img src="https://github-readme-stats.vercel.app/api/pin/?username=mohsensami&repo=your-repo-name&theme=github_dark" alt="Project 1" style="width: 100%;"/>
   </a>
   <a href="https://github.com/mohsensami">
-    <img src="https://github-readme-stats.vercel.app/api/pin/?username=mohsensami&repo=your-repo-name&theme=github_dark" />
+    <img src="https://github-readme-stats.vercel.app/api/pin/?username=mohsensami&repo=your-repo-name&theme=github_dark" alt="Project 2" style="width: 100%;"/>
   </a>
+</div>
+
+<div align="center" style="margin: 2rem 0;">
+  <img src="https://raw.githubusercontent.com/abhisheknaiidu/abhisheknaiidu/refs/heads/master/code.gif" alt="Code GIF" style="width: 100%; max-width: 800px;"/>
+</div>
+
+<div align="center" style="margin: 2rem 0;">
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=mohsensami&theme=cobalt2" alt="Profile Details" style="width: 70%; max-width: 800px;"/>
+</div>
+
+<div align="center" style="margin: 2rem 0;">
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=mohsensami&theme=prussian&hide_border=false&include_all_commits=true&count_private=false&layout=compact" alt="Top Languages" style="width: 70%; max-width: 800px;"/>
+</div>
+
+<div align="center" style="margin: 2rem 0;">
+  <p>Visitor count</p>
+  <img src="https://profile-counter.glitch.me/mohsensami/count.svg" alt="Visitor Counter"/>
+</div>
+
+## 📈 Activity Graph
+
+<div align="center" style="margin: 2rem 0;">
+  <img src="https://github-readme-activity-graph.vercel.app/graph?username=mohsensami&theme=github-dark&hide_border=true" alt="Activity Graph" style="width: 100%; max-width: 800px;"/>
+</div>
+
+<div align="center" style="margin: 2rem 0;">
+  <img src="https://raw.githubusercontent.com/mohsensami/mohsensami/main/images/github/snake1.svg" alt="Snake animation"/>
 </div>
 
 ## 📫 Connect with Me
@@ -62,10 +90,4 @@ I am a passionate full-stack developer with over 8 years of experience in crafti
 
 <div align="center">
   <img src="https://profile-counter.glitch.me/mohsensami/count.svg" alt="Visitor Count" />
-</div>
-
----
-
-<div align="center">
-  <img src="https://raw.githubusercontent.com/mohsensami/mohsensami/main/images/github/snake1.svg" alt="Snake animation" />
 </div>
