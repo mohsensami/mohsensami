@@ -7,6 +7,9 @@
 
 <p align="left">I am a passionate frontend and backend developer with over 8 years of hands-on experience in React.js, Next.js, WordPress, Node.js, and Express.js, specializing in crafting beautiful, functional, and high-performance web applications. I have worked with many leading tech companies in Tehran and completed numerous freelance projects, bridging the gap between creative design and technology to deliver interactive, scalable, and responsive solutions. I am deeply committed to writing clean, maintainable code, building Progressive Web Apps (PWA), and creating fast, mobile-first experiences optimized for modern web standards.</p>
 </div>
+<div align="center" style="margin: 2rem 0;">
+  <img src="https://raw.githubusercontent.com/abhisheknaiidu/abhisheknaiidu/refs/heads/master/code.gif" alt="Code GIF" style="width: 100%; max-width: 800px;"/>
+</div>
 
 <br>
 <br>
@@ -24,30 +27,14 @@
   </a>
 </div>
 
+## 🌟 Featured Projects
+
 <div align="center" style="margin: 2rem 0;">
   <a href="https://github.com/mohsensami">
     <img src="https://github-readme-streak-stats.herokuapp.com?user=mohsensami&theme=cobalt2&hide_border=true" alt="GitHub Streak" style="width: 70%; max-width: 800px;"/>
   </a>
 </div>
 
-<div align="center" style="margin: 2rem 0;">
-  <img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=mohsensami&theme=cobalt2" alt="Mohsen's GitHub streak" style="width: 70%; max-width: 800px;"/>
-</div>
-
-## 🌟 Featured Projects
-
-<div align="center" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin: 2rem 0;">
-  <a href="https://github.com/mohsensami">
-    <img src="https://github-readme-stats.vercel.app/api/pin/?username=mohsensami&repo=your-repo-name&theme=github_dark" alt="Project 1" style="width: 100%;"/>
-  </a>
-  <a href="https://github.com/mohsensami">
-    <img src="https://github-readme-stats.vercel.app/api/pin/?username=mohsensami&repo=your-repo-name&theme=github_dark" alt="Project 2" style="width: 100%;"/>
-  </a>
-</div>
-
-<div align="center" style="margin: 2rem 0;">
-  <img src="https://raw.githubusercontent.com/abhisheknaiidu/abhisheknaiidu/refs/heads/master/code.gif" alt="Code GIF" style="width: 100%; max-width: 800px;"/>
-</div>
 
 <div align="center" style="margin: 2rem 0;">
   <img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=mohsensami&theme=cobalt2" alt="Profile Details" style="width: 70%; max-width: 800px;"/>
