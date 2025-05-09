@@ -35,7 +35,6 @@
   </a>
 </div>
 
-
 <div align="center" style="margin: 2rem 0;">
   <img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=mohsensami&theme=cobalt2" alt="Profile Details" style="width: 70%; max-width: 800px;"/>
 </div>
@@ -49,14 +48,8 @@
   <img src="https://profile-counter.glitch.me/mohsensami/count.svg" alt="Visitor Counter"/>
 </div>
 
-## 📈 Activity Graph
-
 <div align="center" style="margin: 2rem 0;">
-  <img src="https://github-readme-activity-graph.vercel.app/graph?username=mohsensami&theme=github-dark&hide_border=true" alt="Activity Graph" style="width: 100%; max-width: 800px;"/>
-</div>
-
-<div align="center" style="margin: 2rem 0;">
-  <img src="https://raw.githubusercontent.com/mohsensami/mohsensami/main/images/github/snake1.svg" alt="Snake animation"/>
+  <img src="./assets/img/github-user-contribution.svg" alt="Snake animation"/>
 </div>
 
 ## 📫 Connect with Me
@@ -77,4 +70,44 @@
 
 <div align="center">
   <img src="https://profile-counter.glitch.me/mohsensami/count.svg" alt="Visitor Count" />
+</div>
+
+## 🏆 GitHub Trophies
+
+<div align="center">
+  <img src="https://github-profile-trophy.vercel.app/?username=mohsensami&theme=radical&no-frame=false&no-bg=true&margin-w=4" alt="GitHub Trophies" />
+</div>
+
+
+## 🛠️ My Development Setup
+
+<div align="center">
+  <img src="https://img.shields.io/badge/OS-Windows-blue?style=for-the-badge&logo=windows&logoColor=white" />
+  <img src="https://img.shields.io/badge/Editor-VS_Code-purple?style=for-the-badge&logo=visual-studio-code&logoColor=white" />
+  <img src="https://img.shields.io/badge/Shell-PowerShell-blue?style=for-the-badge&logo=powershell&logoColor=white" />
+</div>
+
+<!-- ## 📈 Contribution Graph
+
+<div align="center">
+  <img src="https://github-readme-activity-graph.vercel.app/graph?username=mohsensami&theme=github-compact&hide_border=true" alt="Contribution Graph" />
+</div> -->
+
+## 🎯 Current Focus
+
+<div align="center">
+  <img src="https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=next.js&logoColor=white" />
+  <img src="https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white" />
+  <img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white" />
+</div>
+
+## 📚 Latest Blog Posts
+
+<div align="center">
+  <a href="https://dev.to/mohsensami">
+    <img src="https://img.shields.io/badge/Dev.to-0A0A0A?style=for-the-badge&logo=dev.to&logoColor=white" />
+  </a>
+  <a href="https://medium.com/@mohsensami">
+    <img src="https://img.shields.io/badge/Medium-12100E?style=for-the-badge&logo=medium&logoColor=white" />
+  </a>
 </div>
