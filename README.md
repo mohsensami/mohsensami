@@ -3,6 +3,10 @@
 - 🌱 I'm looking to collaborate on any web based projects
 <!-- -   💞️ I'm currently learning next.js and Express.js. -->
 
+<p align="center">
+  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=22&pause=1000&color=F75C7E&center=true&vCenter=true&width=440&height=45&lines=Front-end+Developer;React+%7C+Next.js+%7C+TypeScript;Always+Learning+and+Building" alt="Typing SVG" />
+</p>
+
 <div align="center">
 
 <p align="left">I am a passionate frontend and backend developer with over 8 years of hands-on experience in React.js, Next.js, WordPress, Node.js, and Express.js, specializing in crafting beautiful, functional, and high-performance web applications. I have worked with many leading tech companies in Tehran and completed numerous freelance projects, bridging the gap between creative design and technology to deliver interactive, scalable, and responsive solutions. I am deeply committed to writing clean, maintainable code, building Progressive Web Apps (PWA), and creating fast, mobile-first experiences optimized for modern web standards.</p>
