@@ -20,6 +20,32 @@
 
 [![My Skills](https://skillicons.dev/icons?i=html,css,javascript,ts,react,next,jquery,php,wordpress,python,django,tailwind,mui,bootstrap,docker,git,nginx,mysql,postgres,redis,figma&theme=light)](http://msami.netlify.app)
 
+## 🚀 Deployment Projects
+
+<div align="center" style="width: 100%;">
+
+<table style="width: 100%;">
+  <thead>
+    <tr>
+      <th align="left">Project Name</th>
+      <th align="left">Live Demo 🌐</th>
+      <th align="center">Preview 🖼️</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>🥇 Tidas Gold Gallery Website</td>
+      <td><a href="https://tidasgold.ir">Live</a></td>
+      <td><img src="https://raw.githubusercontent.com/mohsensami/tidas/refs/heads/main/public/images/screenshot.jpg" width="100%"/></td>
+    </tr>
+    <tr>
+  </tbody>
+</table>
+
+</div>
+
+---
+
 ## 📊 GitHub Stats
 
 <div align="center" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem;">
