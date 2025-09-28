@@ -39,6 +39,10 @@
       <td><img src="https://raw.githubusercontent.com/mohsensami/tidas/refs/heads/main/public/images/screenshot.jpg" width="100%"/></td>
     </tr>
     <tr>
+      <td>🛒 Nextjs Shop</td>
+      <td><a href="https://prostore-next-app.vercel.app/">ProStore</a></td>
+      <td><img src="https://raw.githubusercontent.com/mohsensami/nextjs-prostore/refs/heads/main/public/images/Screenshot.jpg" width="100%"/></td>
+    </tr>
   </tbody>
 </table>
 
