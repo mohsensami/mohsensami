@@ -1,0 +1,27 @@
+{
+  "name": "mohsensami",
+  "version": "1.0.0",
+  "description": "- 👋 Hi, I'm @mohsensami<img align=\"right\" alt=\"code\" src=\"https://raw.githubusercontent.com/mohsensami/mohsensami/main/images/github/code.gif\" width=\"400\" />\r - 👀 I'm interested in web development\r - 🌱 I'm looking to collaborate on any web based projects\r <!-- -   💞️ I'm currently learning next.js and Express.js. -->",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/mohsensami/mohsensami.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/mohsensami/mohsensami/issues"
+  },
+  "homepage": "https://github.com/mohsensami/mohsensami#readme",
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^5.1.0"
+  }
+}

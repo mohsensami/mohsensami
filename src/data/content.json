@@ -1,0 +1,229 @@
+{
+  "personal": {
+    "name": "Mohsen Sami",
+    "title": "Frontend Developer | Next.js, React.js",
+    "location": "Tehran, Iran",
+    "bio": "Experienced Frontend Developer with 5+ years of expertise, combining a strong work ethic with versatile technical skills. Passionate about leveraging cutting-edge technologies to build impactful solutions and drive a company's mission forward.",
+    "yearsExperience": "5+",
+    "projectsCompleted": "20+"
+  },
+  "contact": {
+    "email": "mohsensami.pv@gmail.com",
+    "phone": "+98-9033451850",
+    "linkedin": "https://www.linkedin.com/in/mohsensami",
+    "linkedinLabel": "mohsensami"
+  },
+  "experience": [
+    {
+      "title": "Frontend Developer",
+      "company": "Delfard",
+      "location": "On-Site · Tehran, Iran",
+      "period": "04/2021 - Present",
+      "description": "Zohal.io is a streamlined Web Service API provider offering developers and businesses ready-to-integrate APIs for rapid product development",
+      "achievements": [
+        "Launched Zohal.io from scratch, architecting and developing a scalable Next.js monorepo with B2B (API token management) and B2C (no-code) platforms, including a landing page, user dashboard (dashboard.zohal.io), and admin backoffice.",
+        "Led frontend development end-to-end using Mantine, Tailwind, and CSS Modules, while mentoring and managing a junior developer to maintain code quality and best practices.",
+        "Delivered a seamless user experience for both technical (API integration) and non-technical users, driving adoption of the company's web services"
+      ]
+    },
+    {
+      "title": "FullStack Developer",
+      "company": "Hacoupian",
+      "location": "On-Site · Tehran, Iran",
+      "period": "04/2020 - 03/2022",
+      "description": "Property Hunter is an AI-powered proptech platform that analyzes your preferences to recommend the best properties for purchase in any target area.",
+      "achievements": [
+        "As a key contributor to the monorepo project, I led frontend development, architecting and building a responsive Next.js web application and React Native/Expo mobile app with a focus on modularity and seamless user experience.",
+        "Beyond frontend work, I actively contributed to full-stack development—integrating APIs with tRPC, optimizing database operations with Prisma, and ensuring end-to-end system cohesion."
+      ]
+    },
+    {
+      "title": "Backend Developer",
+      "company": "NovinMarketing ",
+      "location": "On-Site · Tehran, Iran",
+      "period": "04/2019 - 02/2020",
+      "description": "Matap is an innovative healthcare consultation platform that connects patients with expert doctors through seamless digital interactions, making specialist care more accessible than ever.",
+      "achievements": [
+        "As the Frontend Developer, I spearheaded the refactoring of Matap’s web and mobile interfaces using React Native, Expo, TypeScript, and WebSocket, enhancing real-time communication between patients and doctors.",
+        "This overhaul optimized the consultation workflow using edge technologies, reducing latency and improving usability across platforms."
+      ]
+    },
+    {
+      "title": "Wordpress Developer",
+      "company": "Espinasweb ",
+      "location": "On-Site · Tehran, Iran",
+      "period": "04/2018 - 02/2019",
+      "description": "Matap is an innovative healthcare consultation platform that connects patients with expert doctors through seamless digital interactions, making specialist care more accessible than ever.",
+      "achievements": [
+        "As the Frontend Developer, I spearheaded the refactoring of Matap’s web and mobile interfaces using React Native, Expo, TypeScript, and WebSocket, enhancing real-time communication between patients and doctors.",
+        "This overhaul optimized the consultation workflow using edge technologies, reducing latency and improving usability across platforms."
+      ]
+    },
+    {
+      "title": "Wordpress Developer",
+      "company": "Seoyab",
+      "location": "On-Site · Tehran, Iran",
+      "period": "04/2017 - 02/2018",
+      "description": "Matap is an innovative healthcare consultation platform that connects patients with expert doctors through seamless digital interactions, making specialist care more accessible than ever.",
+      "achievements": [
+        "As the Frontend Developer, I spearheaded the refactoring of Matap’s web and mobile interfaces using React Native, Expo, TypeScript, and WebSocket, enhancing real-time communication between patients and doctors.",
+        "This overhaul optimized the consultation workflow using edge technologies, reducing latency and improving usability across platforms."
+      ]
+    }
+  ],
+  "skills": [
+    {
+      "category": "Framework",
+      "items": [
+        { "name": "Next.js", "level": 80 },
+        { "name": "React.js", "level": 80 }
+      ]
+    },
+    {
+      "category": "Language",
+      "items": [
+        { "name": "TypeScript", "level": 90 },
+        { "name": "JavaScript", "level": 75 }
+      ]
+    },
+    {
+      "category": "Mobile",
+      "items": [
+        { "name": "React Native", "level": 75 },
+        { "name": "Expo", "level": 85 }
+      ]
+    },
+    {
+      "category": "Library",
+      "items": [
+        { "name": "React-Hook-Form", "level": 95 },
+        { "name": "React-Query", "level": 95 },
+        { "name": "Zod", "level": 95 },
+        { "name": "CVA", "level": 95 },
+        { "name": "React-Table", "level": 80 }
+      ]
+    },
+    {
+      "category": "Styling",
+      "items": [
+        { "name": "Tailwind CSS", "level": 95 },
+        { "name": "Nativewind", "level": 85 }
+      ]
+    },
+    {
+      "category": "State Management",
+      "items": [
+        { "name": "Zustand", "level": 80 },
+        { "name": "Redux", "level": 75 }
+      ]
+    },
+    {
+      "category": "API & Backend",
+      "items": [
+        { "name": "TRPC", "level": 50 },
+        { "name": "REST APIs", "level": 50 }
+      ]
+    },
+    {
+      "category": "UI Libraries",
+      "items": [
+        { "name": "ShadCN", "level": 95 },
+        { "name": "Mantine", "level": 95 },
+        { "name": "Material UI", "level": 75 }
+      ]
+    },
+    {
+      "category": "Tools & DevOps",
+      "items": [
+        { "name": "TurboRepo", "level": 85 },
+        { "name": "Git", "level": 85 }
+      ]
+    }
+  ],
+  "education": {
+    "degree": "Bachelor's Degree of Computer Engineering (Software)",
+    "institution": "PatameNoor University",
+    "period": "06/2014",
+    "descriptions": [
+      "Completed a comprehensive Computer Engineering program specializing in Software Engineering, building a strong foundation in algorithms, data structures, software architecture, and modern development practices.",
+      "Developed practical skills through academic projects and coursework that directly translate to real-world application development, emphasizing clean code, scalability, and user-centric design."
+    ]
+  },
+  "gameMode": {
+    "hints": {
+      "simpleMode": "Fun's not your thing? Go simple.",
+      "skills": "drag the bubble left to see my skills",
+      "experience": "drag the bubble right to see my experience",
+      "education": "to see my education",
+      "educationKey": "E",
+      "about": "to see about me",
+      "aboutKey": "A",
+      "contact": "for contact",
+      "contactKey": "C"
+    },
+    "buttons": {
+      "switchToSimple": "Switch to Simple Mode",
+      "switchToGame": "Switch to Game Mode",
+      "resumeDownload": "Download My Resume"
+    }
+  },
+  "sections": {
+    "about": {
+      "title": "About Me",
+      "subtitle": "Crafting Digital Experiences",
+      "paragraphs": [
+        "I am a passionate frontend and backend developer with over 8 years of hands-on experience in React.js, Next.js, WordPress, Node.js, and Express.js, specializing in crafting beautiful, functional, and high-performance web applications. I have worked with many leading tech companies in Tehran and completed numerous freelance projects, bridging the gap between creative design and technology to deliver interactive, scalable, and responsive solutions.",
+        " I am deeply committed to writing clean, maintainable code, building Progressive Web Apps (PWA), and creating fast, mobile-first experiences optimized for modern web standards."
+      ],
+      "stats": [
+        { "value": "8+", "label": "Years Experience" },
+        { "value": "15+", "label": "Tech Stack" }
+      ],
+      "videoAlt": "Your browser does not support the video tag."
+    },
+    "experience": {
+      "title": "Experience Timeline"
+    },
+    "skills": {
+      "title": "Tech Stack",
+      "proficiencyLabel": "Proficiency"
+    },
+    "education": {
+      "title": "Education"
+    },
+    "contact": {
+      "title": "Get In Touch",
+      "description": "I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision."
+    }
+  },
+  "footer": {
+    "builtWith": "Built with",
+    "by": "by",
+    "author": "Mohsen Sami",
+    "copyright": "All rights reserved."
+  },
+  "achievements": {
+    "goldenButtonLabel": "Unlock Final Achievement",
+    "modalTitle": "🎉 Congratulations!",
+    "modalMessage": "You've completed all the achievements and explored every corner of this portfolio!",
+    "modalSubMessage": "I'd love to hear your thoughts about this experience.",
+    "feedbackPrompt": "Share your feedback via email:",
+    "emailButtonLabel": "Send Feedback",
+    "closeButtonLabel": "Close"
+  },
+  "gamification": {
+    "tasks": {
+      "action_1": "Download my resume",
+      "action_2": "Drag buttons in correct direction (game mode)",
+      "action_3": "Interact with 3D scene (simple mode)",
+      "action_4": "Use keyboard shortcuts (A, E, or C keys)",
+      "action_5": "Scroll to end of simple mode",
+      "action_6": "Visit experience cards",
+      "action_7": "Switch between modes",
+      "action_8": "Explode a particle (game mode)",
+      "action_9": "Activate all tech stack card achievements simultaneously",
+      "action_10": "Click the golden achievement button"
+    },
+    "hintLabel": "Need a hint?"
+  }
+}
