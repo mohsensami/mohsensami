@@ -34,6 +34,11 @@
   </thead>
   <tbody>
     <tr>
+      <td>🏠 Nextjs Property</td>
+      <td><a href="https://next-property-two.vercel.app/">Live</a></td>
+      <td><img src="https://raw.githubusercontent.com/mohsensami/next-property/refs/heads/main/public/images/screenshot.jpg" width="100%"/></td>
+    </tr>
+    <tr>
       <td>🥇 Tidas Gold Gallery Website</td>
       <td><a href="https://tidasgold.ir">Live</a></td>
       <td><img src="https://raw.githubusercontent.com/mohsensami/tidas/refs/heads/main/public/images/screenshot.jpg" width="100%"/></td>
