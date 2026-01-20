@@ -75,15 +75,16 @@
     {
       "category": "Framework",
       "items": [
-        { "name": "Next.js", "level": 80 },
-        { "name": "React.js", "level": 80 }
+        { "name": "Next.js", "level": 90 },
+        { "name": "Express.js", "level": 80 }
       ]
     },
     {
       "category": "Language",
       "items": [
-        { "name": "TypeScript", "level": 90 },
-        { "name": "JavaScript", "level": 75 }
+        { "name": "JavaScript", "level": 90 },
+        { "name": "TypeScript", "level": 85 },
+        { "name": "PHP", "level": 75 }
       ]
     },
     {
@@ -96,6 +97,7 @@
     {
       "category": "Library",
       "items": [
+        { "name": "React.js", "level": 80 },
         { "name": "React-Hook-Form", "level": 95 },
         { "name": "React-Query", "level": 95 },
         { "name": "Zod", "level": 95 },
@@ -127,8 +129,9 @@
     {
       "category": "UI Libraries",
       "items": [
-        { "name": "ShadCN", "level": 95 },
-        { "name": "Mantine", "level": 95 },
+        { "name": "Antd", "level": 95 },
+        { "name": "ShadCN", "level": 90 },
+        { "name": "Mantine", "level": 85 },
         { "name": "Material UI", "level": 75 }
       ]
     },
