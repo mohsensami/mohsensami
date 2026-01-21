@@ -76,7 +76,8 @@
       "category": "Framework",
       "items": [
         { "name": "Next.js", "level": 90 },
-        { "name": "Express.js", "level": 80 }
+        { "name": "Express.js", "level": 80 },
+        { "name": "Django", "level": 65 }
       ]
     },
     {
@@ -84,7 +85,8 @@
       "items": [
         { "name": "JavaScript", "level": 90 },
         { "name": "TypeScript", "level": 85 },
-        { "name": "PHP", "level": 75 }
+        { "name": "PHP", "level": 75 },
+        { "name": "Python", "level": 65 }
       ]
     },
     {
@@ -109,7 +111,7 @@
       "category": "Styling",
       "items": [
         { "name": "Tailwind CSS", "level": 95 },
-        { "name": "Nativewind", "level": 85 }
+        { "name": "Bootstrap", "level": 95 }
       ]
     },
     {
