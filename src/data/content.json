@@ -101,10 +101,9 @@
       "items": [
         { "name": "React.js", "level": 80 },
         { "name": "React-Hook-Form", "level": 95 },
-        { "name": "React-Query", "level": 95 },
-        { "name": "Zod", "level": 95 },
-        { "name": "CVA", "level": 95 },
-        { "name": "React-Table", "level": 80 }
+        { "name": "React-Query", "level": 90 },
+        { "name": "Zod", "level": 75 },
+        { "name": "Yup", "level": 75 }
       ]
     },
     {
