@@ -93,7 +93,7 @@
       "category": "Mobile",
       "items": [
         { "name": "React Native", "level": 75 },
-        { "name": "Expo", "level": 85 }
+        { "name": "PWA", "level": 75 }
       ]
     },
     {
