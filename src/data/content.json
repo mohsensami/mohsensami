@@ -122,10 +122,7 @@
     },
     {
       "category": "API & Backend",
-      "items": [
-        { "name": "TRPC", "level": 50 },
-        { "name": "REST APIs", "level": 50 }
-      ]
+      "items": [{ "name": "REST APIs", "level": 90 }]
     },
     {
       "category": "UI Libraries",
