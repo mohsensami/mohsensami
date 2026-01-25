@@ -116,7 +116,7 @@
     {
       "category": "State Management",
       "items": [
-        { "name": "Zustand", "level": 80 },
+        { "name": "Zustand", "level": 85 },
         { "name": "Redux", "level": 75 }
       ]
     },
