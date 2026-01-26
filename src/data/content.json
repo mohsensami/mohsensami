@@ -103,7 +103,8 @@
         { "name": "React-Hook-Form", "level": 95 },
         { "name": "React-Query", "level": 90 },
         { "name": "Zod", "level": 75 },
-        { "name": "Yup", "level": 75 }
+        { "name": "Yup", "level": 75 },
+        { "name": "React-Router-Dom", "level": 90 }
       ]
     },
     {
