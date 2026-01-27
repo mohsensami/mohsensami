@@ -104,7 +104,8 @@
         { "name": "React-Query", "level": 90 },
         { "name": "Zod", "level": 75 },
         { "name": "Yup", "level": 75 },
-        { "name": "React-Router-Dom", "level": 90 }
+        { "name": "React-Router-Dom", "level": 90 },
+        { "name": "Rechart", "level": 75 }
       ]
     },
     {
