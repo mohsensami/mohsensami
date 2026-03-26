@@ -9,7 +9,7 @@
 # General
 --------------------------------------------------------------*/
 body {
-  font-family: "Open Sans", sans-serif;
+  font-family: 'Open Sans', sans-serif;
   background-color: #040404;
   color: #fff;
   position: relative;
@@ -17,9 +17,9 @@ body {
 }
 
 body::before {
-  content: "";
+  content: '';
   position: fixed;
-  background: #040404 url("../img/bg.jpg") top right no-repeat;
+  background: #040404 url('../img/bg.jpg') top right no-repeat;
   background-size: cover;
   left: 0;
   right: 0;
@@ -44,8 +44,13 @@ a:hover {
   text-decoration: none;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: "Raleway", sans-serif;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Raleway', sans-serif;
 }
 
 /*--------------------------------------------------------------
@@ -71,10 +76,11 @@ h1, h2, h3, h4, h5, h6 {
   padding: 0;
   line-height: 1;
   font-weight: 700;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 
-#header h1 a, #header h1 a:hover {
+#header h1 a,
+#header h1 a:hover {
   color: #fff;
   line-height: 1;
   display: inline-block;
@@ -148,7 +154,8 @@ h1, h2, h3, h4, h5, h6 {
   background: rgba(0, 0, 0, 0.9);
 }
 
-#header.header-top .social-links, #header.header-top h2 {
+#header.header-top .social-links,
+#header.header-top h2 {
   display: none;
 }
 
@@ -207,7 +214,7 @@ h1, h2, h3, h4, h5, h6 {
   align-items: center;
   justify-content: space-between;
   padding: 0;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-size: 16px;
   font-weight: 400;
   color: rgba(255, 255, 255, 0.7);
@@ -222,7 +229,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .navbar a:before {
-  content: "";
+  content: '';
   position: absolute;
   width: 0;
   height: 2px;
@@ -234,12 +241,16 @@ h1, h2, h3, h4, h5, h6 {
   transition: all 0.3s ease-in-out 0s;
 }
 
-.navbar a:hover:before, .navbar li:hover > a:before, .navbar .active:before {
+.navbar a:hover:before,
+.navbar li:hover > a:before,
+.navbar .active:before {
   visibility: visible;
   width: 25px;
 }
 
-.navbar a:hover, .navbar .active, .navbar li:hover > a {
+.navbar a:hover,
+.navbar .active,
+.navbar li:hover > a {
   color: #fff;
 }
 
@@ -356,11 +367,11 @@ section .container {
   letter-spacing: 2px;
   text-transform: uppercase;
   color: #aaaaaa;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 
 .section-title h2::after {
-  content: "";
+  content: '';
   width: 120px;
   height: 1px;
   display: inline-block;
@@ -374,7 +385,7 @@ section .container {
   font-size: 36px;
   font-weight: 700;
   text-transform: uppercase;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   color: #fff;
 }
 
@@ -451,7 +462,7 @@ section .container {
 .counts .count-box p {
   padding: 0;
   margin: 0;
-  font-family: "Raleway", sans-serif;
+  font-family: 'Raleway', sans-serif;
   font-size: 14px;
 }
 
@@ -471,7 +482,7 @@ section .container {
   text-transform: uppercase;
   display: block;
   font-weight: 600;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   color: #fff;
 }
 
@@ -487,7 +498,7 @@ section .container {
 .skills .progress-bar {
   width: 1px;
   height: 10px;
-  transition: .9s;
+  transition: 0.9s;
   background-color: #18d26e;
 }
 
@@ -551,7 +562,8 @@ section .container {
   margin: 0 0 0 45px;
 }
 
-.testimonials .testimonial-item .quote-icon-left, .testimonials .testimonial-item .quote-icon-right {
+.testimonials .testimonial-item .quote-icon-left,
+.testimonials .testimonial-item .quote-icon-right {
   color: rgba(255, 255, 255, 0.25);
   font-size: 26px;
 }
@@ -619,7 +631,7 @@ section .container {
   font-size: 18px;
   font-weight: 600;
   text-transform: uppercase;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   color: #18d26e;
   margin-bottom: 10px;
 }
@@ -646,7 +658,7 @@ section .container {
 }
 
 .resume .resume-item::before {
-  content: "";
+  content: '';
   position: absolute;
   width: 16px;
   height: 16px;
@@ -673,7 +685,7 @@ section .container {
   height: 64px;
   background: #18d26e;
   border-radius: 5px;
-  transition: all .3s ease-out 0s;
+  transition: all 0.3s ease-out 0s;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -695,7 +707,7 @@ section .container {
   width: 100%;
   background: rgba(255, 255, 255, 0.15);
   border-radius: 5px;
-  transition: all .3s ease-out 0s;
+  transition: all 0.3s ease-out 0s;
   transform: translateZ(-1px);
 }
 
@@ -732,7 +744,8 @@ section .container {
   background: #35e888;
 }
 
-.services .icon-box:hover h4 a, .services .icon-box:hover p {
+.services .icon-box:hover h4 a,
+.services .icon-box:hover p {
   color: #fff;
 }
 
@@ -767,7 +780,8 @@ section .container {
   border-radius: 4px;
 }
 
-.portfolio #portfolio-flters li:hover, .portfolio #portfolio-flters li.filter-active {
+.portfolio #portfolio-flters li:hover,
+.portfolio #portfolio-flters li.filter-active {
   background: #18d26e;
 }
 
@@ -784,7 +798,7 @@ section .container {
 }
 
 .portfolio .portfolio-wrap::before {
-  content: "";
+  content: '';
   background: rgba(0, 0, 0, 0.6);
   position: absolute;
   left: 30px;
@@ -814,7 +828,7 @@ section .container {
 
 .portfolio .portfolio-wrap .portfolio-info::before {
   display: block;
-  content: "";
+  content: '';
   width: 48px;
   height: 48px;
   position: absolute;
@@ -828,7 +842,7 @@ section .container {
 
 .portfolio .portfolio-wrap .portfolio-info::after {
   display: block;
-  content: "";
+  content: '';
   width: 48px;
   height: 48px;
   position: absolute;
@@ -1017,12 +1031,12 @@ section .container {
   color: #18d26e;
 }
 
-.contact .php-email-form {
+.contact .express-email-form {
   padding: 30px;
   background: rgba(255, 255, 255, 0.08);
 }
 
-.contact .php-email-form .error-message {
+.contact .express-email-form .error-message {
   display: none;
   background: rgba(255, 255, 255, 0.08);
   background: #ed3c0d;
@@ -1031,11 +1045,11 @@ section .container {
   font-weight: 600;
 }
 
-.contact .php-email-form .error-message br + br {
+.contact .express-email-form .error-message br + br {
   margin-top: 25px;
 }
 
-.contact .php-email-form .sent-message {
+.contact .express-email-form .sent-message {
   display: none;
   background: rgba(255, 255, 255, 0.08);
   background: #18d26e;
@@ -1044,15 +1058,15 @@ section .container {
   font-weight: 600;
 }
 
-.contact .php-email-form .loading {
+.contact .express-email-form .loading {
   display: none;
   background: rgba(255, 255, 255, 0.08);
   text-align: center;
   padding: 15px;
 }
 
-.contact .php-email-form .loading:before {
-  content: "";
+.contact .express-email-form .loading:before {
+  content: '';
   display: inline-block;
   border-radius: 50%;
   width: 24px;
@@ -1064,7 +1078,8 @@ section .container {
   animation: animate-loading 1s linear infinite;
 }
 
-.contact .php-email-form input, .contact .php-email-form textarea {
+.contact .express-email-form input,
+.contact .express-email-form textarea {
   border-radius: 0;
   box-shadow: none;
   font-size: 14px;
@@ -1074,34 +1089,38 @@ section .container {
   color: #fff;
 }
 
-.contact .php-email-form input:focus, .contact .php-email-form textarea:focus {
+.contact .express-email-form input:focus,
+.contact .express-email-form textarea:focus {
   background-color: rgba(255, 255, 255, 0.11);
 }
 
-.contact .php-email-form input::-webkit-input-placeholder, .contact .php-email-form textarea::-webkit-input-placeholder {
+.contact .express-email-form input::-webkit-input-placeholder,
+.contact .express-email-form textarea::-webkit-input-placeholder {
   color: rgba(255, 255, 255, 0.3);
   opacity: 1;
 }
 
-.contact .php-email-form input::-moz-placeholder, .contact .php-email-form textarea::-moz-placeholder {
+.contact .express-email-form input::-moz-placeholder,
+.contact .express-email-form textarea::-moz-placeholder {
   color: rgba(255, 255, 255, 0.3);
   opacity: 1;
 }
 
-.contact .php-email-form input::placeholder, .contact .php-email-form textarea::placeholder {
+.contact .express-email-form input::placeholder,
+.contact .express-email-form textarea::placeholder {
   color: rgba(255, 255, 255, 0.3);
   opacity: 1;
 }
 
-.contact .php-email-form input {
+.contact .express-email-form input {
   padding: 10px 15px;
 }
 
-.contact .php-email-form textarea {
+.contact .express-email-form textarea {
   padding: 12px 15px;
 }
 
-.contact .php-email-form button[type="submit"] {
+.contact .express-email-form button[type='submit'] {
   background: #18d26e;
   border: 0;
   padding: 10px 30px;
@@ -1110,7 +1129,7 @@ section .container {
   border-radius: 4px;
 }
 
-.contact .php-email-form button[type="submit"]:hover {
+.contact .express-email-form button[type='submit']:hover {
   background: #15bb62;
 }
 
