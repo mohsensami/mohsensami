@@ -1,17 +1,17 @@
-const path = require('path')
 const express = require('express')
 const fs = require('fs')
 const app = express()
 const port = 3000
 
 const bodyParser = require('body-parser')
+const { setStatics } = require('./utils/statics')
 
 // Set EJS as the view engine
 app.set('view engine', 'ejs')
 app.set('views', 'views')
 
-//* Static Folders
-app.use('/public', express.static(path.join(__dirname, 'public')))
+//* Statics
+setStatics(app)
 
 //Custom Middleware
 app.use(bodyParser.urlencoded({ extended: false }))
