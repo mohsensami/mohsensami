@@ -33,10 +33,14 @@ app.get('/api', (req, res) => {
 
 app.post('/contact', (req, res) => {
   // console.log(req.body)
-  fs.appendFile('message.txt', `${req.body.message} --------`, (err) => {
-    if (err) throw err
-    res.redirect('/')
-  })
+  fs.appendFile(
+    'message.txt',
+    `${JSON.stringify(req.body)} ******** `,
+    (err) => {
+      if (err) throw err
+      res.redirect('/')
+    }
+  )
 })
 
 // Start the server
