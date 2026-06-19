@@ -1,28 +1,33 @@
 {
-  "name": "mohsensami",
-  "version": "1.0.0",
-  "description": "- 👋 Hi, I'm @mohsensami<img align=\"right\" alt=\"code\" src=\"https://raw.githubusercontent.com/mohsensami/mohsensami/main/images/github/code.gif\" width=\"400\" />\r - 👀 I'm interested in web development\r - 🌱 I'm looking to collaborate on any web based projects\r <!-- -   💞️ I'm currently learning next.js and Express.js. -->",
-  "main": "index.js",
+  "name": "dev-blog",
+  "version": "0.1.0",
+  "private": true,
   "scripts": {
-    "start": "node app.js",
-    "dev": "nodemon app",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+ssh://git@github.com/mohsensami/mohsensami.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs",
-  "bugs": {
-    "url": "https://github.com/mohsensami/mohsensami/issues"
-  },
-  "homepage": "https://github.com/mohsensami/mohsensami#readme",
   "dependencies": {
-    "body-parser": "^2.2.2",
-    "ejs": "^3.1.10",
-    "express": "^5.1.0"
+    "bcryptjs": "^3.0.3",
+    "better-sqlite3": "^12.11.1",
+    "drizzle-orm": "^0.45.2",
+    "jose": "^6.2.3",
+    "next": "16.2.9",
+    "react": "19.2.4",
+    "react-dom": "19.2.4",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@types/bcryptjs": "^2.4.6",
+    "@types/better-sqlite3": "^7.6.13",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.2.9",
+    "tailwindcss": "^4",
+    "typescript": "^5"
   }
 }
