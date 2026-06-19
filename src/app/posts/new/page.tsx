@@ -1,6 +1,7 @@
 import { redirect } from "next/navigation";
+import Link from "next/link";
 import { PostForm } from "@/components/PostForm";
-import { getSession } from "@/lib/auth";
+import { auth } from "@/lib/auth";
 import { getAllCategories } from "@/lib/posts";
 
 export const metadata = {
@@ -8,17 +9,17 @@ export const metadata = {
 };
 
 export default async function NewPostPage() {
-  const session = await getSession();
-  if (!session) redirect("/login");
+  const session = await auth();
+  if (!session?.user) redirect("/login?callbackUrl=/posts/new");
 
-  const categories = getAllCategories();
+  const categories = await getAllCategories();
 
   return (
     <main className="mx-auto max-w-3xl px-4 py-8">
       <div className="mb-8">
         <h1 className="text-3xl font-bold text-stone-900">نوشته جدید</h1>
         <p className="mt-2 text-stone-600">
-          مقاله جدیدت رو بنویس و منتشر کن، {session.name}.
+          مقاله جدیدت رو بنویس و منتشر کن، {session.user.name}.
         </p>
       </div>
 

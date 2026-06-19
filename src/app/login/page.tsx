@@ -1,11 +1,26 @@
 import Link from "next/link";
 import { LoginForm } from "@/components/LoginForm";
+import { SocialLoginButtons } from "@/components/SocialLoginButtons";
 
 export const metadata = {
   title: "ورود",
 };
 
-export default function LoginPage() {
+type Props = {
+  searchParams: Promise<{ callbackUrl?: string }>;
+};
+
+export default async function LoginPage({ searchParams }: Props) {
+  const { callbackUrl } = await searchParams;
+  const redirectTo = callbackUrl || "/";
+
+  const googleEnabled = !!(
+    process.env.GOOGLE_CLIENT_ID && process.env.GOOGLE_CLIENT_SECRET
+  );
+  const githubEnabled = !!(
+    process.env.AUTH_GITHUB_ID && process.env.AUTH_GITHUB_SECRET
+  );
+
   return (
     <main className="mx-auto max-w-md px-4 py-12">
       <div className="mb-8 text-center">
@@ -19,7 +34,11 @@ export default function LoginPage() {
       </div>
 
       <section className="rounded-2xl border border-stone-200 bg-white p-6 shadow-sm">
-        <LoginForm />
+        <LoginForm callbackUrl={redirectTo} />
+        <SocialLoginButtons
+          googleEnabled={googleEnabled}
+          githubEnabled={githubEnabled}
+        />
         <p className="mt-6 rounded-lg bg-stone-50 px-3 py-2 text-xs text-stone-500">
           حساب دمو: ali@example.com / 123456
         </p>

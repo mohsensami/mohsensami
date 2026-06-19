@@ -1,127 +1,88 @@
-import { SignJWT, jwtVerify } from "jose";
+import NextAuth from "next-auth";
+import type { NextAuthConfig } from "next-auth";
+import { PrismaAdapter } from "@auth/prisma-adapter";
+import Google from "next-auth/providers/google";
+import GitHub from "next-auth/providers/github";
+import Credentials from "next-auth/providers/credentials";
 import bcrypt from "bcryptjs";
-import { cookies } from "next/headers";
-import { eq } from "drizzle-orm";
-import { getDb } from "./db";
-import { users } from "./db/schema";
+import { prisma } from "@/lib/prisma";
 
-const SESSION_COOKIE = "dev-blog-session";
-const secret = new TextEncoder().encode(
-  process.env.AUTH_SECRET || "dev-blog-secret-change-in-production",
-);
+const providers: NextAuthConfig["providers"] = [
+  Credentials({
+      name: "credentials",
+      credentials: {
+        email: { label: "Email", type: "email" },
+        password: { label: "Password", type: "password" },
+      },
+      async authorize(credentials) {
+        const email = credentials?.email as string | undefined;
+        const password = credentials?.password as string | undefined;
 
-export type SessionUser = {
-  id: number;
-  name: string;
-  email: string;
-};
+        if (!email || !password) return null;
 
-async function createToken(user: SessionUser): Promise<string> {
-  return new SignJWT({ user })
-    .setProtectedHeader({ alg: "HS256" })
-    .setExpirationTime("7d")
-    .sign(secret);
+        const user = await prisma.user.findUnique({
+          where: { email: email.toLowerCase().trim() },
+        });
+
+        if (!user?.passwordHash) return null;
+
+        const valid = bcrypt.compareSync(password, user.passwordHash);
+        if (!valid) return null;
+
+        return {
+          id: user.id,
+          name: user.name,
+          email: user.email,
+          image: user.image,
+        };
+      },
+    }),
+];
+
+if (process.env.GOOGLE_CLIENT_ID && process.env.GOOGLE_CLIENT_SECRET) {
+  providers.push(
+    Google({
+      clientId: process.env.GOOGLE_CLIENT_ID,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+      allowDangerousEmailAccountLinking: true,
+    }),
+  );
 }
 
-export async function getSession(): Promise<SessionUser | null> {
-  const cookieStore = await cookies();
-  const token = cookieStore.get(SESSION_COOKIE)?.value;
-  if (!token) return null;
-
-  try {
-    const { payload } = await jwtVerify(token, secret);
-    return (payload.user as SessionUser) ?? null;
-  } catch {
-    return null;
-  }
+if (process.env.AUTH_GITHUB_ID && process.env.AUTH_GITHUB_SECRET) {
+  providers.push(
+    GitHub({
+      clientId: process.env.AUTH_GITHUB_ID,
+      clientSecret: process.env.AUTH_GITHUB_SECRET,
+      allowDangerousEmailAccountLinking: true,
+    }),
+  );
 }
 
-export async function registerUser(
-  name: string,
-  email: string,
-  password: string,
-): Promise<{ user?: SessionUser; error?: string }> {
-  const db = getDb();
+export const { handlers, auth, signIn, signOut } = NextAuth({
+  adapter: PrismaAdapter(prisma),
+  session: { strategy: "jwt" },
+  pages: {
+    signIn: "/login",
+  },
+  providers,
+  trustHost: true,
+  callbacks: {
+    async jwt({ token, user }) {
+      if (user) {
+        token.id = user.id;
+      }
+      return token;
+    },
+    async session({ session, token }) {
+      if (session.user && token.id) {
+        session.user.id = token.id as string;
+      }
+      return session;
+    },
+  },
+});
 
-  const existing = db
-    .select()
-    .from(users)
-    .where(eq(users.email, email.toLowerCase()))
-    .get();
-
-  if (existing) {
-    return { error: "این ایمیل قبلاً ثبت شده است" };
-  }
-
-  if (password.length < 6) {
-    return { error: "رمز عبور باید حداقل ۶ کاراکتر باشد" };
-  }
-
-  const passwordHash = bcrypt.hashSync(password, 10);
-  const [user] = db
-    .insert(users)
-    .values({
-      name: name.trim(),
-      email: email.toLowerCase().trim(),
-      passwordHash,
-    })
-    .returning()
-    .all();
-
-  const sessionUser: SessionUser = {
-    id: user.id,
-    name: user.name,
-    email: user.email,
-  };
-
-  const token = await createToken(sessionUser);
-  const cookieStore = await cookies();
-  cookieStore.set(SESSION_COOKIE, token, {
-    httpOnly: true,
-    secure: process.env.NODE_ENV === "production",
-    sameSite: "lax",
-    maxAge: 60 * 60 * 24 * 7,
-    path: "/",
-  });
-
-  return { user: sessionUser };
-}
-
-export async function loginUser(
-  email: string,
-  password: string,
-): Promise<{ user?: SessionUser; error?: string }> {
-  const db = getDb();
-  const user = db
-    .select()
-    .from(users)
-    .where(eq(users.email, email.toLowerCase().trim()))
-    .get();
-
-  if (!user || !bcrypt.compareSync(password, user.passwordHash)) {
-    return { error: "ایمیل یا رمز عبور اشتباه است" };
-  }
-
-  const sessionUser: SessionUser = {
-    id: user.id,
-    name: user.name,
-    email: user.email,
-  };
-
-  const token = await createToken(sessionUser);
-  const cookieStore = await cookies();
-  cookieStore.set(SESSION_COOKIE, token, {
-    httpOnly: true,
-    secure: process.env.NODE_ENV === "production",
-    sameSite: "lax",
-    maxAge: 60 * 60 * 24 * 7,
-    path: "/",
-  });
-
-  return { user: sessionUser };
-}
-
-export async function logoutUser(): Promise<void> {
-  const cookieStore = await cookies();
-  cookieStore.delete(SESSION_COOKIE);
+export async function getSession() {
+  return auth();
 }

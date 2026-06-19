@@ -10,17 +10,17 @@ type Props = {
 
 export async function generateMetadata({ params }: Props) {
   const { slug } = await params;
-  const category = getCategoryBySlug(slug);
+  const category = await getCategoryBySlug(slug);
   if (!category) return { title: "دسته‌بندی یافت نشد" };
   return { title: category.name };
 }
 
 export default async function CategoryPage({ params }: Props) {
   const { slug } = await params;
-  const category = getCategoryBySlug(slug);
+  const category = await getCategoryBySlug(slug);
   if (!category) notFound();
 
-  const posts = getPostsByCategory(slug);
+  const posts = await getPostsByCategory(slug);
 
   return (
     <main className="mx-auto max-w-6xl px-4 py-8">

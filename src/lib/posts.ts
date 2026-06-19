@@ -1,6 +1,4 @@
-import { desc, eq, sql } from "drizzle-orm";
-import { getDb } from "./db";
-import { categories, posts, users } from "./db/schema";
+import { prisma } from "./prisma";
 
 export type PostWithRelations = {
   id: number;
@@ -11,151 +9,165 @@ export type PostWithRelations = {
   views: number;
   createdAt: Date;
   category: { id: number; name: string; slug: string };
-  author: { id: number; name: string };
+  author: { id: string; name: string | null };
 };
 
-function mapPost(row: {
-  posts: typeof posts.$inferSelect;
-  categories: typeof categories.$inferSelect;
-  users: typeof users.$inferSelect;
+const postInclude = {
+  category: true,
+  author: { select: { id: true, name: true } },
+} as const;
+
+function mapPost(post: {
+  id: number;
+  title: string;
+  slug: string;
+  excerpt: string;
+  content: string;
+  views: number;
+  createdAt: Date;
+  category: { id: number; name: string; slug: string };
+  author: { id: string; name: string | null };
 }): PostWithRelations {
   return {
-    id: row.posts.id,
-    title: row.posts.title,
-    slug: row.posts.slug,
-    excerpt: row.posts.excerpt,
-    content: row.posts.content,
-    views: row.posts.views,
-    createdAt: row.posts.createdAt,
-    category: {
-      id: row.categories.id,
-      name: row.categories.name,
-      slug: row.categories.slug,
-    },
-    author: { id: row.users.id, name: row.users.name },
+    id: post.id,
+    title: post.title,
+    slug: post.slug,
+    excerpt: post.excerpt,
+    content: post.content,
+    views: post.views,
+    createdAt: post.createdAt,
+    category: post.category,
+    author: post.author,
   };
 }
 
-export function getLatestPosts(limit = 10): PostWithRelations[] {
-  const db = getDb();
-  const rows = db
-    .select()
-    .from(posts)
-    .innerJoin(categories, eq(posts.categoryId, categories.id))
-    .innerJoin(users, eq(posts.authorId, users.id))
-    .orderBy(desc(posts.createdAt))
-    .limit(limit)
-    .all();
-
-  return rows.map(mapPost);
+export async function getLatestPosts(limit = 10): Promise<PostWithRelations[]> {
+  const posts = await prisma.post.findMany({
+    include: postInclude,
+    orderBy: { createdAt: "desc" },
+    take: limit,
+  });
+  return posts.map(mapPost);
 }
 
-export function getPopularPosts(limit = 5): PostWithRelations[] {
-  const db = getDb();
-  const rows = db
-    .select()
-    .from(posts)
-    .innerJoin(categories, eq(posts.categoryId, categories.id))
-    .innerJoin(users, eq(posts.authorId, users.id))
-    .orderBy(desc(posts.views))
-    .limit(limit)
-    .all();
-
-  return rows.map(mapPost);
+export async function getPopularPosts(limit = 5): Promise<PostWithRelations[]> {
+  const posts = await prisma.post.findMany({
+    include: postInclude,
+    orderBy: { views: "desc" },
+    take: limit,
+  });
+  return posts.map(mapPost);
 }
 
-export function getPostBySlug(slug: string): PostWithRelations | null {
-  const db = getDb();
-  const row = db
-    .select()
-    .from(posts)
-    .innerJoin(categories, eq(posts.categoryId, categories.id))
-    .innerJoin(users, eq(posts.authorId, users.id))
-    .where(eq(posts.slug, slug))
-    .get();
-
-  if (!row) return null;
-  return mapPost(row);
+export async function getPostBySlug(
+  slug: string,
+): Promise<PostWithRelations | null> {
+  const post = await prisma.post.findUnique({
+    where: { slug },
+    include: postInclude,
+  });
+  return post ? mapPost(post) : null;
 }
 
-export function incrementPostViews(postId: number) {
-  const db = getDb();
-  db.update(posts)
-    .set({ views: sql`${posts.views} + 1` })
-    .where(eq(posts.id, postId))
-    .run();
+export async function incrementPostViews(postId: number) {
+  await prisma.post.update({
+    where: { id: postId },
+    data: { views: { increment: 1 } },
+  });
 }
 
-export function getPostsByCategory(
+export async function getPostsByCategory(
   categorySlug: string,
   limit = 20,
-): PostWithRelations[] {
-  const db = getDb();
-  const rows = db
-    .select()
-    .from(posts)
-    .innerJoin(categories, eq(posts.categoryId, categories.id))
-    .innerJoin(users, eq(posts.authorId, users.id))
-    .where(eq(categories.slug, categorySlug))
-    .orderBy(desc(posts.createdAt))
-    .limit(limit)
-    .all();
-
-  return rows.map(mapPost);
+): Promise<PostWithRelations[]> {
+  const posts = await prisma.post.findMany({
+    where: { category: { slug: categorySlug } },
+    include: postInclude,
+    orderBy: { createdAt: "desc" },
+    take: limit,
+  });
+  return posts.map(mapPost);
 }
 
-export function getAllCategories() {
-  const db = getDb();
-  return db
-    .select({
-      id: categories.id,
-      name: categories.name,
-      slug: categories.slug,
-      postCount: sql<number>`count(${posts.id})`.as("post_count"),
-    })
-    .from(categories)
-    .leftJoin(posts, eq(posts.categoryId, categories.id))
-    .groupBy(categories.id)
-    .orderBy(categories.name)
-    .all();
+export async function getAllCategories() {
+  const categories = await prisma.category.findMany({
+    include: { _count: { select: { posts: true } } },
+    orderBy: { name: "asc" },
+  });
+
+  return categories.map((cat) => ({
+    id: cat.id,
+    name: cat.name,
+    slug: cat.slug,
+    postCount: cat._count.posts,
+  }));
 }
 
-export function getCategoryBySlug(slug: string) {
-  const db = getDb();
-  return db
-    .select()
-    .from(categories)
-    .where(eq(categories.slug, slug))
-    .get();
+export async function getCategoryBySlug(slug: string) {
+  return prisma.category.findUnique({ where: { slug } });
 }
 
-export function createPost(data: {
+export async function getPostsByAuthor(authorId: string) {
+  const posts = await prisma.post.findMany({
+    where: { authorId },
+    include: postInclude,
+    orderBy: { createdAt: "desc" },
+  });
+  return posts.map(mapPost);
+}
+
+export async function getPostBySlugForAuthor(slug: string, authorId: string) {
+  const post = await prisma.post.findFirst({
+    where: { slug, authorId },
+    include: postInclude,
+  });
+  return post ? mapPost(post) : null;
+}
+
+export async function slugExists(slug: string, excludeId?: number) {
+  const existing = await prisma.post.findFirst({
+    where: {
+      slug,
+      ...(excludeId ? { NOT: { id: excludeId } } : {}),
+    },
+    select: { id: true },
+  });
+  return !!existing;
+}
+
+export async function createPost(data: {
   title: string;
   slug: string;
   excerpt: string;
   content: string;
   categoryId: number;
-  authorId: number;
+  authorId: string;
 }) {
-  const db = getDb();
-  const [post] = db
-    .insert(posts)
-    .values({
-      ...data,
-      updatedAt: new Date(),
-    })
-    .returning()
-    .all();
-
-  return post;
+  return prisma.post.create({ data });
 }
 
-export function slugExists(slug: string): boolean {
-  const db = getDb();
-  const existing = db
-    .select({ id: posts.id })
-    .from(posts)
-    .where(eq(posts.slug, slug))
-    .get();
-  return !!existing;
+export async function updatePost(
+  postId: number,
+  data: {
+    title: string;
+    slug: string;
+    excerpt: string;
+    content: string;
+    categoryId: number;
+  },
+) {
+  return prisma.post.update({
+    where: { id: postId },
+    data,
+  });
+}
+
+export async function deletePost(postId: number, authorId: string) {
+  const post = await prisma.post.findFirst({
+    where: { id: postId, authorId },
+  });
+  if (!post) return false;
+
+  await prisma.post.delete({ where: { id: postId } });
+  return true;
 }

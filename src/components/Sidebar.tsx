@@ -1,14 +1,44 @@
 import Link from "next/link";
+import { auth } from "@/lib/auth";
 import { getAllCategories, getPopularPosts } from "@/lib/posts";
 
 export async function Sidebar() {
-  const [categories, popularPosts] = await Promise.all([
-    Promise.resolve(getAllCategories()),
-    Promise.resolve(getPopularPosts(5)),
+  const [session, categories, popularPosts] = await Promise.all([
+    auth(),
+    getAllCategories(),
+    getPopularPosts(5),
   ]);
 
   return (
     <aside className="space-y-6">
+      <section className="rounded-2xl border border-emerald-200 bg-gradient-to-br from-emerald-50 to-teal-50 p-5">
+        <h2 className="mb-2 font-bold text-stone-900">نوشته جدید</h2>
+        <p className="mb-4 text-sm leading-6 text-stone-600">
+          {session?.user
+            ? "مقاله جدیدت رو بنویس و با دیگران به اشتراک بذار."
+            : "برای انتشار مقاله باید وارد حساب کاربری‌ات بشی."}
+        </p>
+        <Link
+          href="/posts/new"
+          className="inline-block rounded-lg bg-emerald-600 px-4 py-2 text-sm font-medium text-white transition hover:bg-emerald-700"
+        >
+          {session?.user ? "شروع نوشتن" : "ورود و نوشتن"}
+        </Link>
+      </section>
+
+      {session?.user && (
+        <section className="rounded-2xl border border-stone-200 bg-white p-5 shadow-sm">
+          <h2 className="mb-3 font-bold text-stone-900">حساب من</h2>
+          <Link
+            href="/dashboard"
+            className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm text-stone-700 transition hover:bg-emerald-50 hover:text-emerald-800"
+          >
+            <span>📊</span>
+            <span>داشبورد نوشته‌ها</span>
+          </Link>
+        </section>
+      )}
+
       <section className="rounded-2xl border border-stone-200 bg-white p-5 shadow-sm">
         <h2 className="mb-4 flex items-center gap-2 text-base font-bold text-stone-900">
           <span className="h-5 w-1 rounded-full bg-emerald-500" />
@@ -53,18 +83,20 @@ export async function Sidebar() {
         </ol>
       </section>
 
-      <section className="rounded-2xl border border-emerald-100 bg-gradient-to-br from-emerald-50 to-teal-50 p-5">
-        <h2 className="mb-2 font-bold text-stone-900">نویسنده شو!</h2>
-        <p className="mb-4 text-sm leading-6 text-stone-600">
-          با ثبت‌نام در سایت می‌تونی مقاله‌های برنامه‌نویسی خودت رو منتشر کنی.
-        </p>
-        <Link
-          href="/register"
-          className="inline-block rounded-lg bg-emerald-600 px-4 py-2 text-sm font-medium text-white transition hover:bg-emerald-700"
-        >
-          همین الان شروع کن
-        </Link>
-      </section>
+      {!session?.user && (
+        <section className="rounded-2xl border border-emerald-100 bg-gradient-to-br from-emerald-50 to-teal-50 p-5">
+          <h2 className="mb-2 font-bold text-stone-900">نویسنده شو!</h2>
+          <p className="mb-4 text-sm leading-6 text-stone-600">
+            با ثبت‌نام در سایت می‌تونی مقاله‌های برنامه‌نویسی خودت رو منتشر کنی.
+          </p>
+          <Link
+            href="/register"
+            className="inline-block rounded-lg bg-emerald-600 px-4 py-2 text-sm font-medium text-white transition hover:bg-emerald-700"
+          >
+            همین الان شروع کن
+          </Link>
+        </section>
+      )}
     </aside>
   );
 }

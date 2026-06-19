@@ -1,46 +1,48 @@
-import { eq } from "drizzle-orm";
 import bcrypt from "bcryptjs";
-import type { getDb } from "./index";
-import { categories, posts, users } from "./schema";
+import { PrismaClient } from "@prisma/client";
 
-type Db = ReturnType<typeof getDb>;
+const prisma = new PrismaClient();
 
-export function seedDatabase(db: Db) {
-  const existingUsers = db.select().from(users).all();
-  if (existingUsers.length > 0) return;
+async function main() {
+  const existingUsers = await prisma.user.count();
+  if (existingUsers > 0) {
+    console.log("Database already seeded, skipping.");
+    return;
+  }
 
   const passwordHash = bcrypt.hashSync("123456", 10);
 
-  const seededUsers = db
-    .insert(users)
-    .values([
-      { name: "علی نظری", email: "ali@example.com", passwordHash },
-      { name: "امیررضا ریاحی", email: "amir@example.com", passwordHash },
-    ])
-    .returning()
-    .all();
+  const author1 = await prisma.user.create({
+    data: {
+      name: "علی نظری",
+      email: "ali@example.com",
+      passwordHash,
+    },
+  });
 
-  const author1 = seededUsers[0];
+  await prisma.user.create({
+    data: {
+      name: "امیررضا ریاحی",
+      email: "amir@example.com",
+      passwordHash,
+    },
+  });
 
-  const seededCategories = db
-    .insert(categories)
-    .values([
-      { name: "فرانت‌اند", slug: "frontend" },
-      { name: "بک‌اند", slug: "backend" },
-      { name: "ری‌اکت", slug: "react" },
-      { name: "جاوااسکریپت", slug: "javascript" },
-      { name: "معماری نرم‌افزار", slug: "architecture" },
-      { name: "هوش مصنوعی", slug: "ai" },
-    ])
-    .returning()
-    .all();
+  const categories = await Promise.all([
+    prisma.category.create({ data: { name: "فرانت‌اند", slug: "frontend" } }),
+    prisma.category.create({ data: { name: "بک‌اند", slug: "backend" } }),
+    prisma.category.create({ data: { name: "ری‌اکت", slug: "react" } }),
+    prisma.category.create({ data: { name: "جاوااسکریپت", slug: "javascript" } }),
+    prisma.category.create({
+      data: { name: "معماری نرم‌افزار", slug: "architecture" },
+    }),
+    prisma.category.create({ data: { name: "هوش مصنوعی", slug: "ai" } }),
+  ]);
 
-  const catBySlug = Object.fromEntries(
-    seededCategories.map((c) => [c.slug, c.id]),
-  );
+  const catBySlug = Object.fromEntries(categories.map((c) => [c.slug, c.id]));
 
-  db.insert(posts)
-    .values([
+  await prisma.post.createMany({
+    data: [
       {
         title: "هرچیزی که باید از use API ری‌اکت بدونیم",
         slug: "react-19-use-api-guide",
@@ -152,6 +154,17 @@ function useDebounce<T>(value: T, delay: number): T {
         authorId: author1.id,
         views: 780,
       },
-    ])
-    .run();
+    ],
+  });
+
+  console.log("Seed completed successfully.");
 }
+
+main()
+  .catch((e) => {
+    console.error(e);
+    process.exit(1);
+  })
+  .finally(async () => {
+    await prisma.$disconnect();
+  });

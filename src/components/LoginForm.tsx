@@ -5,7 +5,7 @@ import { loginAction } from "@/lib/actions/auth";
 
 const initialState = { error: "" };
 
-export function LoginForm() {
+export function LoginForm({ callbackUrl }: { callbackUrl: string }) {
   const [state, formAction, pending] = useActionState(
     async (_prev: typeof initialState, formData: FormData) => {
       const result = await loginAction(formData);
@@ -16,6 +16,8 @@ export function LoginForm() {
 
   return (
     <form action={formAction} className="space-y-4">
+      <input type="hidden" name="callbackUrl" value={callbackUrl} />
+
       {state?.error && (
         <div className="rounded-lg bg-red-50 px-4 py-3 text-sm text-red-700">
           {state.error}

@@ -2,6 +2,9 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { MarkdownContent } from "@/components/MarkdownContent";
 import { Sidebar } from "@/components/Sidebar";
+import { CommentSection } from "@/components/CommentSection";
+import { getCommentsByPostId } from "@/lib/comments";
+import { auth } from "@/lib/auth";
 import { getPostBySlug, incrementPostViews } from "@/lib/posts";
 import { formatPersianDate } from "@/lib/utils";
 
@@ -11,18 +14,20 @@ type Props = {
 
 export async function generateMetadata({ params }: Props) {
   const { slug } = await params;
-  const post = getPostBySlug(slug);
+  const post = await getPostBySlug(slug);
   if (!post) return { title: "مقاله یافت نشد" };
   return { title: post.title, description: post.excerpt };
 }
 
 export default async function PostPage({ params }: Props) {
   const { slug } = await params;
-  const post = getPostBySlug(slug);
+  const [post, session] = await Promise.all([getPostBySlug(slug), auth()]);
 
   if (!post) notFound();
 
-  incrementPostViews(post.id);
+  await incrementPostViews(post.id);
+
+  const comments = await getCommentsByPostId(post.id);
 
   return (
     <main className="mx-auto max-w-6xl px-4 py-8">
@@ -37,7 +42,7 @@ export default async function PostPage({ params }: Props) {
             </Link>
             <span>{formatPersianDate(post.createdAt)}</span>
             <span>·</span>
-            <span>{post.author.name}</span>
+            <span>{post.author.name ?? "نویسنده"}</span>
             <span>·</span>
             <span>{post.views.toLocaleString("fa-IR")} بازدید</span>
           </div>
@@ -51,6 +56,12 @@ export default async function PostPage({ params }: Props) {
           </p>
 
           <MarkdownContent content={post.content} />
+
+          <CommentSection
+            postSlug={post.slug}
+            comments={comments}
+            isLoggedIn={!!session?.user}
+          />
 
           <div className="mt-10 border-t border-stone-100 pt-6">
             <Link

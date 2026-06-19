@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { PostCard } from "@/components/PostCard";
 import { Sidebar } from "@/components/Sidebar";
 import { getLatestPosts } from "@/lib/posts";
@@ -7,8 +6,8 @@ export const metadata = {
   title: "جدیدترین نوشته‌ها",
 };
 
-export default function PostsPage() {
-  const posts = getLatestPosts(50);
+export default async function PostsPage() {
+  const posts = await getLatestPosts(50);
 
   return (
     <main className="mx-auto max-w-6xl px-4 py-8">

@@ -3,9 +3,11 @@ import { PostCard } from "@/components/PostCard";
 import { getLatestPosts, getPopularPosts } from "@/lib/posts";
 import Link from "next/link";
 
-export default function HomePage() {
-  const latestPosts = getLatestPosts(10);
-  const popularPosts = getPopularPosts(5);
+export default async function HomePage() {
+  const [latestPosts, popularPosts] = await Promise.all([
+    getLatestPosts(10),
+    getPopularPosts(5),
+  ]);
 
   return (
     <main className="mx-auto max-w-6xl px-4 py-8">

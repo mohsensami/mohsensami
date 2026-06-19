@@ -38,7 +38,7 @@ export function PostCard({ post, index }: PostCardProps) {
           </p>
 
           <div className="flex items-center justify-between">
-            <span className="text-sm text-stone-500">{post.author.name}</span>
+            <span className="text-sm text-stone-500">{post.author.name ?? "نویسنده"}</span>
             <Link
               href={`/posts/${post.slug}`}
               className="text-sm font-medium text-emerald-600 transition hover:text-emerald-800"
