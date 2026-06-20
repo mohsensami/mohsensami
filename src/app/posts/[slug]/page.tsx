@@ -1,6 +1,7 @@
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
-import { MarkdownContent } from "@/components/MarkdownContent";
+import { MarkdownContent, TagList } from "@/components/MarkdownContent";
 import { Sidebar } from "@/components/Sidebar";
 import { CommentSection } from "@/components/CommentSection";
 import { getCommentsByPostId } from "@/lib/comments";
@@ -32,44 +33,61 @@ export default async function PostPage({ params }: Props) {
   return (
     <main className="mx-auto max-w-6xl px-4 py-8">
       <div className="grid grid-cols-1 gap-8 lg:grid-cols-[1fr_320px]">
-        <article className="rounded-2xl border border-stone-200 bg-white p-6 shadow-sm md:p-8">
-          <div className="mb-6 flex flex-wrap items-center gap-2 text-sm text-stone-500">
-            <Link
-              href={`/category/${post.category.slug}`}
-              className="rounded-full bg-emerald-50 px-3 py-1 font-medium text-emerald-700 hover:bg-emerald-100"
-            >
-              {post.category.name}
-            </Link>
-            <span>{formatPersianDate(post.createdAt)}</span>
-            <span>·</span>
-            <span>{post.author.name ?? "نویسنده"}</span>
-            <span>·</span>
-            <span>{post.views.toLocaleString("fa-IR")} بازدید</span>
-          </div>
+        <article className="overflow-hidden rounded-2xl border border-stone-200 bg-white shadow-sm dark:border-stone-800 dark:bg-stone-900">
+          {post.coverImage && (
+            <div className="relative aspect-[21/9] w-full">
+              <Image
+                src={post.coverImage}
+                alt={post.title}
+                fill
+                className="object-cover"
+                priority
+                unoptimized
+              />
+            </div>
+          )}
 
-          <h1 className="mb-6 text-3xl font-bold leading-11 text-stone-900">
-            {post.title}
-          </h1>
+          <div className="p-6 md:p-8">
+            <div className="mb-6 flex flex-wrap items-center gap-2 text-sm text-stone-500 dark:text-stone-400">
+              <Link
+                href={`/category/${post.category.slug}`}
+                className="rounded-full bg-emerald-50 px-3 py-1 font-medium text-emerald-700 hover:bg-emerald-100 dark:bg-emerald-950 dark:text-emerald-300 dark:hover:bg-emerald-900"
+              >
+                {post.category.name}
+              </Link>
+              <span>{formatPersianDate(post.createdAt)}</span>
+              <span>·</span>
+              <span>{post.author.name ?? "نویسنده"}</span>
+              <span>·</span>
+              <span>{post.views.toLocaleString("fa-IR")} بازدید</span>
+            </div>
 
-          <p className="mb-8 border-r-4 border-emerald-500 pr-4 text-lg leading-8 text-stone-600">
-            {post.excerpt}
-          </p>
+            <h1 className="mb-4 text-3xl font-bold leading-11 text-stone-900 dark:text-stone-50">
+              {post.title}
+            </h1>
 
-          <MarkdownContent content={post.content} />
+            <TagList tags={post.tags} />
 
-          <CommentSection
-            postSlug={post.slug}
-            comments={comments}
-            isLoggedIn={!!session?.user}
-          />
+            <p className="mb-8 border-r-4 border-emerald-500 pr-4 text-lg leading-8 text-stone-600 dark:text-stone-300">
+              {post.excerpt}
+            </p>
 
-          <div className="mt-10 border-t border-stone-100 pt-6">
-            <Link
-              href="/"
-              className="text-sm font-medium text-emerald-600 hover:text-emerald-800"
-            >
-              ← بازگشت به صفحه اصلی
-            </Link>
+            <MarkdownContent content={post.content} />
+
+            <CommentSection
+              postSlug={post.slug}
+              comments={comments}
+              isLoggedIn={!!session?.user}
+            />
+
+            <div className="mt-10 border-t border-stone-100 pt-6 dark:border-stone-800">
+              <Link
+                href="/"
+                className="text-sm font-medium text-emerald-600 hover:text-emerald-800 dark:text-emerald-400 dark:hover:text-emerald-300"
+              >
+                ← بازگشت به صفحه اصلی
+              </Link>
+            </div>
           </div>
         </article>
 

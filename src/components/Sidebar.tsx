@@ -11,9 +11,9 @@ export async function Sidebar() {
 
   return (
     <aside className="space-y-6">
-      <section className="rounded-2xl border border-emerald-200 bg-gradient-to-br from-emerald-50 to-teal-50 p-5">
-        <h2 className="mb-2 font-bold text-stone-900">نوشته جدید</h2>
-        <p className="mb-4 text-sm leading-6 text-stone-600">
+      <section className="rounded-2xl border border-emerald-200 bg-gradient-to-br from-emerald-50 to-teal-50 p-5 dark:border-emerald-900 dark:from-emerald-950 dark:to-teal-950">
+        <h2 className="mb-2 font-bold text-stone-900 dark:text-stone-100">نوشته جدید</h2>
+        <p className="mb-4 text-sm leading-6 text-stone-600 dark:text-stone-400">
           {session?.user
             ? "مقاله جدیدت رو بنویس و با دیگران به اشتراک بذار."
             : "برای انتشار مقاله باید وارد حساب کاربری‌ات بشی."}
@@ -27,14 +27,14 @@ export async function Sidebar() {
       </section>
 
       {session?.user && (
-        <section className="rounded-2xl border border-stone-200 bg-white p-5 shadow-sm">
-          <h2 className="mb-3 font-bold text-stone-900">حساب من</h2>
+        <section className="rounded-2xl border border-stone-200 bg-white p-5 shadow-sm dark:border-stone-800 dark:bg-stone-900">
+          <h2 className="mb-3 font-bold text-stone-900 dark:text-stone-100">حساب من</h2>
           <Link
             href="/dashboard"
-            className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm text-stone-700 transition hover:bg-emerald-50 hover:text-emerald-800"
+            className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm text-stone-700 transition hover:bg-emerald-50 hover:text-emerald-800 dark:text-stone-300 dark:hover:bg-emerald-950 dark:hover:text-emerald-300"
           >
-            <span>📊</span>
-            <span>داشبورد نوشته‌ها</span>
+            <span>👤</span>
+            <span>پروفایل</span>
           </Link>
         </section>
       )}

@@ -13,6 +13,7 @@ model User {
   email         String    @unique
   emailVerified DateTime?
   image         String?
+  bio           String?
   passwordHash  String?
   accounts      Account[]
   sessions      Session[]
@@ -69,6 +70,8 @@ model Post {
   slug       String    @unique
   excerpt    String
   content    String
+  coverImage String?
+  tags       String[]  @default([])
   categoryId Int
   category   Category  @relation(fields: [categoryId], references: [id])
   authorId   String

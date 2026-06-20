@@ -1,9 +1,20 @@
 @import "tailwindcss";
+@import "highlight.js/styles/atom-one-dark.css" layer(base);
 
 :root {
   --background: #fafaf9;
   --foreground: #1c1917;
   --accent: #059669;
+  --card: #ffffff;
+  --border: #e7e5e4;
+}
+
+.dark {
+  --background: #0c0a09;
+  --foreground: #fafaf9;
+  --accent: #34d399;
+  --card: #1c1917;
+  --border: #292524;
 }
 
 @theme inline {
@@ -23,4 +34,39 @@ body {
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
+}
+
+.dark pre.hljs {
+  background: #0d1117 !important;
+}
+
+:not(.dark) pre.hljs {
+  background: #282c34 !important;
+}
+
+/* MDXEditor dark mode */
+.dark .mdx-editor-wrapper {
+  --basePageBg: #1c1917;
+  --baseText: #fafaf9;
+  --baseBorder: #44403c;
+  --baseBg: #292524;
+  --accentSolid: #059669;
+}
+
+.mdx-editor-wrapper .mdxeditor-toolbar {
+  border-bottom: 1px solid var(--border, #e7e5e4);
+  background: var(--card, #fff);
+}
+
+.dark .mdx-editor-wrapper .mdxeditor-toolbar {
+  background: #292524;
+  border-color: #44403c;
+}
+
+.mdx-editor-wrapper .mdxeditor-root-contenteditable {
+  min-height: 20rem;
+}
+
+.prose-editor code {
+  font-family: ui-monospace, monospace;
 }

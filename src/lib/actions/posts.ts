@@ -21,54 +21,75 @@ async function requireSession() {
   return session;
 }
 
+function parseTags(raw: string): string[] {
+  return raw
+    .split(/[,،]/)
+    .map((t) => t.trim().replace(/^#/, ""))
+    .filter(Boolean)
+    .slice(0, 10);
+}
+
 function parsePostForm(formData: FormData) {
   return {
     title: (formData.get("title") as string)?.trim(),
+    slug: (formData.get("slug") as string)?.trim(),
     excerpt: (formData.get("excerpt") as string)?.trim(),
     content: (formData.get("content") as string)?.trim(),
+    coverImage: (formData.get("coverImage") as string)?.trim() || null,
+    tags: parseTags((formData.get("tags") as string) ?? ""),
     categoryId: Number(formData.get("categoryId")),
   };
 }
 
 async function validateCategory(categoryId: number) {
-  const category = await prisma.category.findUnique({
-    where: { id: categoryId },
-  });
-  return category ?? null;
+  return prisma.category.findUnique({ where: { id: categoryId } });
 }
 
-async function resolveUniqueSlug(title: string, excludeId?: number) {
-  let slug = slugify(title);
+async function resolveSlug(
+  manualSlug: string,
+  title: string,
+  excludeId?: number,
+): Promise<{ slug?: string; error?: string }> {
+  let slug = slugify(manualSlug || title);
   if (!slug) slug = `post-${Date.now()}`;
 
-  if (await slugExists(slug, excludeId)) {
-    slug = `${slug}-${Date.now()}`;
+  if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug)) {
+    return { error: "اسلاگ فقط باید شامل حروف انگلیسی کوچک، اعداد و خط تیره باشد" };
   }
 
-  return slug;
+  if (await slugExists(slug, excludeId)) {
+    return { error: "این اسلاگ قبلاً استفاده شده است" };
+  }
+
+  return { slug };
 }
 
 export async function createPostAction(formData: FormData) {
   const session = await requireSession();
-  const { title, excerpt, content, categoryId } = parsePostForm(formData);
+  const parsed = parsePostForm(formData);
 
-  if (!title || !excerpt || !content || !categoryId) {
-    return { error: "لطفاً همه فیلدها را پر کنید" };
+  if (!parsed.title || !parsed.excerpt || !parsed.content || !parsed.categoryId) {
+    return { error: "لطفاً همه فیلدهای الزامی را پر کنید" };
   }
 
-  const category = await validateCategory(categoryId);
+  const category = await validateCategory(parsed.categoryId);
   if (!category) {
     return { error: "دسته‌بندی نامعتبر است" };
   }
 
-  const slug = await resolveUniqueSlug(title);
+  const slugResult = await resolveSlug(parsed.slug, parsed.title);
+  if (slugResult.error || !slugResult.slug) {
+    return { error: slugResult.error ?? "اسلاگ نامعتبر است" };
+  }
 
   const post = await createPost({
-    title,
-    slug,
-    excerpt,
-    content,
-    categoryId,
+    title: parsed.title,
+    slug: slugResult.slug,
+    excerpt: parsed.excerpt,
+    content: parsed.content,
+    coverImage: parsed.coverImage,
+    tags: parsed.tags,
+    categoryId: parsed.categoryId,
     authorId: session.user.id,
   });
 
@@ -79,10 +100,10 @@ export async function updatePostAction(formData: FormData) {
   const session = await requireSession();
   const postId = Number(formData.get("postId"));
   const currentSlug = (formData.get("currentSlug") as string)?.trim();
-  const { title, excerpt, content, categoryId } = parsePostForm(formData);
+  const parsed = parsePostForm(formData);
 
-  if (!postId || !currentSlug || !title || !excerpt || !content || !categoryId) {
-    return { error: "لطفاً همه فیلدها را پر کنید" };
+  if (!postId || !currentSlug || !parsed.title || !parsed.excerpt || !parsed.content || !parsed.categoryId) {
+    return { error: "لطفاً همه فیلدهای الزامی را پر کنید" };
   }
 
   const existing = await getPostBySlugForAuthor(currentSlug, session.user.id);
@@ -90,26 +111,27 @@ export async function updatePostAction(formData: FormData) {
     return { error: "دسترسی به این نوشته ندارید" };
   }
 
-  const category = await validateCategory(categoryId);
+  const category = await validateCategory(parsed.categoryId);
   if (!category) {
     return { error: "دسته‌بندی نامعتبر است" };
   }
 
-  let slug = slugify(title);
-  if (!slug) slug = existing.slug;
-  if (slug !== existing.slug && (await slugExists(slug, existing.id))) {
-    slug = `${slug}-${Date.now()}`;
+  const slugResult = await resolveSlug(parsed.slug, parsed.title, existing.id);
+  if (slugResult.error || !slugResult.slug) {
+    return { error: slugResult.error ?? "اسلاگ نامعتبر است" };
   }
 
   const post = await updatePost(existing.id, {
-    title,
-    slug,
-    excerpt,
-    content,
-    categoryId,
+    title: parsed.title,
+    slug: slugResult.slug,
+    excerpt: parsed.excerpt,
+    content: parsed.content,
+    coverImage: parsed.coverImage,
+    tags: parsed.tags,
+    categoryId: parsed.categoryId,
   });
 
-  revalidatePath("/dashboard");
+  revalidatePath("/dashboard/posts");
   revalidatePath(`/posts/${currentSlug}`);
   redirect(`/posts/${post.slug}`);
 }
@@ -127,6 +149,6 @@ export async function deletePostAction(formData: FormData) {
     return { error: "دسترسی به این نوشته ندارید" };
   }
 
-  revalidatePath("/dashboard");
-  redirect("/dashboard");
+  revalidatePath("/dashboard/posts");
+  redirect("/dashboard/posts");
 }

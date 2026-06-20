@@ -36,9 +36,9 @@ yarn-error.log*
 # vercel
 .vercel
 
-# sqlite database
-/data/*.db
-/data/*.db-*
+# uploaded images
+/public/uploads/posts/*
+!/public/uploads/posts/.gitkeep
 
 *.tsbuildinfo
 next-env.d.ts

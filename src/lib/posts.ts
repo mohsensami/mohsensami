@@ -6,6 +6,8 @@ export type PostWithRelations = {
   slug: string;
   excerpt: string;
   content: string;
+  coverImage: string | null;
+  tags: string[];
   views: number;
   createdAt: Date;
   category: { id: number; name: string; slug: string };
@@ -23,6 +25,8 @@ function mapPost(post: {
   slug: string;
   excerpt: string;
   content: string;
+  coverImage: string | null;
+  tags: string[];
   views: number;
   createdAt: Date;
   category: { id: number; name: string; slug: string };
@@ -34,6 +38,8 @@ function mapPost(post: {
     slug: post.slug,
     excerpt: post.excerpt,
     content: post.content,
+    coverImage: post.coverImage,
+    tags: post.tags,
     views: post.views,
     createdAt: post.createdAt,
     category: post.category,
@@ -140,6 +146,8 @@ export async function createPost(data: {
   slug: string;
   excerpt: string;
   content: string;
+  coverImage?: string | null;
+  tags: string[];
   categoryId: number;
   authorId: string;
 }) {
@@ -153,6 +161,8 @@ export async function updatePost(
     slug: string;
     excerpt: string;
     content: string;
+    coverImage?: string | null;
+    tags: string[];
     categoryId: number;
   },
 ) {
@@ -170,4 +180,19 @@ export async function deletePost(postId: number, authorId: string) {
 
   await prisma.post.delete({ where: { id: postId } });
   return true;
+}
+
+export async function getUserProfile(userId: string) {
+  return prisma.user.findUnique({
+    where: { id: userId },
+    select: {
+      id: true,
+      name: true,
+      email: true,
+      image: true,
+      bio: true,
+      createdAt: true,
+      _count: { select: { posts: true, comments: true } },
+    },
+  });
 }
