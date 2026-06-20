@@ -24,7 +24,15 @@ export default async function DashboardProfilePage() {
         </p>
       </div>
 
-      <ProfileForm user={user} />
+      <ProfileForm
+        user={{
+          name: user.name,
+          email: user.email,
+          bio: user.bio,
+          image: user.image,
+          hasPassword: !!user.passwordHash,
+        }}
+      />
     </div>
   );
 }

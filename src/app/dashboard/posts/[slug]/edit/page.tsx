@@ -41,7 +41,8 @@ export default async function EditPostPage({ params }: Props) {
             content: post.content,
             coverImage: post.coverImage,
             tags: post.tags,
-            categoryId: post.category.id,
+            categoryId: post.category?.id ?? null,
+            status: post.status,
           }}
         />
       </section>

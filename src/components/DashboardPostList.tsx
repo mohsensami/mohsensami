@@ -69,8 +69,8 @@ export function DashboardPostList({ posts }: { posts: PostWithRelations[] }) {
               {post.title}
             </Link>
             <div className="mt-1 flex flex-wrap items-center gap-2 text-xs text-stone-500 dark:text-stone-400">
-              <span>{post.category.name}</span>
-              <span>·</span>
+              {post.category && <span>{post.category.name}</span>}
+              {post.category && <span>·</span>}
               <span dir="ltr">{post.slug}</span>
               <span>·</span>
               <span>{formatPersianDate(post.createdAt)}</span>

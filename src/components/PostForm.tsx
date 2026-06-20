@@ -2,7 +2,7 @@
 
 import { useActionState, useState } from "react";
 import { createPostAction, updatePostAction } from "@/lib/actions/posts";
-import { MarkdownEditor } from "@/components/MarkdownEditor";
+import { RichTextEditor } from "@/components/editor/RichTextEditor";
 import { ImageUploadField } from "@/components/ImageUploadField";
 
 type Category = { id: number; name: string; slug: string };
@@ -17,7 +17,8 @@ type PostFormProps = {
     content: string;
     coverImage?: string | null;
     tags?: string[];
-    categoryId: number;
+    categoryId: number | null;
+    status?: "DRAFT" | "PUBLISHED";
   };
 };
 
@@ -36,7 +37,7 @@ export function PostForm({ categories, post }: PostFormProps) {
   const [state, formAction, pending] = useActionState(
     async (_prev: typeof initialState, formData: FormData) => {
       const result = await action(formData);
-      return result ?? initialState;
+      return { error: result?.error ?? "" };
     },
     initialState,
   );
@@ -55,6 +56,12 @@ export function PostForm({ categories, post }: PostFormProps) {
       {state?.error && (
         <div className="rounded-lg bg-red-50 px-4 py-3 text-sm text-red-700 dark:bg-red-950 dark:text-red-300">
           {state.error}
+        </div>
+      )}
+
+      {post?.status === "DRAFT" && (
+        <div className="rounded-lg bg-amber-50 px-4 py-3 text-sm text-amber-800 dark:bg-amber-950 dark:text-amber-200">
+          این نوشته در حالت پیش‌نویس است.
         </div>
       )}
 
@@ -81,14 +88,13 @@ export function PostForm({ categories, post }: PostFormProps) {
           id="slug"
           name="slug"
           type="text"
-          required={!isEdit}
           defaultValue={post?.slug}
           dir="ltr"
           className={`${inputClass} font-mono text-sm`}
           placeholder="my-awesome-post"
         />
         <p className="mt-1 text-xs text-stone-500">
-          آدرس URL مقاله — فقط حروف انگلیسی کوچک، اعداد و خط تیره
+          آدرس URL — برای پیش‌نویس می‌توانید خالی بگذارید
         </p>
       </div>
 
@@ -99,7 +105,6 @@ export function PostForm({ categories, post }: PostFormProps) {
         <select
           id="categoryId"
           name="categoryId"
-          required
           defaultValue={post?.categoryId ?? ""}
           className={inputClass}
         >
@@ -125,10 +130,9 @@ export function PostForm({ categories, post }: PostFormProps) {
           placeholder="react, nextjs, typescript"
           dir="ltr"
         />
-        <p className="mt-1 text-xs text-stone-500">با کاما جدا کنید</p>
       </div>
 
-      <ImageUploadField name="coverImage" defaultValue={post?.coverImage} />
+      <ImageUploadField name="coverImage" defaultValue={post?.coverImage} label="تصویر شاخص" />
 
       <div>
         <label htmlFor="excerpt" className={labelClass}>
@@ -137,7 +141,6 @@ export function PostForm({ categories, post }: PostFormProps) {
         <textarea
           id="excerpt"
           name="excerpt"
-          required
           rows={3}
           defaultValue={post?.excerpt}
           className={inputClass}
@@ -147,22 +150,35 @@ export function PostForm({ categories, post }: PostFormProps) {
 
       <div>
         <label className={labelClass}>متن مقاله</label>
-        <MarkdownEditor markdown={content} onChange={setContent} />
+        <RichTextEditor content={content} onChange={setContent} />
       </div>
 
-      <button
-        type="submit"
-        disabled={pending || !content.trim()}
-        className="rounded-lg bg-emerald-600 px-6 py-2.5 font-medium text-white transition hover:bg-emerald-700 disabled:opacity-60"
-      >
-        {pending
-          ? isEdit
-            ? "در حال ذخیره..."
-            : "در حال انتشار..."
-          : isEdit
-            ? "ذخیره تغییرات"
-            : "انتشار مقاله"}
-      </button>
+      <div className="flex flex-wrap gap-3">
+        <button
+          type="submit"
+          name="intent"
+          value="draft"
+          disabled={pending}
+          className="rounded-lg border border-stone-300 px-6 py-2.5 font-medium text-stone-700 transition hover:bg-stone-100 disabled:opacity-60 dark:border-stone-600 dark:text-stone-200 dark:hover:bg-stone-800"
+        >
+          {pending ? "در حال ذخیره..." : "ذخیره پیش‌نویس"}
+        </button>
+        <button
+          type="submit"
+          name="intent"
+          value="publish"
+          disabled={pending || !content.trim()}
+          className="rounded-lg bg-emerald-600 px-6 py-2.5 font-medium text-white transition hover:bg-emerald-700 disabled:opacity-60"
+        >
+          {pending
+            ? isEdit
+              ? "در حال ذخیره..."
+              : "در حال انتشار..."
+            : isEdit
+              ? "انتشار / به‌روزرسانی"
+              : "انتشار مقاله"}
+        </button>
+      </div>
     </form>
   );
 }

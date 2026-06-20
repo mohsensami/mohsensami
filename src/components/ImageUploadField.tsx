@@ -7,12 +7,14 @@ type ImageUploadFieldProps = {
   name: string;
   defaultValue?: string | null;
   label?: string;
+  onChange?: (url: string) => void;
 };
 
 export function ImageUploadField({
   name,
   defaultValue,
   label = "تصویر شاخص",
+  onChange,
 }: ImageUploadFieldProps) {
   const [url, setUrl] = useState(defaultValue ?? "");
   const [uploading, setUploading] = useState(false);
@@ -35,6 +37,7 @@ export function ImageUploadField({
       }
 
       setUrl(data.url);
+      onChange?.(data.url);
     } catch {
       setError("خطا در آپلود تصویر");
     } finally {
@@ -74,7 +77,10 @@ export function ImageUploadField({
         {url && (
           <button
             type="button"
-            onClick={() => setUrl("")}
+            onClick={() => {
+              setUrl("");
+              onChange?.("");
+            }}
             className="text-sm text-red-600 hover:text-red-700 dark:text-red-400"
           >
             حذف تصویر

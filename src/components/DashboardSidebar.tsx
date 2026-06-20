@@ -2,15 +2,17 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { UserAvatar } from "@/components/ui/UserAvatar";
 
 const navItems = [
   { href: "/dashboard", label: "پروفایل", icon: "👤", exact: true },
   { href: "/dashboard/posts", label: "مقالات من", icon: "📝" },
+  { href: "/dashboard/drafts", label: "پیش‌نویس‌ها", icon: "📋" },
   { href: "/dashboard/comments", label: "نظرات من", icon: "💬" },
 ];
 
 type DashboardSidebarProps = {
-  user: { name: string | null; email: string };
+  user: { name: string | null; email: string; image: string | null };
   logoutAction: () => Promise<void>;
 };
 
@@ -20,12 +22,16 @@ export function DashboardSidebar({ user, logoutAction }: DashboardSidebarProps) 
   return (
     <aside className="space-y-6">
       <div className="rounded-2xl border border-stone-200 bg-white p-5 shadow-sm dark:border-stone-800 dark:bg-stone-900">
-        <div className="mb-1 text-sm text-stone-500 dark:text-stone-400">حساب کاربری</div>
-        <div className="font-bold text-stone-900 dark:text-stone-100">
-          {user.name ?? "کاربر"}
-        </div>
-        <div className="mt-1 truncate text-xs text-stone-500" dir="ltr">
-          {user.email}
+        <div className="flex items-center gap-3">
+          <UserAvatar user={user} size="md" />
+          <div className="min-w-0">
+            <div className="truncate font-bold text-stone-900 dark:text-stone-100">
+              {user.name ?? "کاربر"}
+            </div>
+            <div className="truncate text-xs text-stone-500" dir="ltr">
+              {user.email}
+            </div>
+          </div>
         </div>
       </div>
 

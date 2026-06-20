@@ -1,5 +1,6 @@
 import { redirect } from "next/navigation";
 import { auth, signOut } from "@/lib/auth";
+import { getUserProfile } from "@/lib/posts";
 import { DashboardSidebar } from "@/components/DashboardSidebar";
 
 export default async function DashboardLayout({
@@ -9,6 +10,8 @@ export default async function DashboardLayout({
 }) {
   const session = await auth();
   if (!session?.user) redirect("/login?callbackUrl=/dashboard");
+
+  const profile = await getUserProfile(session.user.id);
 
   async function logoutAction() {
     "use server";
@@ -20,8 +23,9 @@ export default async function DashboardLayout({
       <div className="grid grid-cols-1 gap-8 lg:grid-cols-[260px_1fr]">
         <DashboardSidebar
           user={{
-            name: session.user.name ?? null,
-            email: session.user.email ?? "",
+            name: profile?.name ?? session.user.name ?? null,
+            email: profile?.email ?? session.user.email ?? "",
+            image: profile?.image ?? session.user.image ?? null,
           }}
           logoutAction={logoutAction}
         />

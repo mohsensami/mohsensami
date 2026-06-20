@@ -1,9 +1,10 @@
 import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import { MarkdownContent, TagList } from "@/components/MarkdownContent";
+import { ArticleContent, TagList } from "@/components/article/ArticleContent";
 import { Sidebar } from "@/components/Sidebar";
 import { CommentSection } from "@/components/CommentSection";
+import { UserAvatar } from "@/components/ui/UserAvatar";
 import { getCommentsByPostId } from "@/lib/comments";
 import { auth } from "@/lib/auth";
 import { getPostBySlug, incrementPostViews } from "@/lib/posts";
@@ -27,7 +28,6 @@ export default async function PostPage({ params }: Props) {
   if (!post) notFound();
 
   await incrementPostViews(post.id);
-
   const comments = await getCommentsByPostId(post.id);
 
   return (
@@ -49,15 +49,20 @@ export default async function PostPage({ params }: Props) {
 
           <div className="p-6 md:p-8">
             <div className="mb-6 flex flex-wrap items-center gap-2 text-sm text-stone-500 dark:text-stone-400">
-              <Link
-                href={`/category/${post.category.slug}`}
-                className="rounded-full bg-emerald-50 px-3 py-1 font-medium text-emerald-700 hover:bg-emerald-100 dark:bg-emerald-950 dark:text-emerald-300 dark:hover:bg-emerald-900"
-              >
-                {post.category.name}
-              </Link>
+              {post.category && (
+                <Link
+                  href={`/category/${post.category.slug}`}
+                  className="rounded-full bg-emerald-50 px-3 py-1 font-medium text-emerald-700 hover:bg-emerald-100 dark:bg-emerald-950 dark:text-emerald-300"
+                >
+                  {post.category.name}
+                </Link>
+              )}
               <span>{formatPersianDate(post.createdAt)}</span>
               <span>·</span>
-              <span>{post.author.name ?? "نویسنده"}</span>
+              <span className="inline-flex items-center gap-2">
+                <UserAvatar user={post.author} size="sm" />
+                {post.author.name ?? "نویسنده"}
+              </span>
               <span>·</span>
               <span>{post.views.toLocaleString("fa-IR")} بازدید</span>
             </div>
@@ -68,11 +73,13 @@ export default async function PostPage({ params }: Props) {
 
             <TagList tags={post.tags} />
 
-            <p className="mb-8 border-r-4 border-emerald-500 pr-4 text-lg leading-8 text-stone-600 dark:text-stone-300">
-              {post.excerpt}
-            </p>
+            {post.excerpt && (
+              <p className="mb-8 border-r-4 border-emerald-500 pr-4 text-lg leading-8 text-stone-600 dark:text-stone-300">
+                {post.excerpt}
+              </p>
+            )}
 
-            <MarkdownContent content={post.content} />
+            <ArticleContent content={post.content} />
 
             <CommentSection
               postSlug={post.slug}
@@ -83,7 +90,7 @@ export default async function PostPage({ params }: Props) {
             <div className="mt-10 border-t border-stone-100 pt-6 dark:border-stone-800">
               <Link
                 href="/"
-                className="text-sm font-medium text-emerald-600 hover:text-emerald-800 dark:text-emerald-400 dark:hover:text-emerald-300"
+                className="text-sm font-medium text-emerald-600 hover:text-emerald-800 dark:text-emerald-400"
               >
                 ← بازگشت به صفحه اصلی
               </Link>

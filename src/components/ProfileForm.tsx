@@ -1,8 +1,9 @@
 "use client";
 
-import { useActionState } from "react";
-import { updateProfileAction, updateProfileImageAction } from "@/lib/actions/profile";
+import { useActionState, useState } from "react";
+import { changePasswordAction, updateProfileAction } from "@/lib/actions/profile";
 import { ImageUploadField } from "@/components/ImageUploadField";
+import { UserAvatar } from "@/components/ui/UserAvatar";
 
 type ProfileFormProps = {
   user: {
@@ -10,71 +11,68 @@ type ProfileFormProps = {
     email: string;
     bio: string | null;
     image: string | null;
+    hasPassword: boolean;
   };
 };
 
 const inputClass =
   "w-full rounded-lg border border-stone-200 bg-white px-4 py-2.5 text-stone-900 outline-none transition focus:border-emerald-400 focus:ring-2 focus:ring-emerald-100 dark:border-stone-700 dark:bg-stone-900 dark:text-stone-100";
 
-const initialProfileState = { error: "", success: false };
+const initialState = { error: "", success: false };
 
 export function ProfileForm({ user }: ProfileFormProps) {
-  const [state, formAction, pending] = useActionState(
-    async (_prev: typeof initialProfileState, formData: FormData) => {
+  const [avatarUrl, setAvatarUrl] = useState(user.image ?? "");
+
+  const [profileState, profileAction, profilePending] = useActionState(
+    async (_prev: typeof initialState, formData: FormData) => {
+      formData.set("image", avatarUrl);
       const result = await updateProfileAction(formData);
-      return {
-        error: result?.error ?? "",
-        success: !!result?.success,
-      };
+      return { error: result?.error ?? "", success: !!result?.success };
     },
-    initialProfileState,
+    initialState,
   );
 
-  const [imageState, imageAction, imagePending] = useActionState(
-    async (_prev: typeof initialProfileState, formData: FormData) => {
-      const result = await updateProfileImageAction(formData);
-      return {
-        error: "",
-        success: !!result?.success,
-      };
+  const [passwordState, passwordAction, passwordPending] = useActionState(
+    async (_prev: typeof initialState, formData: FormData) => {
+      const result = await changePasswordAction(formData);
+      return { error: result?.error ?? "", success: !!result?.success };
     },
-    initialProfileState,
+    initialState,
   );
 
   return (
     <div className="space-y-8">
       <section className="rounded-2xl border border-stone-200 bg-white p-6 shadow-sm dark:border-stone-800 dark:bg-stone-900">
         <h2 className="mb-4 text-lg font-bold text-stone-900 dark:text-stone-100">
-          تصویر پروفایل
+          پروفایل
         </h2>
-        <form action={imageAction} className="space-y-4">
-          <ImageUploadField name="image" defaultValue={user.image} label="آواتار" />
-          <button
-            type="submit"
-            disabled={imagePending}
-            className="rounded-lg bg-emerald-600 px-4 py-2 text-sm font-medium text-white hover:bg-emerald-700 disabled:opacity-60"
-          >
-            {imagePending ? "در حال ذخیره..." : "ذخیره تصویر"}
-          </button>
-          {imageState?.success && (
-            <p className="text-sm text-emerald-600 dark:text-emerald-400">تصویر ذخیره شد.</p>
-          )}
-        </form>
-      </section>
 
-      <section className="rounded-2xl border border-stone-200 bg-white p-6 shadow-sm dark:border-stone-800 dark:bg-stone-900">
-        <h2 className="mb-4 text-lg font-bold text-stone-900 dark:text-stone-100">
-          اطلاعات حساب
-        </h2>
-        <form action={formAction} className="space-y-4">
-          {state?.error && (
+        <form action={profileAction} className="space-y-5">
+          <div className="flex items-center gap-4">
+            <UserAvatar
+              user={{ name: user.name, email: user.email, image: avatarUrl || null }}
+              size="lg"
+            />
+            <div className="text-sm text-stone-500 dark:text-stone-400">
+              آواتار شما در هدر، مقالات و نظرات نمایش داده می‌شود.
+            </div>
+          </div>
+
+          <ImageUploadField
+            name="image"
+            defaultValue={avatarUrl}
+            label="آپلود آواتار"
+            onChange={setAvatarUrl}
+          />
+
+          {profileState.error && (
             <div className="rounded-lg bg-red-50 px-4 py-3 text-sm text-red-700 dark:bg-red-950 dark:text-red-300">
-              {state.error}
+              {profileState.error}
             </div>
           )}
-          {state?.success && (
+          {profileState.success && (
             <div className="rounded-lg bg-emerald-50 px-4 py-3 text-sm text-emerald-700 dark:bg-emerald-950 dark:text-emerald-300">
-              اطلاعات با موفقیت ذخیره شد.
+              پروفایل ذخیره شد.
             </div>
           )}
 
@@ -82,14 +80,7 @@ export function ProfileForm({ user }: ProfileFormProps) {
             <label htmlFor="name" className="mb-1.5 block text-sm font-medium text-stone-700 dark:text-stone-300">
               نام
             </label>
-            <input
-              id="name"
-              name="name"
-              type="text"
-              required
-              defaultValue={user.name ?? ""}
-              className={inputClass}
-            />
+            <input id="name" name="name" type="text" required defaultValue={user.name ?? ""} className={inputClass} />
           </div>
 
           <div>
@@ -121,13 +112,61 @@ export function ProfileForm({ user }: ProfileFormProps) {
 
           <button
             type="submit"
-            disabled={pending}
+            disabled={profilePending}
             className="rounded-lg bg-emerald-600 px-4 py-2 text-sm font-medium text-white hover:bg-emerald-700 disabled:opacity-60"
           >
-            {pending ? "در حال ذخیره..." : "ذخیره تغییرات"}
+            {profilePending ? "در حال ذخیره..." : "ذخیره پروفایل"}
           </button>
         </form>
       </section>
+
+      {user.hasPassword && (
+        <section className="rounded-2xl border border-stone-200 bg-white p-6 shadow-sm dark:border-stone-800 dark:bg-stone-900">
+          <h2 className="mb-4 text-lg font-bold text-stone-900 dark:text-stone-100">
+            تغییر رمز عبور
+          </h2>
+
+          <form action={passwordAction} className="space-y-4">
+            {passwordState.error && (
+              <div className="rounded-lg bg-red-50 px-4 py-3 text-sm text-red-700 dark:bg-red-950 dark:text-red-300">
+                {passwordState.error}
+              </div>
+            )}
+            {passwordState.success && (
+              <div className="rounded-lg bg-emerald-50 px-4 py-3 text-sm text-emerald-700 dark:bg-emerald-950 dark:text-emerald-300">
+                رمز عبور با موفقیت تغییر کرد.
+              </div>
+            )}
+
+            <div>
+              <label htmlFor="currentPassword" className="mb-1.5 block text-sm font-medium text-stone-700 dark:text-stone-300">
+                رمز فعلی
+              </label>
+              <input id="currentPassword" name="currentPassword" type="password" required minLength={6} dir="ltr" className={inputClass} />
+            </div>
+            <div>
+              <label htmlFor="newPassword" className="mb-1.5 block text-sm font-medium text-stone-700 dark:text-stone-300">
+                رمز جدید
+              </label>
+              <input id="newPassword" name="newPassword" type="password" required minLength={6} dir="ltr" className={inputClass} />
+            </div>
+            <div>
+              <label htmlFor="confirmPassword" className="mb-1.5 block text-sm font-medium text-stone-700 dark:text-stone-300">
+                تکرار رمز جدید
+              </label>
+              <input id="confirmPassword" name="confirmPassword" type="password" required minLength={6} dir="ltr" className={inputClass} />
+            </div>
+
+            <button
+              type="submit"
+              disabled={passwordPending}
+              className="rounded-lg bg-stone-800 px-4 py-2 text-sm font-medium text-white hover:bg-stone-900 disabled:opacity-60 dark:bg-stone-700"
+            >
+              {passwordPending ? "در حال ذخیره..." : "تغییر رمز عبور"}
+            </button>
+          </form>
+        </section>
+      )}
     </div>
   );
 }

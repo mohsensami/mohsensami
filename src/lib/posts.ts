@@ -1,4 +1,11 @@
+import { PostStatus, type Prisma } from "@prisma/client";
 import { prisma } from "./prisma";
+
+export type AuthorPreview = {
+  id: string;
+  name: string | null;
+  image: string | null;
+};
 
 export type PostWithRelations = {
   id: number;
@@ -8,30 +15,23 @@ export type PostWithRelations = {
   content: string;
   coverImage: string | null;
   tags: string[];
+  status: PostStatus;
   views: number;
   createdAt: Date;
-  category: { id: number; name: string; slug: string };
-  author: { id: string; name: string | null };
+  category: { id: number; name: string; slug: string } | null;
+  author: AuthorPreview;
 };
+
+const authorSelect = { id: true, name: true, image: true } as const;
 
 const postInclude = {
   category: true,
-  author: { select: { id: true, name: true } },
-} as const;
+  author: { select: authorSelect },
+} satisfies Prisma.PostInclude;
 
-function mapPost(post: {
-  id: number;
-  title: string;
-  slug: string;
-  excerpt: string;
-  content: string;
-  coverImage: string | null;
-  tags: string[];
-  views: number;
-  createdAt: Date;
-  category: { id: number; name: string; slug: string };
-  author: { id: string; name: string | null };
-}): PostWithRelations {
+type RawPost = Prisma.PostGetPayload<{ include: typeof postInclude }>;
+
+function mapPost(post: RawPost): PostWithRelations {
   return {
     id: post.id,
     title: post.title,
@@ -40,6 +40,7 @@ function mapPost(post: {
     content: post.content,
     coverImage: post.coverImage,
     tags: post.tags,
+    status: post.status,
     views: post.views,
     createdAt: post.createdAt,
     category: post.category,
@@ -47,8 +48,11 @@ function mapPost(post: {
   };
 }
 
+const publishedFilter = { status: PostStatus.PUBLISHED } as const;
+
 export async function getLatestPosts(limit = 10): Promise<PostWithRelations[]> {
   const posts = await prisma.post.findMany({
+    where: publishedFilter,
     include: postInclude,
     orderBy: { createdAt: "desc" },
     take: limit,
@@ -58,6 +62,7 @@ export async function getLatestPosts(limit = 10): Promise<PostWithRelations[]> {
 
 export async function getPopularPosts(limit = 5): Promise<PostWithRelations[]> {
   const posts = await prisma.post.findMany({
+    where: publishedFilter,
     include: postInclude,
     orderBy: { views: "desc" },
     take: limit,
@@ -65,7 +70,15 @@ export async function getPopularPosts(limit = 5): Promise<PostWithRelations[]> {
   return posts.map(mapPost);
 }
 
-export async function getPostBySlug(
+export async function getPostBySlug(slug: string): Promise<PostWithRelations | null> {
+  const post = await prisma.post.findFirst({
+    where: { slug, ...publishedFilter },
+    include: postInclude,
+  });
+  return post ? mapPost(post) : null;
+}
+
+export async function getPostBySlugIncludingDrafts(
   slug: string,
 ): Promise<PostWithRelations | null> {
   const post = await prisma.post.findUnique({
@@ -87,7 +100,7 @@ export async function getPostsByCategory(
   limit = 20,
 ): Promise<PostWithRelations[]> {
   const posts = await prisma.post.findMany({
-    where: { category: { slug: categorySlug } },
+    where: { ...publishedFilter, category: { slug: categorySlug } },
     include: postInclude,
     orderBy: { createdAt: "desc" },
     take: limit,
@@ -97,7 +110,12 @@ export async function getPostsByCategory(
 
 export async function getAllCategories() {
   const categories = await prisma.category.findMany({
-    include: { _count: { select: { posts: true } } },
+    include: {
+      posts: {
+        where: publishedFilter,
+        select: { id: true },
+      },
+    },
     orderBy: { name: "asc" },
   });
 
@@ -105,7 +123,7 @@ export async function getAllCategories() {
     id: cat.id,
     name: cat.name,
     slug: cat.slug,
-    postCount: cat._count.posts,
+    postCount: cat.posts.length,
   }));
 }
 
@@ -113,11 +131,20 @@ export async function getCategoryBySlug(slug: string) {
   return prisma.category.findUnique({ where: { slug } });
 }
 
-export async function getPostsByAuthor(authorId: string) {
+export async function getPublishedPostsByAuthor(authorId: string) {
   const posts = await prisma.post.findMany({
-    where: { authorId },
+    where: { authorId, ...publishedFilter },
     include: postInclude,
     orderBy: { createdAt: "desc" },
+  });
+  return posts.map(mapPost);
+}
+
+export async function getDraftPostsByAuthor(authorId: string) {
+  const posts = await prisma.post.findMany({
+    where: { authorId, status: PostStatus.DRAFT },
+    include: postInclude,
+    orderBy: { updatedAt: "desc" },
   });
   return posts.map(mapPost);
 }
@@ -132,10 +159,7 @@ export async function getPostBySlugForAuthor(slug: string, authorId: string) {
 
 export async function slugExists(slug: string, excludeId?: number) {
   const existing = await prisma.post.findFirst({
-    where: {
-      slug,
-      ...(excludeId ? { NOT: { id: excludeId } } : {}),
-    },
+    where: { slug, ...(excludeId ? { NOT: { id: excludeId } } : {}) },
     select: { id: true },
   });
   return !!existing;
@@ -148,7 +172,8 @@ export async function createPost(data: {
   content: string;
   coverImage?: string | null;
   tags: string[];
-  categoryId: number;
+  status: PostStatus;
+  categoryId?: number | null;
   authorId: string;
 }) {
   return prisma.post.create({ data });
@@ -163,13 +188,11 @@ export async function updatePost(
     content: string;
     coverImage?: string | null;
     tags: string[];
-    categoryId: number;
+    status: PostStatus;
+    categoryId?: number | null;
   },
 ) {
-  return prisma.post.update({
-    where: { id: postId },
-    data,
-  });
+  return prisma.post.update({ where: { id: postId }, data });
 }
 
 export async function deletePost(postId: number, authorId: string) {
@@ -191,6 +214,7 @@ export async function getUserProfile(userId: string) {
       email: true,
       image: true,
       bio: true,
+      passwordHash: true,
       createdAt: true,
       _count: { select: { posts: true, comments: true } },
     },

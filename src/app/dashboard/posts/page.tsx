@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { DashboardPostList } from "@/components/DashboardPostList";
 import { auth } from "@/lib/auth";
-import { getPostsByAuthor } from "@/lib/posts";
+import { getPublishedPostsByAuthor } from "@/lib/posts";
 
 export const metadata = {
   title: "مقالات من",
@@ -11,7 +11,7 @@ export default async function DashboardPostsPage() {
   const session = await auth();
   if (!session?.user?.id) return null;
 
-  const posts = await getPostsByAuthor(session.user.id);
+  const posts = await getPublishedPostsByAuthor(session.user.id);
 
   return (
     <div>
@@ -19,7 +19,7 @@ export default async function DashboardPostsPage() {
         <div>
           <h1 className="text-3xl font-bold text-stone-900 dark:text-stone-100">مقالات من</h1>
           <p className="mt-2 text-stone-600 dark:text-stone-400">
-            مدیریت و ویرایش نوشته‌های منتشرشده
+            مقالات منتشرشده
           </p>
         </div>
         <Link

@@ -1,72 +1,204 @@
-@import "tailwindcss";
-@import "highlight.js/styles/atom-one-dark.css" layer(base);
+@import 'tailwindcss';
+@import 'highlight.js/styles/atom-one-dark.css' layer(base);
 
 :root {
-  --background: #fafaf9;
-  --foreground: #1c1917;
-  --accent: #059669;
-  --card: #ffffff;
-  --border: #e7e5e4;
+    --background: #fafaf9;
+    --foreground: #1c1917;
+    --accent: #059669;
+    --card: #ffffff;
+    --border: #e7e5e4;
+    --card: #edeef3;
 }
 
 .dark {
-  --background: #0c0a09;
-  --foreground: #fafaf9;
-  --accent: #34d399;
-  --card: #1c1917;
-  --border: #292524;
+    --background: #0c0a09;
+    --foreground: #fafaf9;
+    --accent: #34d399;
+    --card: #1c1917;
+    --border: #292524;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-vazirmatn), system-ui, sans-serif;
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+    --font-sans: var(--font-vazirmatn), system-ui, sans-serif;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-sans);
+    background: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
 }
 
 .line-clamp-2 {
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Article HTML */
+.article-html h1,
+.article-html h2,
+.article-html h3,
+.article-html h4 {
+    @apply font-bold text-stone-900 dark:text-stone-50;
+}
+
+.article-html h2 {
+    @apply mb-3 mt-8 text-2xl;
+}
+
+.article-html h3 {
+    @apply mb-2 mt-6 text-xl;
+}
+
+.article-html p {
+    @apply mb-4 leading-8 text-stone-700 dark:text-stone-300;
+}
+
+.article-html a {
+    @apply font-medium text-emerald-600 underline dark:text-emerald-400;
+}
+
+.article-html ul {
+    @apply mb-4 list-inside list-disc space-y-1 pr-2;
+}
+
+.article-html ol {
+    @apply mb-4 list-inside list-decimal space-y-1 pr-2;
+}
+
+.article-html blockquote {
+    @apply mb-4 border-r-4 border-emerald-500 pr-4 italic text-stone-600 dark:text-stone-400;
+}
+
+.article-html pre {
+    @apply relative mb-4 overflow-x-auto rounded-xl border border-stone-700 bg-stone-950 p-4 pt-12 text-sm leading-7;
+}
+
+.article-html pre code {
+    @apply font-mono text-emerald-100;
+}
+
+.article-html :not(pre) > code {
+    @apply rounded bg-stone-100 px-1.5 py-0.5 font-mono text-sm text-emerald-800 dark:bg-stone-800 dark:text-emerald-300;
+}
+
+.article-html img {
+    @apply my-4 max-w-full rounded-xl border border-stone-200 dark:border-stone-700;
+}
+
+.article-html table {
+    @apply mb-4 w-full border-collapse text-sm;
+}
+
+.article-html th,
+.article-html td {
+    @apply border border-stone-200 px-3 py-2 dark:border-stone-700;
+}
+
+/* Tiptap editor */
+.ProseMirror {
+    @apply min-h-80 px-4 py-3 focus:outline-none;
+}
+
+.ProseMirror p.is-editor-empty:first-child::before {
+    @apply pointer-events-none float-right h-0 text-stone-400;
+    content: attr(data-placeholder);
+}
+
+.ProseMirror pre {
+    @apply rounded-xl bg-stone-950 p-4 font-mono text-sm text-emerald-100;
+}
+
+.ProseMirror code {
+    @apply rounded bg-stone-100 px-1 py-0.5 font-mono text-sm dark:bg-stone-800;
+}
+
+.ProseMirror blockquote {
+    @apply border-r-4 border-emerald-500 pr-4 italic;
 }
 
 .dark pre.hljs {
-  background: #0d1117 !important;
+    background: #0d1117 !important;
 }
 
 :not(.dark) pre.hljs {
-  background: #282c34 !important;
+    background: #282c34 !important;
 }
 
-/* MDXEditor dark mode */
-.dark .mdx-editor-wrapper {
-  --basePageBg: #1c1917;
-  --baseText: #fafaf9;
-  --baseBorder: #44403c;
-  --baseBg: #292524;
-  --accentSolid: #059669;
+html {
+    scroll-behavior: smooth;
 }
-
-.mdx-editor-wrapper .mdxeditor-toolbar {
-  border-bottom: 1px solid var(--border, #e7e5e4);
-  background: var(--card, #fff);
+article p {
+    margin-bottom: 16px;
+    color: #c8ccd8;
 }
-
-.dark .mdx-editor-wrapper .mdxeditor-toolbar {
-  background: #292524;
-  border-color: #44403c;
+article .toc {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-right: 4px solid var(--accent);
+    border-radius: var(--radius);
+    padding: 24px 28px;
+    margin-bottom: 48px;
 }
-
-.mdx-editor-wrapper .mdxeditor-root-contenteditable {
-  min-height: 20rem;
+.toc h2 {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 14px;
 }
-
-.prose-editor code {
-  font-family: ui-monospace, monospace;
+article .toc ol {
+    padding-right: 20px;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 2.1;
+}
+article .toc a {
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+article .callout {
+    background: var(--card);
+    border-right: 4px solid var(--accent);
+    border-radius: var(--radius);
+    padding: 18px 22px;
+    margin: 24px 0;
+    font-size: 0.95rem;
+    color: var(--text-muted);
+}
+article .callout strong {
+    color: var(--accent);
+    display: block;
+    margin-bottom: 4px;
+}
+h2.section-title {
+    font-size: 1.55rem;
+    font-weight: 800;
+    margin-bottom: 18px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border);
+    color: var(--text);
+}
+article .code-block {
+    direction: ltr;
+}
+article .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: 16px;
+    margin: 24px 0;
+}
+article .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px;
+    transition:
+        border-color 0.2s,
+        transform 0.2s;
 }
