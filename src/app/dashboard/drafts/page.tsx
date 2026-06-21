@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { formatPersianDate } from "@/lib/utils";
+import { formatPersianDate } from "@/lib/format";
 import { auth } from "@/lib/auth";
 import { getDraftPostsByAuthor } from "@/lib/posts";
 

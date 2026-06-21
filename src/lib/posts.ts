@@ -24,7 +24,7 @@ export type PostWithRelations = {
 
 const authorSelect = { id: true, name: true, image: true } as const;
 
-const postInclude = {
+export const postInclude = {
   category: true,
   author: { select: authorSelect },
 } satisfies Prisma.PostInclude;

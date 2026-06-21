@@ -3,8 +3,46 @@ import { writeFile, mkdir } from "fs/promises";
 import path from "path";
 import { auth } from "@/lib/auth";
 
-const MAX_SIZE = 5 * 1024 * 1024;
-const ALLOWED_TYPES = ["image/jpeg", "image/png", "image/webp", "image/gif"];
+const MAX_IMAGE_SIZE = 5 * 1024 * 1024;
+const MAX_MEDIA_SIZE = 25 * 1024 * 1024;
+
+const IMAGE_TYPES = ["image/jpeg", "image/png", "image/webp", "image/gif"];
+const VIDEO_TYPES = ["video/mp4", "video/webm", "video/quicktime"];
+const AUDIO_TYPES = ["audio/mpeg", "audio/wav", "audio/ogg", "audio/mp4"];
+const FILE_TYPES = [
+  "application/pdf",
+  "text/plain",
+  "application/zip",
+  "application/json",
+];
+
+function getMaxSize(type: string) {
+  if (IMAGE_TYPES.includes(type)) return MAX_IMAGE_SIZE;
+  return MAX_MEDIA_SIZE;
+}
+
+function isAllowedType(type: string) {
+  return (
+    IMAGE_TYPES.includes(type) ||
+    VIDEO_TYPES.includes(type) ||
+    AUDIO_TYPES.includes(type) ||
+    FILE_TYPES.includes(type) ||
+    type.startsWith("image/") ||
+    type.startsWith("video/") ||
+    type.startsWith("audio/")
+  );
+}
+
+function safeExtension(filename: string, type: string) {
+  const ext = filename.split(".").pop()?.toLowerCase();
+  if (ext && ext.length <= 5) return ext;
+
+  if (type.startsWith("image/")) return type.split("/")[1]?.replace("jpeg", "jpg") ?? "jpg";
+  if (type.startsWith("video/")) return "mp4";
+  if (type.startsWith("audio/")) return "mp3";
+  if (type === "application/pdf") return "pdf";
+  return "bin";
+}
 
 export async function POST(request: Request) {
   const session = await auth();
@@ -19,17 +57,20 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "فایل یافت نشد" }, { status: 400 });
   }
 
-  if (!ALLOWED_TYPES.includes(file.type)) {
-    return NextResponse.json({ error: "فرمت تصویر مجاز نیست" }, { status: 400 });
+  if (!isAllowedType(file.type)) {
+    return NextResponse.json({ error: "فرمت فایل مجاز نیست" }, { status: 400 });
   }
 
-  if (file.size > MAX_SIZE) {
-    return NextResponse.json({ error: "حجم فایل بیش از ۵ مگابایت است" }, { status: 400 });
+  const maxSize = getMaxSize(file.type);
+  if (file.size > maxSize) {
+    return NextResponse.json(
+      { error: `حجم فایل بیش از ${Math.round(maxSize / (1024 * 1024))} مگابایت است` },
+      { status: 400 },
+    );
   }
 
-  const ext = file.name.split(".").pop()?.toLowerCase() ?? "jpg";
-  const safeExt = ["jpg", "jpeg", "png", "webp", "gif"].includes(ext) ? ext : "jpg";
-  const filename = `${Date.now()}-${Math.random().toString(36).slice(2, 8)}.${safeExt}`;
+  const ext = safeExtension(file.name, file.type);
+  const filename = `${Date.now()}-${Math.random().toString(36).slice(2, 8)}.${ext}`;
 
   const uploadDir = path.join(process.cwd(), "public", "uploads", "posts");
   await mkdir(uploadDir, { recursive: true });

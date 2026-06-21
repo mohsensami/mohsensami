@@ -2,8 +2,9 @@
 
 import { useActionState, useState } from "react";
 import { createPostAction, updatePostAction } from "@/lib/actions/posts";
-import { RichTextEditor } from "@/components/editor/RichTextEditor";
+import { BlogPlateEditor } from "@/components/editor/BlogPlateEditor";
 import { ImageUploadField } from "@/components/ImageUploadField";
+import { isEmptyPlateContent } from "@/lib/format";
 
 type Category = { id: number; name: string; slug: string };
 
@@ -150,7 +151,11 @@ export function PostForm({ categories, post }: PostFormProps) {
 
       <div>
         <label className={labelClass}>متن مقاله</label>
-        <RichTextEditor content={content} onChange={setContent} />
+        <BlogPlateEditor
+          editorKey={post?.id ?? "new"}
+          content={content}
+          onChange={setContent}
+        />
       </div>
 
       <div className="flex flex-wrap gap-3">
@@ -167,7 +172,7 @@ export function PostForm({ categories, post }: PostFormProps) {
           type="submit"
           name="intent"
           value="publish"
-          disabled={pending || !content.trim()}
+          disabled={pending || isEmptyPlateContent(content)}
           className="rounded-lg bg-emerald-600 px-6 py-2.5 font-medium text-white transition hover:bg-emerald-700 disabled:opacity-60"
         >
           {pending

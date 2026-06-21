@@ -11,7 +11,7 @@ import {
   slugExists,
   updatePost,
 } from "@/lib/posts";
-import { slugify } from "@/lib/utils";
+import { isEmptyPlateContent, slugify } from "@/lib/format";
 import { prisma } from "@/lib/prisma";
 
 type SaveIntent = "draft" | "publish";
@@ -74,7 +74,7 @@ async function resolveSlug(
 function validateForPublish(parsed: ReturnType<typeof parsePostForm>) {
   if (!parsed.title) return "عنوان الزامی است";
   if (!parsed.excerpt) return "خلاصه الزامی است";
-  if (!parsed.content) return "متن مقاله الزامی است";
+  if (!parsed.content || isEmptyPlateContent(parsed.content)) return "متن مقاله الزامی است";
   if (!parsed.categoryId) return "دسته‌بندی الزامی است";
   if (!parsed.slug) return "اسلاگ الزامی است";
   return null;

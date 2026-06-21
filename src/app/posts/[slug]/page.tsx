@@ -2,13 +2,15 @@ import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { ArticleContent, TagList } from "@/components/article/ArticleContent";
+import { FavoriteButton } from "@/components/FavoriteButton";
 import { Sidebar } from "@/components/Sidebar";
 import { CommentSection } from "@/components/CommentSection";
 import { UserAvatar } from "@/components/ui/UserAvatar";
 import { getCommentsByPostId } from "@/lib/comments";
 import { auth } from "@/lib/auth";
+import { isPostFavorited } from "@/lib/favorites";
 import { getPostBySlug, incrementPostViews } from "@/lib/posts";
-import { formatPersianDate } from "@/lib/utils";
+import { formatPersianDate } from "@/lib/format";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -29,6 +31,9 @@ export default async function PostPage({ params }: Props) {
 
   await incrementPostViews(post.id);
   const comments = await getCommentsByPostId(post.id);
+  const favorited = session?.user?.id
+    ? await isPostFavorited(session.user.id, post.id)
+    : false;
 
   return (
     <main className="mx-auto max-w-6xl px-4 py-8">
@@ -72,6 +77,16 @@ export default async function PostPage({ params }: Props) {
             </h1>
 
             <TagList tags={post.tags} />
+
+            {session?.user && (
+              <div className="mb-6">
+                <FavoriteButton
+                  postId={post.id}
+                  postSlug={post.slug}
+                  initialFavorited={favorited}
+                />
+              </div>
+            )}
 
             {post.excerpt && (
               <p className="mb-8 border-r-4 border-emerald-500 pr-4 text-lg leading-8 text-stone-600 dark:text-stone-300">

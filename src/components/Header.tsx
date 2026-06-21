@@ -1,10 +1,16 @@
 import Link from 'next/link';
 import { auth, signOut } from '@/lib/auth';
+import { MobileNav } from '@/components/MobileNav';
 import { ThemeToggle } from '@/components/ThemeToggle';
 import { UserAvatar } from '@/components/ui/UserAvatar';
 
 export async function Header() {
     const session = await auth();
+
+    async function logoutAction() {
+        'use server';
+        await signOut({ redirectTo: '/' });
+    }
 
     return (
         <header className="sticky top-0 z-50 border-b border-stone-200 bg-white/95 backdrop-blur-sm dark:border-stone-800 dark:bg-stone-900/95">
@@ -26,59 +32,65 @@ export async function Header() {
                 <nav className="flex items-center gap-2 text-sm sm:gap-3">
                     <Link
                         href="/posts/new"
-                        className="rounded-lg bg-emerald-600 px-3 py-2 font-medium text-white transition hover:bg-emerald-700 sm:px-4"
+                        className="hidden rounded-lg bg-emerald-600 px-3 py-2 font-medium text-white transition hover:bg-emerald-700 sm:inline-flex sm:px-4"
                     >
                         نوشته جدید
                     </Link>
 
+                    <Link
+                        href="/posts"
+                        className="hidden text-stone-600 transition hover:text-emerald-700 dark:text-stone-300 dark:hover:text-emerald-400 md:inline"
+                    >
+                        مقالات
+                    </Link>
+
                     <ThemeToggle />
 
-                    {session?.user ? (
-                        <>
-                            <Link
-                                href="/dashboard"
-                                className="hidden items-center gap-2 text-stone-600 transition hover:text-emerald-700 dark:text-stone-300 dark:hover:text-emerald-400 sm:inline-flex"
-                            >
-                                <UserAvatar
-                                    user={{
-                                        name: session.user.name,
-                                        email: session.user.email,
-                                        image: session.user.image,
-                                    }}
-                                    size="sm"
-                                />
-                                <span>{session.user.name}</span>
-                            </Link>
-                            <form
-                                action={async () => {
-                                    'use server';
-                                    await signOut({ redirectTo: '/' });
-                                }}
-                            >
-                                <button
-                                    type="submit"
-                                    className="rounded-lg border border-stone-200 px-3 py-2 text-stone-600 transition hover:border-stone-300 hover:text-stone-900 dark:border-stone-700 dark:text-stone-300 dark:hover:border-stone-600 dark:hover:text-stone-100"
+                    <div className="hidden items-center gap-2 md:flex">
+                        {session?.user ? (
+                            <>
+                                <Link
+                                    href="/dashboard"
+                                    className="inline-flex items-center gap-2 text-stone-600 transition hover:text-emerald-700 dark:text-stone-300 dark:hover:text-emerald-400"
                                 >
-                                    خروج
-                                </button>
-                            </form>
-                        </>
-                    ) : (
-                        <>
-                            <Link
-                                href="/login"
-                                className="rounded-lg border border-stone-200 px-3 py-2 text-stone-700 transition hover:border-emerald-300 hover:text-emerald-700 dark:border-stone-700 dark:text-stone-300 dark:hover:border-emerald-600 dark:hover:text-emerald-400 sm:px-4"
-                            >
-                                ورود
-                            </Link>
-                            <Link
-                                href="/register"
-                                className="hidden rounded-lg bg-stone-800 px-4 py-2 font-medium text-white transition hover:bg-stone-900 dark:bg-stone-700 dark:hover:bg-stone-600 sm:inline"
-                            >
-                                ثبت‌نام
-                            </Link>
-                        </>
-                    )}
+                                    <UserAvatar
+                                        user={{
+                                            name: session.user.name,
+                                            email: session.user.email,
+                                            image: session.user.image,
+                                        }}
+                                        size="sm"
+                                    />
+                                    <span>{session.user.name}</span>
+                                </Link>
+                                <form action={logoutAction}>
+                                    <button
+                                        type="submit"
+                                        className="rounded-lg border border-stone-200 px-3 py-2 text-stone-600 transition hover:border-stone-300 hover:text-stone-900 dark:border-stone-700 dark:text-stone-300 dark:hover:border-stone-600 dark:hover:text-stone-100"
+                                    >
+                                        خروج
+                                    </button>
+                                </form>
+                            </>
+                        ) : (
+                            <>
+                                <Link
+                                    href="/login"
+                                    className="rounded-lg border border-stone-200 px-3 py-2 text-stone-700 transition hover:border-emerald-300 hover:text-emerald-700 dark:border-stone-700 dark:text-stone-300 dark:hover:border-emerald-600 dark:hover:text-emerald-400 sm:px-4"
+                                >
+                                    ورود
+                                </Link>
+                                <Link
+                                    href="/register"
+                                    className="rounded-lg bg-stone-800 px-4 py-2 font-medium text-white transition hover:bg-stone-900 dark:bg-stone-700 dark:hover:bg-stone-600"
+                                >
+                                    ثبت‌نام
+                                </Link>
+                            </>
+                        )}
+                    </div>
+
+                    <MobileNav session={session} logoutAction={logoutAction} />
                 </nav>
             </div>
         </header>

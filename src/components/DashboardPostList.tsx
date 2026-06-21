@@ -3,7 +3,7 @@
 import { useActionState } from "react";
 import { deletePostAction } from "@/lib/actions/posts";
 import Link from "next/link";
-import { formatPersianDate } from "@/lib/utils";
+import { formatPersianDate } from "@/lib/format";
 import type { PostWithRelations } from "@/lib/posts";
 
 const initialState = { error: "" };

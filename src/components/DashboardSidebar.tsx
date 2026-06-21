@@ -8,6 +8,7 @@ const navItems = [
   { href: "/dashboard", label: "پروفایل", icon: "👤", exact: true },
   { href: "/dashboard/posts", label: "مقالات من", icon: "📝" },
   { href: "/dashboard/drafts", label: "پیش‌نویس‌ها", icon: "📋" },
+  { href: "/dashboard/favorites", label: "علاقه‌مندی‌ها", icon: "❤️" },
   { href: "/dashboard/comments", label: "نظرات من", icon: "💬" },
 ];
 

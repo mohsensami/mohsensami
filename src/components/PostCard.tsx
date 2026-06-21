@@ -1,6 +1,6 @@
 import Link from "next/link";
 import type { PostWithRelations } from "@/lib/posts";
-import { formatPersianDate } from "@/lib/utils";
+import { formatPersianDate } from "@/lib/format";
 import { UserAvatar } from "@/components/ui/UserAvatar";
 
 type PostCardProps = {

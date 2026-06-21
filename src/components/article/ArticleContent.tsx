@@ -4,6 +4,8 @@ import { useEffect, useRef } from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import rehypeHighlight from "rehype-highlight";
+import { PlateArticleViewer } from "@/components/article/PlateArticleViewer";
+import { isPlateJson } from "@/lib/format";
 import { isHtmlContent, sanitizeArticleHtml } from "@/lib/sanitize-html";
 
 function enhanceCodeBlocks(container: HTMLElement) {
@@ -89,6 +91,10 @@ function CopyButton({ code }: { code: string }) {
 }
 
 export function ArticleContent({ content }: { content: string }) {
+  if (isPlateJson(content)) {
+    return <PlateArticleViewer content={content} />;
+  }
+
   if (isHtmlContent(content)) {
     return <HtmlArticleBody html={content} />;
   }

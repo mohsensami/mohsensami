@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { auth } from "@/lib/auth";
 import { getCommentsByAuthor } from "@/lib/comments";
-import { formatPersianDate } from "@/lib/utils";
+import { formatPersianDate } from "@/lib/format";
 
 export const metadata = {
   title: "نظرات من",

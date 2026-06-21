@@ -2,7 +2,7 @@
 
 import { useActionState } from "react";
 import { createCommentAction } from "@/lib/actions/comments";
-import { formatPersianDate } from "@/lib/utils";
+import { formatPersianDate } from "@/lib/format";
 import type { CommentWithAuthor } from "@/lib/comments";
 import { UserAvatar } from "@/components/ui/UserAvatar";
 
