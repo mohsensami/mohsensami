@@ -43,7 +43,7 @@ export function ImageUploadField({
     } finally {
       setUploading(false);
     }
-  }, []);
+  }, [onChange]);
 
   return (
     <div>

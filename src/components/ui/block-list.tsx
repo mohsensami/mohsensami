@@ -35,7 +35,12 @@ export const BlockList: RenderNodeWrapper = (props) => {
   if (!props.element.listStyleType) return;
   if (!isOrderedList(props.element)) return;
 
-  return (props) => <List {...props} />;
+  function BlockListItem(listProps: PlateElementProps & { lineBreakBadge?: React.ReactNode }) {
+    return <List {...listProps} />;
+  }
+  BlockListItem.displayName = "BlockListItem";
+
+  return BlockListItem;
 };
 
 function List(props: PlateElementProps & { lineBreakBadge?: React.ReactNode }) {

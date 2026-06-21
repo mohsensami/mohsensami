@@ -2,7 +2,8 @@
 
 import { PostStatus } from "@prisma/client";
 import { redirect } from "next/navigation";
-import { revalidatePath } from "next/cache";
+import { revalidatePath, updateTag } from "next/cache";
+import { CACHE_TAGS } from "@/lib/cache";
 import { auth } from "@/lib/auth";
 import {
   createPost,
@@ -136,6 +137,9 @@ export async function createPostAction(formData: FormData) {
 
   revalidatePath("/dashboard/drafts");
   revalidatePath("/dashboard/posts");
+  revalidatePath("/");
+  updateTag(CACHE_TAGS.posts);
+  updateTag(CACHE_TAGS.categories);
 
   if (post.status === PostStatus.DRAFT) {
     redirect("/dashboard/drafts");
@@ -166,6 +170,9 @@ export async function updatePostAction(formData: FormData) {
   revalidatePath("/dashboard/drafts");
   revalidatePath("/dashboard/posts");
   revalidatePath(`/posts/${currentSlug}`);
+  revalidatePath("/");
+  updateTag(CACHE_TAGS.posts);
+  updateTag(CACHE_TAGS.categories);
 
   if (post.status === PostStatus.DRAFT) {
     redirect("/dashboard/drafts");
@@ -185,5 +192,8 @@ export async function deletePostAction(formData: FormData) {
 
   revalidatePath("/dashboard/posts");
   revalidatePath("/dashboard/drafts");
+  revalidatePath("/");
+  updateTag(CACHE_TAGS.posts);
+  updateTag(CACHE_TAGS.categories);
   redirect("/dashboard/posts");
 }

@@ -21,12 +21,13 @@ export function ImageElementStatic(
           style={{ textAlign: align }}
         >
           <div>
+            {/* eslint-disable-next-line @next/next/no-img-element -- static Plate editor output */}
             <img
               className={cn(
                 'w-full max-w-full cursor-default object-cover px-0',
                 'rounded-sm'
               )}
-              alt={(props.attributes as any).alt}
+              alt={typeof props.attributes.alt === "string" ? props.attributes.alt : ""}
               src={url}
             />
           </div>

@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Vazirmatn, Geist } from 'next/font/google';
+import { Geist } from 'next/font/google';
 import { Toaster } from 'sonner';
 import { Header } from '@/components/Header';
 import { ThemeProvider } from '@/components/ThemeProvider';
@@ -9,11 +9,6 @@ import { cn } from '@/lib/utils';
 import localFont from 'next/font/local';
 
 const geist = Geist({ subsets: ['latin'], variable: '--font-sans' });
-
-const vazirmatn = Vazirmatn({
-    subsets: ['arabic'],
-    variable: '--font-vazirmatn',
-});
 
 export const metadata: Metadata = {
     title: {

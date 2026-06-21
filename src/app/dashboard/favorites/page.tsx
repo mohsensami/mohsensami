@@ -3,7 +3,7 @@ import { redirect } from 'next/navigation';
 
 import { PostCard } from '@/components/PostCard';
 import { formatPersianDate } from '@/lib/format';
-import { getFavoritePostsByUser } from '@/lib/favorites';
+import { getFavoritePostsByUser, type FavoritePost } from '@/lib/favorites';
 import { auth } from '@/lib/auth';
 
 export const metadata = {
@@ -39,7 +39,7 @@ export default async function DashboardFavoritesPage() {
                 </div>
             ) : (
                 <div className="space-y-6">
-                    {favorites.map((post: any) => (
+                    {favorites.map((post: FavoritePost) => (
                         <div key={post.id} className="space-y-2">
                             <PostCard post={post} />
                             <p className="text-xs text-stone-500 dark:text-stone-400">

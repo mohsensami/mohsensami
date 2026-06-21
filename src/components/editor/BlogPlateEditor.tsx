@@ -7,7 +7,7 @@ import { Plate, usePlateEditor } from "platejs/react";
 import { BlogEditorKit } from "@/components/editor/blog-editor-kit";
 import { BlogEditorToolbar } from "@/components/editor/BlogEditorToolbar";
 import { Editor, EditorContainer } from "@/components/ui/editor";
-import { isEmptyPlateContent, isPlateJson, parsePlateContent } from "@/lib/format";
+import { isPlateJson, parsePlateContent } from "@/lib/format";
 
 type BlogPlateEditorProps = {
   content: string;

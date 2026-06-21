@@ -1,6 +1,8 @@
 import { prisma } from "./prisma";
 import { postInclude, type PostWithRelations } from "./posts";
 
+export type FavoritePost = PostWithRelations & { favoritedAt: Date };
+
 function mapFavoritePost(
   favorite: {
     createdAt: Date;
@@ -19,7 +21,7 @@ function mapFavoritePost(
       author: { id: string; name: string | null; image: string | null };
     };
   },
-): PostWithRelations & { favoritedAt: Date } {
+): FavoritePost {
   const { post, createdAt } = favorite;
   return {
     id: post.id,

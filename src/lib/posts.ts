@@ -1,4 +1,6 @@
 import { PostStatus, type Prisma } from "@prisma/client";
+import { unstable_cache } from "next/cache";
+import { CACHE_REVALIDATE, CACHE_TAGS } from "./cache";
 import { prisma } from "./prisma";
 
 export type AuthorPreview = {
@@ -205,18 +207,121 @@ export async function deletePost(postId: number, authorId: string) {
   return true;
 }
 
-export async function getUserProfile(userId: string) {
+const userProfileSelect = {
+  id: true,
+  name: true,
+  email: true,
+  image: true,
+  bio: true,
+  passwordHash: true,
+  createdAt: true,
+  _count: { select: { posts: true, comments: true } },
+} as const;
+
+export type UserProfile = Prisma.UserGetPayload<{ select: typeof userProfileSelect }>;
+
+export async function getUserProfile(userId: string): Promise<UserProfile | null> {
   return prisma.user.findUnique({
     where: { id: userId },
-    select: {
-      id: true,
-      name: true,
-      email: true,
-      image: true,
-      bio: true,
-      passwordHash: true,
-      createdAt: true,
-      _count: { select: { posts: true, comments: true } },
-    },
+    select: userProfileSelect,
   });
 }
+
+export async function searchPosts(query: string, limit = 8): Promise<PostWithRelations[]> {
+  const q = query.trim();
+  if (!q) return [];
+
+  const posts = await prisma.post.findMany({
+    where: {
+      ...publishedFilter,
+      OR: [
+        { title: { contains: q, mode: "insensitive" } },
+        { excerpt: { contains: q, mode: "insensitive" } },
+      ],
+    },
+    include: postInclude,
+    take: limit,
+    orderBy: { createdAt: "desc" },
+  });
+  return posts.map(mapPost);
+}
+
+export async function getRelatedPosts(
+  postId: number,
+  categoryId: number | null,
+  limit = 8,
+): Promise<PostWithRelations[]> {
+  const posts = await prisma.post.findMany({
+    where: {
+      ...publishedFilter,
+      id: { not: postId },
+      ...(categoryId ? { categoryId } : {}),
+    },
+    include: postInclude,
+    orderBy: { createdAt: "desc" },
+    take: limit,
+  });
+  return posts.map(mapPost);
+}
+
+export type CategoryWithPosts = {
+  id: number;
+  name: string;
+  slug: string;
+  posts: PostWithRelations[];
+};
+
+export async function getCategoriesWithPosts(
+  limitPerCategory = 5,
+): Promise<CategoryWithPosts[]> {
+  const categories = await prisma.category.findMany({
+    where: { posts: { some: publishedFilter } },
+    include: {
+      posts: {
+        where: publishedFilter,
+        include: postInclude,
+        orderBy: { createdAt: "desc" },
+        take: limitPerCategory,
+      },
+    },
+    orderBy: { name: "asc" },
+  });
+
+  return categories.map((cat) => ({
+    id: cat.id,
+    name: cat.name,
+    slug: cat.slug,
+    posts: cat.posts.map(mapPost),
+  }));
+}
+
+export const getLatestPostsCached = unstable_cache(
+  async (limit: number) => getLatestPosts(limit),
+  ["latest-posts"],
+  { revalidate: CACHE_REVALIDATE, tags: [CACHE_TAGS.posts] },
+);
+
+export const getPopularPostsCached = unstable_cache(
+  async (limit: number) => getPopularPosts(limit),
+  ["popular-posts"],
+  { revalidate: CACHE_REVALIDATE, tags: [CACHE_TAGS.posts] },
+);
+
+export const getCategoriesWithPostsCached = unstable_cache(
+  async (limitPerCategory: number) => getCategoriesWithPosts(limitPerCategory),
+  ["categories-with-posts"],
+  { revalidate: CACHE_REVALIDATE, tags: [CACHE_TAGS.categories, CACHE_TAGS.posts] },
+);
+
+export const getAllCategoriesCached = unstable_cache(
+  async () => getAllCategories(),
+  ["all-categories"],
+  { revalidate: CACHE_REVALIDATE, tags: [CACHE_TAGS.categories] },
+);
+
+export const getRelatedPostsCached = unstable_cache(
+  async (postId: number, categoryId: number | null, limit: number) =>
+    getRelatedPosts(postId, categoryId, limit),
+  ["related-posts"],
+  { revalidate: CACHE_REVALIDATE, tags: [CACHE_TAGS.posts] },
+);

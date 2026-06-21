@@ -25,7 +25,12 @@ export const BlockListStatic: RenderStaticNodeWrapper = (props) => {
   if (!props.element.listStyleType) return;
   if (!isOrderedList(props.element)) return;
 
-  return (props) => <List {...props} />;
+  function BlockListStaticItem(listProps: SlateRenderElementProps) {
+    return <List {...listProps} />;
+  }
+  BlockListStaticItem.displayName = "BlockListStaticItem";
+
+  return BlockListStaticItem;
 };
 
 function List(props: SlateRenderElementProps) {

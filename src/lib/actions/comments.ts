@@ -1,6 +1,7 @@
 "use server";
 
-import { revalidatePath } from "next/cache";
+import { revalidatePath, updateTag } from "next/cache";
+import { CACHE_TAGS } from "@/lib/cache";
 import { redirect } from "next/navigation";
 import { auth } from "@/lib/auth";
 import { createComment } from "@/lib/comments";
@@ -35,5 +36,7 @@ export async function createCommentAction(formData: FormData) {
   });
 
   revalidatePath(`/posts/${postSlug}`);
+  revalidatePath("/");
+  updateTag(CACHE_TAGS.comments);
   return { success: true };
 }

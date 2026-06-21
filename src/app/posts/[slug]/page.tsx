@@ -9,8 +9,9 @@ import { UserAvatar } from "@/components/ui/UserAvatar";
 import { getCommentsByPostId } from "@/lib/comments";
 import { auth } from "@/lib/auth";
 import { isPostFavorited } from "@/lib/favorites";
-import { getPostBySlug, incrementPostViews } from "@/lib/posts";
+import { getPostBySlug, getRelatedPostsCached, incrementPostViews } from "@/lib/posts";
 import { formatPersianDate } from "@/lib/format";
+import { RelatedPostsCarousel } from "@/components/RelatedPostsCarousel";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -30,7 +31,10 @@ export default async function PostPage({ params }: Props) {
   if (!post) notFound();
 
   await incrementPostViews(post.id);
-  const comments = await getCommentsByPostId(post.id);
+  const [comments, relatedPosts] = await Promise.all([
+    getCommentsByPostId(post.id),
+    getRelatedPostsCached(post.id, post.category?.id ?? null, 8),
+  ]);
   const favorited = session?.user?.id
     ? await isPostFavorited(session.user.id, post.id)
     : false;
@@ -95,6 +99,8 @@ export default async function PostPage({ params }: Props) {
             )}
 
             <ArticleContent content={post.content} />
+
+            <RelatedPostsCarousel posts={relatedPosts} />
 
             <CommentSection
               postSlug={post.slug}

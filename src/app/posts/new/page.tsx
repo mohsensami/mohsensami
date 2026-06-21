@@ -1,5 +1,4 @@
 import { redirect } from "next/navigation";
-import Link from "next/link";
 import { PostForm } from "@/components/PostForm";
 import { auth } from "@/lib/auth";
 import { getAllCategories } from "@/lib/posts";

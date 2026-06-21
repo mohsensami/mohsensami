@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { auth, signOut } from '@/lib/auth';
 import { MobileNav } from '@/components/MobileNav';
+import { SearchBar } from '@/components/SearchBar';
 import { ThemeToggle } from '@/components/ThemeToggle';
 import { UserAvatar } from '@/components/ui/UserAvatar';
 
@@ -14,8 +15,8 @@ export async function Header() {
 
     return (
         <header className="sticky top-0 z-50 border-b border-stone-200 bg-white/95 backdrop-blur-sm dark:border-stone-800 dark:bg-stone-900/95">
-            <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
-                <Link href="/" className="group flex items-center gap-2">
+            <div className="mx-auto flex max-w-6xl items-center gap-3 px-4 py-4 sm:gap-4">
+                <Link href="/" className="group flex shrink-0 items-center gap-2">
                     <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-emerald-600 text-lg font-bold text-white">
                         P
                     </span>
@@ -29,7 +30,11 @@ export async function Header() {
                     </div>
                 </Link>
 
-                <nav className="flex items-center gap-2 text-sm sm:gap-3">
+                <div className="flex flex-1 justify-center px-1 sm:px-4">
+                    <SearchBar />
+                </div>
+
+                <nav className="flex shrink-0 items-center gap-2 text-sm sm:gap-3">
                     <Link
                         href="/posts/new"
                         className="hidden rounded-lg bg-emerald-600 px-3 py-2 font-medium text-white transition hover:bg-emerald-700 sm:inline-flex sm:px-4"
