@@ -2,11 +2,12 @@ import type { Metadata } from 'next';
 import { Geist } from 'next/font/google';
 import { Toaster } from 'sonner';
 import { Header } from '@/components/Header';
-import { ThemeProvider } from '@/components/ThemeProvider';
+import { ThemeProvider } from '@/app/providers/ThemeProvider';
 import { TooltipProvider } from '@/components/ui/tooltip';
 import './globals.css';
 import { cn } from '@/lib/utils';
 import localFont from 'next/font/local';
+import NgProviders from './providers/NgProvider';
 
 const geist = Geist({ subsets: ['latin'], variable: '--font-sans' });
 
@@ -56,7 +57,7 @@ export default function RootLayout({
                 <ThemeProvider>
                     <TooltipProvider>
                         <Header />
-                        {children}
+                        <NgProviders>{children}</NgProviders>
                         <Toaster position="top-center" richColors />
                         <footer className="mt-16 border-t border-stone-200 bg-white py-8 dark:border-stone-800 dark:bg-stone-900">
                             <div className="mx-auto max-w-6xl px-4 text-center text-sm text-stone-500 dark:text-stone-400">

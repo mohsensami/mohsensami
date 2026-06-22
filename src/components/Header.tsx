@@ -14,8 +14,8 @@ export async function Header() {
     }
 
     return (
-        <header className="sticky top-0 z-50 border-b border-stone-200 bg-white/95 backdrop-blur-sm dark:border-stone-800 dark:bg-stone-900/95">
-            <div className="mx-auto flex max-w-6xl items-center gap-3 px-4 py-4 sm:gap-4">
+        <header className=" z-50 border-b border-stone-200 bg-white/95 backdrop-blur-sm dark:border-stone-800 dark:bg-stone-900/95">
+            <div className="mx-auto flex container-fluid items-center gap-3 px-4 py-4 sm:gap-4">
                 <Link href="/" className="group flex shrink-0 items-center gap-2">
                     <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-emerald-600 text-lg font-bold text-white">
                         P
@@ -40,13 +40,6 @@ export async function Header() {
                         className="hidden rounded-lg bg-emerald-600 px-3 py-2 font-medium text-white transition hover:bg-emerald-700 sm:inline-flex sm:px-4"
                     >
                         نوشته جدید
-                    </Link>
-
-                    <Link
-                        href="/posts"
-                        className="hidden text-stone-600 transition hover:text-emerald-700 dark:text-stone-300 dark:hover:text-emerald-400 md:inline"
-                    >
-                        مقالات
                     </Link>
 
                     <ThemeToggle />

@@ -10,7 +10,7 @@ export default async function PostsPage() {
     const posts = await getLatestPosts(50);
 
     return (
-        <main className="mx-auto max-w-6xl px-4 py-8">
+        <main className="container-fluid p-4">
             <div className="mb-8">
                 <h1 className="text-3xl font-bold text-stone-900">جدیدترین نوشته‌ها</h1>
                 <p className="mt-2 text-stone-600">همه مقالات منتشرشده در آقای برنامه نویس</p>
