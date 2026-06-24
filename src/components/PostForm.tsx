@@ -1,8 +1,11 @@
 'use client';
 
 import { useActionState, useState } from 'react';
+import dynamic from 'next/dynamic';
 import { createPostAction, updatePostAction } from '@/lib/actions/posts';
-import { BlogPlateEditor } from '@/components/editor/BlogPlateEditor';
+const MDXPostEditor = dynamic(() => import('@/components/editor/MDXPostEditor').then((mod) => mod.MDXPostEditor), {
+    ssr: false,
+});
 import { ImageUploadField } from '@/components/ImageUploadField';
 import { isEmptyPlateContent } from '@/lib/format';
 
@@ -48,8 +51,6 @@ export function PostForm({ categories, post }: PostFormProps) {
                     <input type="hidden" name="currentSlug" value={post.slug} />
                 </>
             )}
-
-            <input type="hidden" name="content" value={content} />
 
             {state?.error && (
                 <div className="rounded-lg bg-red-50 px-4 py-3 text-sm text-red-700 dark:bg-red-950 dark:text-red-300">
@@ -141,21 +142,8 @@ export function PostForm({ categories, post }: PostFormProps) {
 
             <div>
                 <label className={labelClass}>متن مقاله</label>
-                <textarea
-                    id="content"
-                    name="content"
-                    dir="ltr"
-                    rows={15}
-                    defaultValue={post?.content}
-                    className={inputClass}
-                    placeholder="خلاصه‌ای کوتاه از مقاله"
-                />
-
-                {/* <BlogPlateEditor
-          editorKey={post?.id ?? "new"}
-          content={content}
-          onChange={setContent}
-        /> */}
+                <MDXPostEditor markdown={content} onChange={setContent} placeholder="متن مقاله را اینجا بنویسید..." />
+                <input type="hidden" name="content" value={content} />
             </div>
 
             <div className="flex flex-wrap gap-3">

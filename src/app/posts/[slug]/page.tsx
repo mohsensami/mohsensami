@@ -77,9 +77,19 @@ export default async function PostPage({ params }: Props) {
                             <span>{post.views.toLocaleString('fa-IR')} بازدید</span>
                         </div>
 
-                        <h1 className="mb-4 text-3xl font-bold leading-11 text-stone-900 dark:text-stone-50">
-                            {post.title}
-                        </h1>
+                        <div className="mb-4 flex items-start justify-between gap-4">
+                            <h1 className="flex-1 text-3xl font-bold leading-11 text-stone-900 dark:text-stone-50">
+                                {post.title}
+                            </h1>
+                            {session?.user?.id === post.author.id && (
+                                <Link
+                                    href={`/posts/${post.slug}/edit`}
+                                    className="mt-1 inline-flex items-center gap-2 rounded-lg bg-emerald-600 px-4 py-2 text-sm font-medium text-white hover:bg-emerald-700 transition dark:bg-emerald-700 dark:hover:bg-emerald-600"
+                                >
+                                    ✏️ ویرایش مقاله
+                                </Link>
+                            )}
+                        </div>
 
                         <TagList tags={post.tags} />
 

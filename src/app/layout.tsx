@@ -22,18 +22,18 @@ export const metadata: Metadata = {
 const vazir = localFont({
     src: [
         {
-            path: '../../public/fonts/Vazir-Bold-FD-WOL.woff2',
+            path: '../../public/fonts/Vazir-Light-FD-WOL.woff2',
+            weight: '300',
+            style: 'normal',
+        },
+        {
+            path: '../../public/fonts/Vazir-FD-WOL.woff2',
             weight: '400',
             style: 'normal',
         },
         {
             path: '../../public/fonts/Vazir-Bold-FD-WOL.woff2',
             weight: '700',
-            style: 'normal',
-        },
-        {
-            path: '../../public/fonts/Vazir-Bold-FD-WOL.woff2',
-            weight: '300',
             style: 'normal',
         },
     ],
@@ -47,12 +47,7 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <html
-            lang="fa"
-            dir="rtl"
-            className={cn('h-full', vazir.variable, 'font-sans', geist.variable)}
-            suppressHydrationWarning
-        >
+        <html lang="fa" dir="rtl" className={vazir.variable} suppressHydrationWarning>
             <body className="min-h-full bg-stone-50 font-sans text-stone-900 antialiased dark:bg-stone-950 dark:text-stone-100">
                 <ThemeProvider>
                     <TooltipProvider>

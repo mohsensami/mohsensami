@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "@auth/prisma-adapter": "^2.11.2",
+    "@mdxeditor/editor": "^4.0.4",
     "@platejs/basic-nodes": "^53.0.0",
     "@platejs/basic-styles": "^53.0.0",
     "@platejs/caption": "^53.0.0",
