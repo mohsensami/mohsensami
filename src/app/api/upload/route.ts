@@ -40,6 +40,20 @@ function safeExtension(filename: string, type: string) {
     return 'bin';
 }
 
+function getFolderPath(uploadType: string = 'article'): string {
+    const now = new Date();
+    const year = now.getFullYear();
+    const month = String(now.getMonth() + 1).padStart(2, '0');
+
+    if (uploadType === 'article') {
+        return `mohsensami/articles/${year}/${month}`;
+    } else if (uploadType === 'profile') {
+        return `mohsensami/profiles`;
+    }
+
+    return `mohsensami/${uploadType}`;
+}
+
 export async function POST(request: Request) {
     const session = await auth();
     if (!session?.user) {
@@ -48,6 +62,8 @@ export async function POST(request: Request) {
 
     const formData = await request.formData();
     const file = formData.get('file');
+    const uploadType = (formData.get('type') ?? 'article') as string;
+    const oldKey = (formData.get('oldKey') ?? null) as string | null;
 
     if (!file || !(file instanceof File)) {
         return NextResponse.json({ error: 'فایل یافت نشد' }, { status: 400 });
@@ -69,19 +85,35 @@ export async function POST(request: Request) {
         return NextResponse.json({ error: 'UploadThing token is not configured' }, { status: 500 });
     }
 
-    const customId = `mohsensami/${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
+    const folderPath = getFolderPath(uploadType);
+    const customId = `${folderPath}/${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
     const uploadFile = new UTFile([await file.arrayBuffer()], file.name, {
         type: file.type,
         lastModified: file.lastModified ?? Date.now(),
         customId,
     });
 
-    const uploadResult = await uploadThing.uploadFiles(uploadFile, { concurrency: 1 });
+    try {
+        // Delete old file if provided
+        if (oldKey) {
+            try {
+                await uploadThing.deleteFiles([oldKey]);
+            } catch {
+                // Log but don't fail - old file deletion is not critical
+                console.warn(`Could not delete old file with key: ${oldKey}`);
+            }
+        }
 
-    if (!uploadResult || ('error' in uploadResult && uploadResult.error)) {
-        const errorMessage = uploadResult?.error?.message ?? 'آپلود ناموفق بود';
-        return NextResponse.json({ error: errorMessage }, { status: 500 });
+        const uploadResult = await uploadThing.uploadFiles(uploadFile, { concurrency: 1 });
+
+        if (!uploadResult || ('error' in uploadResult && uploadResult.error)) {
+            const errorMessage = uploadResult?.error?.message ?? 'آپلود ناموفق بود';
+            return NextResponse.json({ error: errorMessage }, { status: 500 });
+        }
+
+        return NextResponse.json({ url: uploadResult.data.ufsUrl, key: uploadResult.data.key });
+    } catch (error) {
+        const message = error instanceof Error ? error.message : 'خطای نامعلوم';
+        return NextResponse.json({ error: message }, { status: 500 });
     }
-
-    return NextResponse.json({ url: uploadResult.data.ufsUrl, key: uploadResult.data.key });
 }

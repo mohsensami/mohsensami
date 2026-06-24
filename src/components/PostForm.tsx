@@ -124,7 +124,12 @@ export function PostForm({ categories, post }: PostFormProps) {
                 />
             </div>
 
-            <ImageUploadField name="coverImage" defaultValue={post?.coverImage} label="تصویر شاخص" />
+            <ImageUploadField
+                name="coverImage"
+                defaultValue={post?.coverImage}
+                label="تصویر شاخص"
+                uploadType="article"
+            />
 
             <div>
                 <label htmlFor="excerpt" className={labelClass}>

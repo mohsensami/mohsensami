@@ -1,109 +1,137 @@
-"use client";
+'use client';
 
-import { useCallback, useState } from "react";
-import Image from "next/image";
+import { useCallback, useState } from 'react';
+import Image from 'next/image';
+
+export type UploadedImage = {
+    url: string;
+    key: string;
+};
 
 type ImageUploadFieldProps = {
-  name: string;
-  defaultValue?: string | null;
-  label?: string;
-  onChange?: (url: string) => void;
+    name: string;
+    defaultValue?: string | null;
+    defaultKey?: string | null;
+    label?: string;
+    onChange?: (image: UploadedImage) => void;
+    uploadType?: 'article' | 'profile';
 };
 
 export function ImageUploadField({
-  name,
-  defaultValue,
-  label = "تصویر شاخص",
-  onChange,
+    name,
+    defaultValue,
+    defaultKey,
+    label = 'تصویر شاخص',
+    onChange,
+    uploadType = 'article',
 }: ImageUploadFieldProps) {
-  const [url, setUrl] = useState(defaultValue ?? "");
-  const [uploading, setUploading] = useState(false);
-  const [error, setError] = useState("");
+    const [url, setUrl] = useState(defaultValue ?? '');
+    const [key, setKey] = useState(defaultKey ?? '');
+    const [uploading, setUploading] = useState(false);
+    const [error, setError] = useState('');
 
-  const handleUpload = useCallback(async (file: File) => {
-    setUploading(true);
-    setError("");
+    const handleUpload = useCallback(
+        async (file: File) => {
+            setUploading(true);
+            setError('');
 
-    try {
-      const formData = new FormData();
-      formData.append("file", file);
+            try {
+                const formData = new FormData();
+                formData.append('file', file);
+                formData.append('type', uploadType);
 
-      const res = await fetch("/api/upload", { method: "POST", body: formData });
-      const data = await res.json();
+                // Send old key for deletion if it exists
+                if (key) {
+                    formData.append('oldKey', key);
+                }
 
-      if (!res.ok) {
-        setError(data.error ?? "خطا در آپلود");
-        return;
-      }
+                const res = await fetch('/api/upload', { method: 'POST', body: formData });
+                const data = await res.json();
 
-      setUrl(data.url);
-      onChange?.(data.url);
-    } catch {
-      setError("خطا در آپلود تصویر");
-    } finally {
-      setUploading(false);
-    }
-  }, [onChange]);
+                if (!res.ok) {
+                    setError(data.error ?? 'خطا در آپلود');
+                    return;
+                }
 
-  return (
-    <div>
-      <label className="mb-1.5 block text-sm font-medium text-stone-700 dark:text-stone-300">
-        {label}
-      </label>
+                const newImage: UploadedImage = {
+                    url: data.url,
+                    key: data.key,
+                };
 
-      <input type="hidden" name={name} value={url} />
+                setUrl(data.url);
+                setKey(data.key);
+                onChange?.(newImage);
+            } catch {
+                setError('خطا در آپلود تصویر');
+            } finally {
+                setUploading(false);
+            }
+        },
+        [key, onChange, uploadType],
+    );
 
-      {url && (
-        <div className="relative mb-3 aspect-video w-full max-w-md overflow-hidden rounded-xl border border-stone-200 dark:border-stone-700">
-          <Image src={url} alt="تصویر شاخص" fill className="object-cover" unoptimized />
+    return (
+        <div>
+            <label className="mb-1.5 block text-sm font-medium text-stone-700 dark:text-stone-300">{label}</label>
+
+            <input type="hidden" name={name} value={url} />
+
+            {url && (
+                <div className="relative mb-3 aspect-video w-full max-w-md overflow-hidden rounded-xl border border-stone-200 dark:border-stone-700">
+                    <Image src={url} alt="تصویر شاخص" fill className="object-cover" unoptimized />
+                </div>
+            )}
+
+            <div className="flex flex-wrap items-center gap-3">
+                <label className="cursor-pointer rounded-lg border border-dashed border-stone-300 px-4 py-2.5 text-sm text-stone-600 transition hover:border-emerald-400 hover:text-emerald-700 dark:border-stone-600 dark:text-stone-300 dark:hover:border-emerald-500 dark:hover:text-emerald-400">
+                    {uploading ? 'در حال آپلود...' : url ? 'تغییر تصویر' : 'انتخاب تصویر'}
+                    <input
+                        type="file"
+                        accept="image/jpeg,image/png,image/webp,image/gif"
+                        className="hidden"
+                        disabled={uploading}
+                        onChange={(e) => {
+                            const file = e.target.files?.[0];
+                            if (file) handleUpload(file);
+                        }}
+                    />
+                </label>
+
+                {url && (
+                    <button
+                        type="button"
+                        onClick={() => {
+                            setUrl('');
+                            setKey('');
+                            onChange?.({ url: '', key: '' });
+                        }}
+                        className="text-sm text-red-600 hover:text-red-700 dark:text-red-400"
+                    >
+                        حذف تصویر
+                    </button>
+                )}
+            </div>
+
+            {error && <p className="mt-2 text-sm text-red-600 dark:text-red-400">{error}</p>}
+            <p className="mt-1 text-xs text-stone-500">JPG, PNG, WebP یا GIF — حداکثر ۵ مگابایت</p>
         </div>
-      )}
-
-      <div className="flex flex-wrap items-center gap-3">
-        <label className="cursor-pointer rounded-lg border border-dashed border-stone-300 px-4 py-2.5 text-sm text-stone-600 transition hover:border-emerald-400 hover:text-emerald-700 dark:border-stone-600 dark:text-stone-300 dark:hover:border-emerald-500 dark:hover:text-emerald-400">
-          {uploading ? "در حال آپلود..." : url ? "تغییر تصویر" : "انتخاب تصویر"}
-          <input
-            type="file"
-            accept="image/jpeg,image/png,image/webp,image/gif"
-            className="hidden"
-            disabled={uploading}
-            onChange={(e) => {
-              const file = e.target.files?.[0];
-              if (file) handleUpload(file);
-            }}
-          />
-        </label>
-
-        {url && (
-          <button
-            type="button"
-            onClick={() => {
-              setUrl("");
-              onChange?.("");
-            }}
-            className="text-sm text-red-600 hover:text-red-700 dark:text-red-400"
-          >
-            حذف تصویر
-          </button>
-        )}
-      </div>
-
-      {error && <p className="mt-2 text-sm text-red-600 dark:text-red-400">{error}</p>}
-      <p className="mt-1 text-xs text-stone-500">JPG, PNG, WebP یا GIF — حداکثر ۵ مگابایت</p>
-    </div>
-  );
+    );
 }
 
-export async function uploadImageFile(file: File): Promise<string> {
-  const formData = new FormData();
-  formData.append("file", file);
+export async function uploadImageFile(
+    file: File,
+    uploadType: 'article' | 'profile' = 'article',
+): Promise<UploadedImage> {
+    const formData = new FormData();
+    formData.append('file', file);
+    formData.append('type', uploadType);
 
-  const res = await fetch("/api/upload", { method: "POST", body: formData });
-  const data = await res.json();
+    const res = await fetch('/api/upload', { method: 'POST', body: formData });
+    const data = await res.json();
 
-  if (!res.ok) {
-    throw new Error(data.error ?? "خطا در آپلود");
-  }
+    if (!res.ok) {
+        throw new Error(data.error ?? 'خطا در آپلود');
+    }
 
-  return data.url as string;
+    return { url: data.url, key: data.key };
 }
