@@ -31,7 +31,7 @@ export default async function HomePage() {
         <div className="relative">
           <p className="mb-3 text-sm font-medium text-emerald-100">وبلاگ برنامه‌نویسی</p>
           <h1 className="mb-4 text-3xl font-bold leading-12 sm:text-4xl">
-            دنیای سادهٔ برنامه‌نویسی
+            دنیای برنامه‌نویسی
           </h1>
           <p className="mb-8 max-w-2xl text-base leading-8 text-emerald-50/90">
             آخرین مقالات، آموزش‌ها و نکات برنامه‌نویسی — از ری‌اکت و جاوااسکریپت تا

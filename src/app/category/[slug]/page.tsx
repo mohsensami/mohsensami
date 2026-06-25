@@ -23,7 +23,7 @@ export default async function CategoryPage({ params }: Props) {
     const posts = await getPostsByCategory(slug);
 
     return (
-        <main className="mx-auto max-w-6xl px-4 py-8">
+        <main className="container px-4 py-8">
             <div className="mb-8">
                 <Link href="/" className="mb-4 inline-block text-sm text-emerald-600 hover:text-emerald-800">
                     ← صفحه اصلی

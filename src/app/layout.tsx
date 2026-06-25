@@ -7,13 +7,13 @@ import { TooltipProvider } from '@/components/ui/tooltip';
 import './globals.css';
 import { cn } from '@/lib/utils';
 import localFont from 'next/font/local';
-import NgProviders from './providers/NgProvider';
+import ProgressProvider from './providers/ProgressProvider';
 
 const geist = Geist({ subsets: ['latin'], variable: '--font-sans' });
 
 export const metadata: Metadata = {
     title: {
-        default: 'دیتای سبز | دنیای سادهٔ برنامه‌نویسی',
+        default: 'دیتای سبز | دنیای برنامه‌نویسی',
         template: '%s | دیتای سبز',
     },
     description: 'وبلاگ برنامه‌نویسی با آخرین مقالات فرانت‌اند، بک‌اند، ری‌اکت و بیشتر',
@@ -52,7 +52,7 @@ export default function RootLayout({
                 <ThemeProvider>
                     <TooltipProvider>
                         <Header />
-                        <NgProviders>{children}</NgProviders>
+                        <ProgressProvider>{children}</ProgressProvider>
                         <Toaster position="top-center" richColors />
                         <footer className="mt-16 border-t border-stone-200 bg-white py-8 dark:border-stone-800 dark:bg-stone-900">
                             <div className="mx-auto max-w-6xl px-4 text-center text-sm text-stone-500 dark:text-stone-400">

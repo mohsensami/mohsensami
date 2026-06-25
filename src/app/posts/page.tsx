@@ -10,7 +10,7 @@ export default async function PostsPage() {
     const posts = await getLatestPosts(50);
 
     return (
-        <main className="container-fluid p-4">
+        <main className="container p-4">
             <div className="mb-8">
                 <h1 className="text-3xl font-bold text-stone-900 dark:text-stone-50">جدیدترین نوشته‌ها</h1>
                 <p className="mt-2 text-stone-600 dark:text-stone-400">همه مقالات منتشرشده در دیتای سبز</p>

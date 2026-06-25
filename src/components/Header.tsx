@@ -25,7 +25,7 @@ export async function Header() {
                             دیتای سبز
                         </span>
                         <span className="block text-xs text-stone-500 dark:text-stone-400">
-                            دنیای سادهٔ برنامه‌نویسی
+                            دنیای برنامه‌نویسی
                         </span>
                     </div>
                 </Link>
