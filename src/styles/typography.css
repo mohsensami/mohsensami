@@ -86,7 +86,10 @@
 }
 .article-content img {
     border-radius: calc(var(--radius) + 4px);
-    margin: 2rem auto;
+}
+.article-content .hljs {
+    direction: ltr;
+    background: #ebffe1;
 }
 .article-content table {
     width: 100%;

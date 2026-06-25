@@ -40,7 +40,7 @@ export default async function PostPage({ params }: Props) {
     return (
         <main className="container-fluid p-4 ">
             <div className="grid grid-cols-12 gap-4">
-                <div className="lg:col-span-2 col-span-12 h-screen lg:sticky top-24">
+                <div className="lg:col-span-2 col-span-12 h-screen lg:sticky top-4">
                     <Sidebar />
                 </div>
                 <article className="lg:col-span-10 col-span-12 overflow-hidden rounded-2xl border border-stone-200 bg-white shadow-sm dark:border-stone-800 dark:bg-stone-900 article-content">

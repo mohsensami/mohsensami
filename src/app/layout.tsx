@@ -19,25 +19,25 @@ export const metadata: Metadata = {
     description: 'وبلاگ برنامه‌نویسی با آخرین مقالات فرانت‌اند، بک‌اند، ری‌اکت و بیشتر',
 };
 
-const vazir = localFont({
+const IranSans = localFont({
     src: [
         {
-            path: '../../public/fonts/Vazir-Light-FD-WOL.woff2',
+            path: '../../public/fonts/IranSansX/Woff2/IRANSansXFaNum-Medium.woff2',
             weight: '300',
             style: 'normal',
         },
         {
-            path: '../../public/fonts/Vazir-FD-WOL.woff2',
+            path: '../../public/fonts/IranSansX/Woff2/IRANSansXFaNum-Regular.woff2',
             weight: '400',
             style: 'normal',
         },
         {
-            path: '../../public/fonts/Vazir-Bold-FD-WOL.woff2',
+            path: '../../public/fonts/IranSansX/Woff2/IRANSansXFaNum-Bold.woff2',
             weight: '700',
             style: 'normal',
         },
     ],
-    variable: '--font-vazir',
+    variable: '--font-sans',
     display: 'swap',
 });
 
@@ -47,7 +47,7 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <html lang="fa" dir="rtl" className={`${vazir.variable} scroll-smooth`} suppressHydrationWarning>
+        <html lang="fa" dir="rtl" className={`${IranSans.variable} scroll-smooth`} suppressHydrationWarning>
             <body className="min-h-screen flex flex-col justify-between bg-stone-50 text-stone-900 antialiased dark:bg-stone-950 dark:text-stone-100">
                 <ThemeProvider>
                     <TooltipProvider>

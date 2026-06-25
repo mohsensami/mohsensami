@@ -8,6 +8,13 @@ import { PlateArticleViewer } from '@/components/article/PlateArticleViewer';
 import { isPlateJson } from '@/lib/format';
 import { isHtmlContent, sanitizeArticleHtml } from '@/lib/sanitize-html';
 
+import { JetBrains_Mono } from 'next/font/google';
+
+const jetbrainsMono = JetBrains_Mono({
+    subsets: ['latin'],
+    display: 'swap',
+});
+
 function CopyButton({ code }: { code: string }) {
     const [copied, setCopied] = useState(false);
 
@@ -21,7 +28,7 @@ function CopyButton({ code }: { code: string }) {
                     setCopied(false);
                 }, 2000);
             }}
-            className="absolute left-3 top-3 rounded-md border border-stone-600 bg-stone-800/90 px-2 py-1 text-xs text-stone-200 transition hover:bg-stone-700"
+            className="absolute right-3 top-3 rounded-md border text-white bg-primary px-2 py-1 text-xs  transition cursor-pointer"
         >
             {copied ? 'کپی شد ✓' : 'کپی کد'}
         </button>
@@ -30,22 +37,33 @@ function CopyButton({ code }: { code: string }) {
 
 function CodeBlockWithLineNumbers({ children }: { children?: React.ReactNode }) {
     const codeElement = Array.isArray(children) ? children[0] : children;
+
     const codeText =
         typeof codeElement === 'object' && codeElement !== null && 'props' in codeElement
-            ? String((codeElement as React.ReactElement<{ children?: string }>).props.children ?? '')
+            ? String(
+                  (
+                      codeElement as React.ReactElement<{
+                          children?: string;
+                      }>
+                  ).props.children ?? '',
+              )
             : '';
 
     const lines = codeText.split('\n').filter((line) => line !== '');
 
     return (
-        <pre className="hljs relative mb-4 overflow-x-auto rounded-lg border border-stone-700 bg-stone-900 text-sm leading-6 dark:border-stone-700 dark:bg-stone-950">
+        <pre
+            className={`hljs ${jetbrainsMono.className} relative mb-4 overflow-x-auto rounded-lg border border-stone-700 bg-stone-900 text-sm leading-6 dark:border-stone-700 dark:bg-stone-950`}
+        >
             <CopyButton code={codeText.replace(/\n$/, '')} />
+
             <div className="flex">
-                <div className="w-12 select-none bg-stone-800 px-3 py-4 text-right text-stone-500 dark:bg-stone-900">
+                <div className="w-12 select-none bg-primary px-3 py-4 text-right text-stone-500 dark:bg-stone-900">
                     {lines.map((_, i) => (
                         <div key={i}>{i + 1}</div>
                     ))}
                 </div>
+
                 <div className="flex-1 overflow-x-auto px-4 py-4">{children}</div>
             </div>
         </pre>
@@ -57,7 +75,7 @@ function HtmlArticleBody({ html }: { html: string }) {
 
     return (
         <div
-            className="prose-content prose max-w-none dark:prose-invert prose-headings:font-vazir prose-p:font-vazir prose-li:font-vazir prose-code:font-mono prose-pre:bg-stone-900 prose-pre:text-stone-100"
+            className="prose-content prose max-w-none dark:prose-invert  prose-pre:bg-stone-900 prose-pre:text-stone-100"
             dangerouslySetInnerHTML={{ __html: sanitized }}
         />
     );
@@ -73,7 +91,7 @@ export function ArticleContent({ content }: { content: string }) {
     }
 
     return (
-        <div className="prose prose-sm md:prose-base max-w-none font-vazir dark:prose-invert dark:prose-headings:text-stone-100 dark:prose-p:text-stone-200 dark:prose-strong:text-stone-100 dark:prose-code:text-emerald-400 dark:prose-pre:bg-stone-900 dark:prose-pre:text-stone-100 prose-headings:font-vazir prose-p:font-vazir prose-strong:font-vazir prose-li:font-vazir prose-blockquote:font-vazir prose-code:bg-stone-100 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:font-mono dark:prose-code:bg-stone-800">
+        <div className="prose prose-sm md:prose-base max-w-none dark:prose-invert dark:prose-headings:text-stone-100 dark:prose-p:text-stone-200 dark:prose-strong:text-stone-100 dark:prose-code:text-emerald-400 dark:prose-pre:bg-stone-900 dark:prose-pre:text-stone-100 prose-code:rounded prose-code:bg-stone-100 prose-code:px-1.5 prose-code:py-0.5  dark:prose-code:bg-stone-800">
             <ReactMarkdown
                 remarkPlugins={[remarkGfm]}
                 rehypePlugins={[rehypeHighlight]}
@@ -83,6 +101,7 @@ export function ArticleContent({ content }: { content: string }) {
                         if (className?.includes('language-')) {
                             return <code className={className}>{children}</code>;
                         }
+
                         return (
                             <code className="rounded bg-stone-100 px-1.5 py-0.5 font-mono text-sm text-emerald-700 dark:bg-stone-800 dark:text-emerald-300">
                                 {children}
@@ -101,7 +120,7 @@ export function TagList({ tags }: { tags: string[] }) {
     if (tags.length === 0) return null;
 
     return (
-        <div className="mb-6 flex flex-wrap gap-2 font-vazir">
+        <div className="mb-6 flex flex-wrap gap-2">
             {tags.map((tag) => (
                 <span
                     key={tag}
