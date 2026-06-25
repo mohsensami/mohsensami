@@ -43,7 +43,7 @@ export default async function PostPage({ params }: Props) {
                 <div className="lg:col-span-2 col-span-12 h-screen lg:sticky top-24">
                     <Sidebar />
                 </div>
-                <article className="lg:col-span-10 col-span-12 overflow-hidden rounded-2xl border border-stone-200 bg-white shadow-sm dark:border-stone-800 dark:bg-stone-900 ">
+                <article className="lg:col-span-10 col-span-12 overflow-hidden rounded-2xl border border-stone-200 bg-white shadow-sm dark:border-stone-800 dark:bg-stone-900 article-content">
                     {post.coverImage && (
                         <div className="relative aspect-[21/9] w-full">
                             <Image

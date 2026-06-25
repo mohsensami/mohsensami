@@ -13,7 +13,7 @@ export default async function PostsPage() {
         <main className="container-fluid p-4">
             <div className="mb-8">
                 <h1 className="text-3xl font-bold text-stone-900 dark:text-stone-50">جدیدترین نوشته‌ها</h1>
-                <p className="mt-2 text-stone-600 dark:text-stone-400">همه مقالات منتشرشده در آقای برنامه نویس</p>
+                <p className="mt-2 text-stone-600 dark:text-stone-400">همه مقالات منتشرشده در دیتای سبز</p>
             </div>
 
             <div className="grid grid-cols-1 gap-8 lg:grid-cols-[1fr_320px]">

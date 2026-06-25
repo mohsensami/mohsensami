@@ -1,0 +1,110 @@
+.article-content {
+    line-height: 1.8;
+    color: var(--foreground);
+}
+.article-content a {
+    color: var(--primary);
+    font-weight: bold;
+}
+.article-content a:hover {
+    opacity: 0.85;
+}
+.article-content h1,
+.article-content h2,
+.article-content h3,
+.article-content h4,
+.article-content h5,
+.article-content h6 {
+    font-weight: 700;
+    line-height: 1.3;
+    color: var(--foreground);
+    scroll-margin-top: 6rem;
+}
+
+.article-content h1 {
+    font-size: 2.5rem;
+}
+
+.article-content h2 {
+    font-size: 2rem;
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+}
+
+.article-content h3 {
+    font-size: 1.5rem;
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+}
+.article-content p {
+    margin-block: 1rem;
+    color: var(--foreground);
+}
+.article-content a {
+    color: var(--primary);
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.article-content a:hover {
+    opacity: 0.85;
+}
+.article-content :not(pre) > code {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 0.15rem 0.4rem;
+    font-size: 0.9em;
+    font-family: monospace;
+}
+.article-content pre {
+    overflow-x: auto;
+    border-radius: calc(var(--radius) + 4px);
+    margin: 1.5rem 0;
+}
+
+.article-content pre code {
+    background: transparent;
+    border: none;
+    padding: 0;
+}
+.article-content ul,
+.article-content ol {
+    margin: 1rem 0;
+    padding-inline-start: 1.5rem;
+}
+
+.article-content li {
+    margin-block: 0.5rem;
+}
+.article-content blockquote {
+    border-inline-start: 4px solid var(--primary);
+    padding-inline-start: 1rem;
+    margin: 1.5rem 0;
+    color: var(--muted-foreground);
+}
+.article-content img {
+    border-radius: calc(var(--radius) + 4px);
+    margin: 2rem auto;
+}
+.article-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 2rem 0;
+}
+
+.article-content th,
+.article-content td {
+    border: 1px solid var(--border);
+    padding: 0.75rem;
+}
+
+.article-content th {
+    background: var(--card);
+}
+.article-content hr {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 3rem 0;
+}

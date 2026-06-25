@@ -22,7 +22,7 @@ export async function Header() {
                     </span>
                     <div>
                         <span className="block text-lg font-bold text-stone-900 group-hover:text-emerald-700 dark:text-stone-100 dark:group-hover:text-emerald-400">
-                            آقای برنامه نویس
+                            دیتای سبز
                         </span>
                         <span className="block text-xs text-stone-500 dark:text-stone-400">
                             دنیای سادهٔ برنامه‌نویسی

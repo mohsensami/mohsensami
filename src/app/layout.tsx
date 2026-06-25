@@ -13,8 +13,8 @@ const geist = Geist({ subsets: ['latin'], variable: '--font-sans' });
 
 export const metadata: Metadata = {
     title: {
-        default: 'آقای برنامه نویس | دنیای سادهٔ برنامه‌نویسی',
-        template: '%s | آقای برنامه نویس',
+        default: 'دیتای سبز | دنیای سادهٔ برنامه‌نویسی',
+        template: '%s | دیتای سبز',
     },
     description: 'وبلاگ برنامه‌نویسی با آخرین مقالات فرانت‌اند، بک‌اند، ری‌اکت و بیشتر',
 };
@@ -47,8 +47,8 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <html lang="fa" dir="rtl" className={vazir.variable} suppressHydrationWarning>
-            <body className="min-h-full bg-stone-50 font-sans text-stone-900 antialiased dark:bg-stone-950 dark:text-stone-100">
+        <html lang="fa" dir="rtl" className={`${vazir.variable} scroll-smooth`} suppressHydrationWarning>
+            <body className="min-h-screen flex flex-col justify-between bg-stone-50 text-stone-900 antialiased dark:bg-stone-950 dark:text-stone-100">
                 <ThemeProvider>
                     <TooltipProvider>
                         <Header />
@@ -56,7 +56,7 @@ export default function RootLayout({
                         <Toaster position="top-center" richColors />
                         <footer className="mt-16 border-t border-stone-200 bg-white py-8 dark:border-stone-800 dark:bg-stone-900">
                             <div className="mx-auto max-w-6xl px-4 text-center text-sm text-stone-500 dark:text-stone-400">
-                                <p>آقای برنامه نویس — نوشته‌شده با ❤️ برای یادگیرندگان فارسی‌زبان </p>
+                                <p>دیتای سبز — نوشته‌شده با ❤️ برای یادگیرندگان فارسی‌زبان </p>
                             </div>
                         </footer>
                     </TooltipProvider>
