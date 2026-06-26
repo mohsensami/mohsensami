@@ -18,15 +18,13 @@ export async function Header() {
             <div className="mx-auto flex container-fluid items-center gap-3 px-4 py-4 sm:gap-4">
                 <Link href="/" className="group flex shrink-0 items-center gap-2">
                     <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-emerald-600 text-lg font-bold text-white">
-                        P
+                        D
                     </span>
                     <div>
                         <span className="block text-lg font-bold text-stone-900 group-hover:text-emerald-700 dark:text-stone-100 dark:group-hover:text-emerald-400">
                             دیتای سبز
                         </span>
-                        <span className="block text-xs text-stone-500 dark:text-stone-400">
-                            دنیای برنامه‌نویسی
-                        </span>
+                        <span className="block text-xs text-stone-500 dark:text-stone-400">دنیای برنامه‌نویسی</span>
                     </div>
                 </Link>
 
